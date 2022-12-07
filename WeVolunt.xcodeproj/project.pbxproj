@@ -11,6 +11,17 @@
 		D44D20E5293F4AB700E5FCEC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D20E4293F4AB700E5FCEC /* ContentView.swift */; };
 		D44D20E7293F4AB800E5FCEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44D20E6293F4AB800E5FCEC /* Assets.xcassets */; };
 		D44D20EA293F4AB800E5FCEC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44D20E9293F4AB800E5FCEC /* Preview Assets.xcassets */; };
+		D44D20F1293F7B3E00E5FCEC /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D20F0293F7B3E00E5FCEC /* SplashScreen.swift */; };
+		D44D20F3293F7B6300E5FCEC /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D20F2293F7B6300E5FCEC /* MainPage.swift */; };
+		D44D20F5293F7C2E00E5FCEC /* InterestPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D20F4293F7C2E00E5FCEC /* InterestPage.swift */; };
+		D44D20F7293F83EE00E5FCEC /* ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D20F6293F83EE00E5FCEC /* ProfilePage.swift */; };
+		D44D20F9293F853C00E5FCEC /* SelectedVolunteer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D20F8293F853C00E5FCEC /* SelectedVolunteer.swift */; };
+		D44D20FB293F89A600E5FCEC /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D20FA293F89A600E5FCEC /* LoginPage.swift */; };
+		D44D20FD293F8A5E00E5FCEC /* OTPverify.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D20FC293F8A5E00E5FCEC /* OTPverify.swift */; };
+		D44D2101293F8ACA00E5FCEC /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D2100293F8ACA00E5FCEC /* SignUp.swift */; };
+		D44D2103293F8B0A00E5FCEC /* VolunteerRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D2102293F8B0A00E5FCEC /* VolunteerRegister.swift */; };
+		D44D2105293F8BE300E5FCEC /* SubmitNotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D2104293F8BE300E5FCEC /* SubmitNotify.swift */; };
+		D44D2107293F937C00E5FCEC /* EnrolledVolunteer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D2106293F937C00E5FCEC /* EnrolledVolunteer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +30,17 @@
 		D44D20E4293F4AB700E5FCEC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D44D20E6293F4AB800E5FCEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D44D20E9293F4AB800E5FCEC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D44D20F0293F7B3E00E5FCEC /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		D44D20F2293F7B6300E5FCEC /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
+		D44D20F4293F7C2E00E5FCEC /* InterestPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestPage.swift; sourceTree = "<group>"; };
+		D44D20F6293F83EE00E5FCEC /* ProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePage.swift; sourceTree = "<group>"; };
+		D44D20F8293F853C00E5FCEC /* SelectedVolunteer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedVolunteer.swift; sourceTree = "<group>"; };
+		D44D20FA293F89A600E5FCEC /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
+		D44D20FC293F8A5E00E5FCEC /* OTPverify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPverify.swift; sourceTree = "<group>"; };
+		D44D2100293F8ACA00E5FCEC /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		D44D2102293F8B0A00E5FCEC /* VolunteerRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerRegister.swift; sourceTree = "<group>"; };
+		D44D2104293F8BE300E5FCEC /* SubmitNotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitNotify.swift; sourceTree = "<group>"; };
+		D44D2106293F937C00E5FCEC /* EnrolledVolunteer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrolledVolunteer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +74,17 @@
 			isa = PBXGroup;
 			children = (
 				D44D20E2293F4AB700E5FCEC /* WeVoluntApp.swift */,
+				D44D20F0293F7B3E00E5FCEC /* SplashScreen.swift */,
+				D44D20F2293F7B6300E5FCEC /* MainPage.swift */,
+				D44D20F8293F853C00E5FCEC /* SelectedVolunteer.swift */,
+				D44D20F4293F7C2E00E5FCEC /* InterestPage.swift */,
+				D44D2100293F8ACA00E5FCEC /* SignUp.swift */,
+				D44D2106293F937C00E5FCEC /* EnrolledVolunteer.swift */,
+				D44D2102293F8B0A00E5FCEC /* VolunteerRegister.swift */,
+				D44D2104293F8BE300E5FCEC /* SubmitNotify.swift */,
+				D44D20FC293F8A5E00E5FCEC /* OTPverify.swift */,
+				D44D20FA293F89A600E5FCEC /* LoginPage.swift */,
+				D44D20F6293F83EE00E5FCEC /* ProfilePage.swift */,
 				D44D20E4293F4AB700E5FCEC /* ContentView.swift */,
 				D44D20E6293F4AB800E5FCEC /* Assets.xcassets */,
 				D44D20E8293F4AB800E5FCEC /* Preview Content */,
@@ -137,8 +170,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D44D20FB293F89A600E5FCEC /* LoginPage.swift in Sources */,
+				D44D20F7293F83EE00E5FCEC /* ProfilePage.swift in Sources */,
+				D44D20F1293F7B3E00E5FCEC /* SplashScreen.swift in Sources */,
+				D44D20FD293F8A5E00E5FCEC /* OTPverify.swift in Sources */,
 				D44D20E5293F4AB700E5FCEC /* ContentView.swift in Sources */,
+				D44D2107293F937C00E5FCEC /* EnrolledVolunteer.swift in Sources */,
 				D44D20E3293F4AB700E5FCEC /* WeVoluntApp.swift in Sources */,
+				D44D20F9293F853C00E5FCEC /* SelectedVolunteer.swift in Sources */,
+				D44D20F5293F7C2E00E5FCEC /* InterestPage.swift in Sources */,
+				D44D2103293F8B0A00E5FCEC /* VolunteerRegister.swift in Sources */,
+				D44D20F3293F7B6300E5FCEC /* MainPage.swift in Sources */,
+				D44D2105293F8BE300E5FCEC /* SubmitNotify.swift in Sources */,
+				D44D2101293F8ACA00E5FCEC /* SignUp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
