@@ -22,6 +22,9 @@
 		D44D2103293F8B0A00E5FCEC /* VolunteerRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D2102293F8B0A00E5FCEC /* VolunteerRegister.swift */; };
 		D44D2105293F8BE300E5FCEC /* SubmitNotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D2104293F8BE300E5FCEC /* SubmitNotify.swift */; };
 		D44D2107293F937C00E5FCEC /* EnrolledVolunteer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D2106293F937C00E5FCEC /* EnrolledVolunteer.swift */; };
+		D45FD37D2941B9640023819B /* categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45FD37C2941B9640023819B /* categories.swift */; };
+		D45FD382294211FA0023819B /* categoriesModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45FD381294211FA0023819B /* categoriesModelView.swift */; };
+		D45FD3842942137E0023819B /* volunteerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45FD3832942137E0023819B /* volunteerCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +44,9 @@
 		D44D2102293F8B0A00E5FCEC /* VolunteerRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerRegister.swift; sourceTree = "<group>"; };
 		D44D2104293F8BE300E5FCEC /* SubmitNotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitNotify.swift; sourceTree = "<group>"; };
 		D44D2106293F937C00E5FCEC /* EnrolledVolunteer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrolledVolunteer.swift; sourceTree = "<group>"; };
+		D45FD37C2941B9640023819B /* categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = categories.swift; sourceTree = "<group>"; };
+		D45FD381294211FA0023819B /* categoriesModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = categoriesModelView.swift; sourceTree = "<group>"; };
+		D45FD3832942137E0023819B /* volunteerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = volunteerCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,10 +90,15 @@
 				D44D2104293F8BE300E5FCEC /* SubmitNotify.swift */,
 				D44D20FC293F8A5E00E5FCEC /* OTPverify.swift */,
 				D44D20FA293F89A600E5FCEC /* LoginPage.swift */,
+				D45FD3832942137E0023819B /* volunteerCard.swift */,
 				D44D20F6293F83EE00E5FCEC /* ProfilePage.swift */,
 				D44D20E4293F4AB700E5FCEC /* ContentView.swift */,
+				D45FD3802942111B0023819B /* View */,
+				D45FD37E294210F70023819B /* Model */,
+				D45FD37F294211050023819B /* modelView */,
 				D44D20E6293F4AB800E5FCEC /* Assets.xcassets */,
 				D44D20E8293F4AB800E5FCEC /* Preview Content */,
+				D45FD38529437BE10023819B /* OTP verification */,
 			);
 			path = WeVolunt;
 			sourceTree = "<group>";
@@ -98,6 +109,36 @@
 				D44D20E9293F4AB800E5FCEC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D45FD37E294210F70023819B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D45FD37C2941B9640023819B /* categories.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D45FD37F294211050023819B /* modelView */ = {
+			isa = PBXGroup;
+			children = (
+				D45FD381294211FA0023819B /* categoriesModelView.swift */,
+			);
+			path = modelView;
+			sourceTree = "<group>";
+		};
+		D45FD3802942111B0023819B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D45FD38529437BE10023819B /* OTP verification */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "OTP verification";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,11 +216,14 @@
 				D44D20F1293F7B3E00E5FCEC /* SplashScreen.swift in Sources */,
 				D44D20FD293F8A5E00E5FCEC /* OTPverify.swift in Sources */,
 				D44D20E5293F4AB700E5FCEC /* ContentView.swift in Sources */,
+				D45FD37D2941B9640023819B /* categories.swift in Sources */,
 				D44D2107293F937C00E5FCEC /* EnrolledVolunteer.swift in Sources */,
 				D44D20E3293F4AB700E5FCEC /* WeVoluntApp.swift in Sources */,
 				D44D20F9293F853C00E5FCEC /* SelectedVolunteer.swift in Sources */,
+				D45FD382294211FA0023819B /* categoriesModelView.swift in Sources */,
 				D44D20F5293F7C2E00E5FCEC /* InterestPage.swift in Sources */,
 				D44D2103293F8B0A00E5FCEC /* VolunteerRegister.swift in Sources */,
+				D45FD3842942137E0023819B /* volunteerCard.swift in Sources */,
 				D44D20F3293F7B6300E5FCEC /* MainPage.swift in Sources */,
 				D44D2105293F8BE300E5FCEC /* SubmitNotify.swift in Sources */,
 				D44D2101293F8ACA00E5FCEC /* SignUp.swift in Sources */,
