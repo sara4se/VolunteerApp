@@ -11,7 +11,6 @@
 		D41ED3E6294721A300EFB697 /* userModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41ED3E5294721A300EFB697 /* userModelView.swift */; };
 		D41ED3E8294721E200EFB697 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41ED3E7294721E200EFB697 /* User.swift */; };
 		D44D20E3293F4AB700E5FCEC /* WeVoluntApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D20E2293F4AB700E5FCEC /* WeVoluntApp.swift */; };
-		D44D20E5293F4AB700E5FCEC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D20E4293F4AB700E5FCEC /* ContentView.swift */; };
 		D44D20E7293F4AB800E5FCEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44D20E6293F4AB800E5FCEC /* Assets.xcassets */; };
 		D44D20EA293F4AB800E5FCEC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44D20E9293F4AB800E5FCEC /* Preview Assets.xcassets */; };
 		D44D20F1293F7B3E00E5FCEC /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D20F0293F7B3E00E5FCEC /* SplashScreen.swift */; };
@@ -36,7 +35,6 @@
 		D41ED3E7294721E200EFB697 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D44D20DF293F4AB700E5FCEC /* WeVolunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeVolunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44D20E2293F4AB700E5FCEC /* WeVoluntApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeVoluntApp.swift; sourceTree = "<group>"; };
-		D44D20E4293F4AB700E5FCEC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D44D20E6293F4AB800E5FCEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D44D20E9293F4AB800E5FCEC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D44D20F0293F7B3E00E5FCEC /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
@@ -66,6 +64,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D41ED3E9294732B000EFB697 /* volunteerRegist */ = {
+			isa = PBXGroup;
+			children = (
+				D45FD3802942111B0023819B /* View */,
+				D45FD37E294210F70023819B /* Model */,
+				D45FD37F294211050023819B /* ViewModel */,
+			);
+			path = volunteerRegist;
+			sourceTree = "<group>";
+		};
 		D44D20D6293F4AB700E5FCEC = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +93,7 @@
 		D44D20E1293F4AB700E5FCEC /* WeVolunt */ = {
 			isa = PBXGroup;
 			children = (
+				D41ED3E9294732B000EFB697 /* volunteerRegist */,
 				D44D20E2293F4AB700E5FCEC /* WeVoluntApp.swift */,
 				D44D20F0293F7B3E00E5FCEC /* SplashScreen.swift */,
 				D44D20F2293F7B6300E5FCEC /* MainPage.swift */,
@@ -98,12 +107,8 @@
 				D41ED3E329471FC800EFB697 /* OTPviewModel.swift */,
 				D44D20FA293F89A600E5FCEC /* LoginPage.swift */,
 				D44D20F6293F83EE00E5FCEC /* ProfilePage.swift */,
-				D44D20E4293F4AB700E5FCEC /* ContentView.swift */,
 				D45FD37C2941B9640023819B /* categories.swift */,
 				D45FD381294211FA0023819B /* categoriesModelView.swift */,
-				D45FD3802942111B0023819B /* View */,
-				D45FD37E294210F70023819B /* Model */,
-				D45FD37F294211050023819B /* modelView */,
 				D44D20E6293F4AB800E5FCEC /* Assets.xcassets */,
 				D44D20E8293F4AB800E5FCEC /* Preview Content */,
 				D45FD38529437BE10023819B /* OTP verification */,
@@ -127,12 +132,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		D45FD37F294211050023819B /* modelView */ = {
+		D45FD37F294211050023819B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				D41ED3E5294721A300EFB697 /* userModelView.swift */,
 			);
-			path = modelView;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		D45FD3802942111B0023819B /* View */ = {
@@ -225,7 +230,6 @@
 				D44D20F1293F7B3E00E5FCEC /* SplashScreen.swift in Sources */,
 				D41ED3E429471FC800EFB697 /* OTPviewModel.swift in Sources */,
 				D44D20FD293F8A5E00E5FCEC /* OTPverify.swift in Sources */,
-				D44D20E5293F4AB700E5FCEC /* ContentView.swift in Sources */,
 				D45FD37D2941B9640023819B /* categories.swift in Sources */,
 				D44D2107293F937C00E5FCEC /* EnrolledVolunteer.swift in Sources */,
 				D44D20E3293F4AB700E5FCEC /* WeVoluntApp.swift in Sources */,

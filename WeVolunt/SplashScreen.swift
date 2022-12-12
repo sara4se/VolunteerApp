@@ -24,7 +24,7 @@ struct SplashScreen: View {
         ZStack{
             
             if self.isActive{
-                ContentView()
+                InterestPage()
             }
             else{
                 VStack{
@@ -46,7 +46,7 @@ struct SplashScreen: View {
             }
         }
         .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 withAnimation (.easeOut){
                     self.isActive = true
                 }

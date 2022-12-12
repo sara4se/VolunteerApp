@@ -16,7 +16,7 @@ struct WeVoluntApp: App {
     var body: some Scene {
         
         WindowGroup {
-            ContentView()
+            SplashScreen()
         }
     }
 }
