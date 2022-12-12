@@ -18,7 +18,7 @@ struct InterestPage: View {
                     Text("This is interest page")
                     
                     //next button
-                    NavigationLink(destination: MainPage(), label:{
+                    NavigationLink(destination: MainPage(categoriesList: categoriesList), label:{
                         Text("Next")
                             .frame(width:307 , height:44 )
                             .foregroundColor(.white)
@@ -29,7 +29,7 @@ struct InterestPage: View {
                     
                     .toolbar{
                         
-                        NavigationLink(destination: MainPage(), label:{
+                        NavigationLink(destination: MainPage(categoriesList: categoriesList), label:{
                             Text("Skip")
                             
                         })

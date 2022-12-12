@@ -10,111 +10,137 @@ import SwiftUI
 struct MainPage: View {
     @State var showingVolunteerSheet = false
     @State var recommendations = false
-
+    @State private var searchText = ""
+    var categoriesList: [categories]
+    
     var body: some View {
         //the navigation view might be removed from here later, but for now im keeping it so we can see it in the preview
         NavigationView(){
-            VStack{
-              
-                backgroundShape()
-                    .frame(width: 534,height: 253)
-                    .frame(height: 10)
-                    .foregroundStyle(LinearGradient(colors: [ .blue.opacity(0.3),Color("ourBlue"),],
-                                                    startPoint: .topLeading, endPoint: .bottomTrailing))
-                    .offset(y:-100)
-               
-                
-                // display the recommendationns based on selected interests
-                if(recommendations == true){
-                    Text("Just for you")
-                    //    .padding(.top, 50.0)
+                VStack{
+                    
+                    
+                    backgroundShape()
+                        .frame(width: 534,height: 253)
+                        .frame(height: 10)
+                        .foregroundStyle(LinearGradient(colors: [ .blue.opacity(0.3),Color("ourBlue"),],
+                                                        startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .offset(y:-100)
+                    
+                    // display the recommendationns based on selected interests
+                    if(recommendations == false){
+                        Text("Just for you")
+                        
+                        //    .padding(.top, 50.0)
+                            .frame(maxWidth:365, alignment: .leading)
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color("ourBlue"))
+                            .padding(.vertical)
+                        
+                        ScrollView(.horizontal){
+                            HStack(spacing:30){
+                                recommendVolunteerCard()
+                                recommendVolunteerCard()
+                                recommendVolunteerCard()
+                                
+                                
+                                
+                                //                            //this is sample for recommended volunteer
+                                //
+                                //                                                       Text("click here to open selected volunteer")
+                                //
+                                //                                                           .frame(width:250 , height:94 )
+                                //                                                           .border(Color.purple, width: 1)
+                                //                                                           .fontWeight(.semibold)
+                                //                                                           .onTapGesture(perform: {
+                                //                                                               showingVolunteerSheet.toggle()
+                                //                                })
+                                //                                .sheet(isPresented:  $showingVolunteerSheet){
+                                //                                    SelectedVolunteer()
+                                //                                }
+                                //                            Text("click here to open selected volunteer")
+                                //
+                                //                                .frame(width:250 , height:94 )
+                                //                                .border(Color.purple, width: 1)
+                                //                                .fontWeight(.semibold)
+                                //
+                                //                                .onTapGesture(perform: {
+                                //                                    showingVolunteerSheet.toggle()
+                                //                                })
+                                //                                .sheet(isPresented:  $showingVolunteerSheet){
+                                //                                    SelectedVolunteer()
+                                //                                }
+                                
+                            }
+                            .padding(.horizontal)
+                        }
+                        
+                        
+                    }
+                    
+                    
+                    // *** START PAGE CONTENT ***
+                    Text("All Categories")
+                    
                         .frame(maxWidth:365, alignment: .leading)
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundColor(Color("ourBlue"))
                         .padding(.vertical)
                     
-                    Text("this is the recomendations")
-                    
-                    ScrollView(.horizontal){
-                        HStack(spacing:30){
-                            
-                            Text("click here to open selected volunteer")
-                            
-                                .frame(width:250 , height:94 )
-                                .border(Color.purple, width: 1)
-                                .fontWeight(.semibold)
-                                .onTapGesture(perform: {
-                                    showingVolunteerSheet.toggle()
-                                })
-                                .sheet(isPresented:  $showingVolunteerSheet){
-                                    SelectedVolunteer()
-                                }
-                            Text("click here to open selected volunteer")
-                            
-                                .frame(width:250 , height:94 )
-                                .border(Color.purple, width: 1)
-                                .fontWeight(.semibold)
-                            
-                                .onTapGesture(perform: {
-                                    showingVolunteerSheet.toggle()
-                                })
-                                .sheet(isPresented:  $showingVolunteerSheet){
-                                    SelectedVolunteer()
-                                }
+                 
+                    //**** STARTING CATEGORIES: *****
+                    List {
+                        
+                        ForEach(searchResults) { eachCategory in
+                            categoryRow(showingVolunteerSheet: $showingVolunteerSheet , eachCategory:eachCategory)
                         }
-                        .padding(.horizontal)
+                        .listRowSeparator(.hidden)
+                        .listRowInsets(EdgeInsets())
                     }
+                    .listStyle(.plain)
+                    
+                    
+                    
+                    
+                    
+                    // **** END OF CATEGORIES *****
+                }// search bar
+               
+                
+                .toolbar{
+                    
+                    
+                    NavigationLink(destination: ProfilePage(), label:{
+                        Label("Profile", systemImage: "person.circle")
+                            .foregroundColor(.white)
+                    })
+                    
+                    
+                    
+                    .navigationBarTitle("Explore", displayMode: .inline)
+                    
                     
                     
                 }
-                
-                
-                // *** START PAGE CONTENT ***
-                Text("All Categories")
-                    .frame(maxWidth:365, alignment: .leading)
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(Color("ourBlue"))
-                    .padding(.vertical)
-                
-                //**** STARTING CATEGORIES: *****
-                List {
-                    
-                    ForEach(categoriesList) { eachCategory in
-                        categoryRow(eachCategory:eachCategory)
-                    }
-                    .listRowSeparator(.hidden)
-                    .listRowInsets(EdgeInsets())
-                }
-                .listStyle(.plain)
-                
-                
-                
-                
-                
-                 // **** END OF CATEGORIES *****
-            }
+                .searchable(text: $searchText, placement:.sidebar, prompt: "Searcah for categories" )
             
-            .toolbar{
                 
-                
-                NavigationLink(destination: ProfilePage(), label:{
-                    Label("Profile", systemImage: "person.circle")
-                        .foregroundColor(.white)
-                })
 
-                .navigationBarTitle("Explore", displayMode: .inline)
-                
-            }
-         
         }
         
         
-        
-        
+        .accentColor(.white)
         .navigationBarBackButtonHidden(true)
         
+    }
+    
+    var searchResults: [categories] {
+        if searchText.isEmpty {
+            return categoriesList
+        } else {
+            return categoriesList.filter { $0.name.contains(searchText) }
+        }
     }
     
 }
@@ -122,7 +148,7 @@ struct MainPage: View {
 
 //each category row
 struct categoryRow: View {
-    @State var showingVolunteerSheet = false
+    @Binding var showingVolunteerSheet : Bool
     var eachCategory:categories
     var body: some View{
         Text(eachCategory.name)
@@ -162,6 +188,8 @@ struct categoryRow: View {
                 //show the volunteer oppurtunities
                 volunteerCard()
                 volunteerCard()
+                volunteerCard()
+
                 
             }
             .padding()
@@ -194,7 +222,7 @@ struct backgroundShape: Shape {
 
 struct MainPage_Previews: PreviewProvider {
     static var previews: some View {
-        MainPage()
+        MainPage( categoriesList: categoriesList)
     }
 }
 

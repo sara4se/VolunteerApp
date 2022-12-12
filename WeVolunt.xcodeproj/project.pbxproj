@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D41ED3E429471FC800EFB697 /* OTPviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41ED3E329471FC800EFB697 /* OTPviewModel.swift */; };
+		D41ED3E6294721A300EFB697 /* userModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41ED3E5294721A300EFB697 /* userModelView.swift */; };
+		D41ED3E8294721E200EFB697 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41ED3E7294721E200EFB697 /* User.swift */; };
 		D44D20E3293F4AB700E5FCEC /* WeVoluntApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D20E2293F4AB700E5FCEC /* WeVoluntApp.swift */; };
 		D44D20E5293F4AB700E5FCEC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D20E4293F4AB700E5FCEC /* ContentView.swift */; };
 		D44D20E7293F4AB800E5FCEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44D20E6293F4AB800E5FCEC /* Assets.xcassets */; };
@@ -28,6 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D41ED3E329471FC800EFB697 /* OTPviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPviewModel.swift; sourceTree = "<group>"; };
+		D41ED3E5294721A300EFB697 /* userModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userModelView.swift; sourceTree = "<group>"; };
+		D41ED3E7294721E200EFB697 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D44D20DF293F4AB700E5FCEC /* WeVolunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeVolunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44D20E2293F4AB700E5FCEC /* WeVoluntApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeVoluntApp.swift; sourceTree = "<group>"; };
 		D44D20E4293F4AB700E5FCEC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -82,17 +88,19 @@
 				D44D20E2293F4AB700E5FCEC /* WeVoluntApp.swift */,
 				D44D20F0293F7B3E00E5FCEC /* SplashScreen.swift */,
 				D44D20F2293F7B6300E5FCEC /* MainPage.swift */,
+				D45FD3832942137E0023819B /* volunteerCard.swift */,
 				D44D20F8293F853C00E5FCEC /* SelectedVolunteer.swift */,
 				D44D20F4293F7C2E00E5FCEC /* InterestPage.swift */,
 				D44D2100293F8ACA00E5FCEC /* SignUp.swift */,
 				D44D2106293F937C00E5FCEC /* EnrolledVolunteer.swift */,
-				D44D2102293F8B0A00E5FCEC /* VolunteerRegister.swift */,
 				D44D2104293F8BE300E5FCEC /* SubmitNotify.swift */,
 				D44D20FC293F8A5E00E5FCEC /* OTPverify.swift */,
+				D41ED3E329471FC800EFB697 /* OTPviewModel.swift */,
 				D44D20FA293F89A600E5FCEC /* LoginPage.swift */,
-				D45FD3832942137E0023819B /* volunteerCard.swift */,
 				D44D20F6293F83EE00E5FCEC /* ProfilePage.swift */,
 				D44D20E4293F4AB700E5FCEC /* ContentView.swift */,
+				D45FD37C2941B9640023819B /* categories.swift */,
+				D45FD381294211FA0023819B /* categoriesModelView.swift */,
 				D45FD3802942111B0023819B /* View */,
 				D45FD37E294210F70023819B /* Model */,
 				D45FD37F294211050023819B /* modelView */,
@@ -114,7 +122,7 @@
 		D45FD37E294210F70023819B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D45FD37C2941B9640023819B /* categories.swift */,
+				D41ED3E7294721E200EFB697 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -122,7 +130,7 @@
 		D45FD37F294211050023819B /* modelView */ = {
 			isa = PBXGroup;
 			children = (
-				D45FD381294211FA0023819B /* categoriesModelView.swift */,
+				D41ED3E5294721A300EFB697 /* userModelView.swift */,
 			);
 			path = modelView;
 			sourceTree = "<group>";
@@ -130,6 +138,7 @@
 		D45FD3802942111B0023819B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D44D2102293F8B0A00E5FCEC /* VolunteerRegister.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -214,6 +223,7 @@
 				D44D20FB293F89A600E5FCEC /* LoginPage.swift in Sources */,
 				D44D20F7293F83EE00E5FCEC /* ProfilePage.swift in Sources */,
 				D44D20F1293F7B3E00E5FCEC /* SplashScreen.swift in Sources */,
+				D41ED3E429471FC800EFB697 /* OTPviewModel.swift in Sources */,
 				D44D20FD293F8A5E00E5FCEC /* OTPverify.swift in Sources */,
 				D44D20E5293F4AB700E5FCEC /* ContentView.swift in Sources */,
 				D45FD37D2941B9640023819B /* categories.swift in Sources */,
@@ -221,12 +231,14 @@
 				D44D20E3293F4AB700E5FCEC /* WeVoluntApp.swift in Sources */,
 				D44D20F9293F853C00E5FCEC /* SelectedVolunteer.swift in Sources */,
 				D45FD382294211FA0023819B /* categoriesModelView.swift in Sources */,
+				D41ED3E6294721A300EFB697 /* userModelView.swift in Sources */,
 				D44D20F5293F7C2E00E5FCEC /* InterestPage.swift in Sources */,
 				D44D2103293F8B0A00E5FCEC /* VolunteerRegister.swift in Sources */,
 				D45FD3842942137E0023819B /* volunteerCard.swift in Sources */,
 				D44D20F3293F7B6300E5FCEC /* MainPage.swift in Sources */,
 				D44D2105293F8BE300E5FCEC /* SubmitNotify.swift in Sources */,
 				D44D2101293F8ACA00E5FCEC /* SignUp.swift in Sources */,
+				D41ED3E8294721E200EFB697 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
