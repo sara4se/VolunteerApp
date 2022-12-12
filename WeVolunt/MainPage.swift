@@ -90,6 +90,7 @@ struct MainPage: View {
                     
                  
                     //**** STARTING CATEGORIES: *****
+                    
                     List {
                         
                         ForEach(searchResults) { eachCategory in
@@ -123,7 +124,7 @@ struct MainPage: View {
                     
                     
                 }
-                .searchable(text: $searchText, placement:.sidebar, prompt: "Searcah for categories" )
+                .searchable(text: $searchText, placement:.automatic, prompt: "Searcah for categories" )
             
                 
 

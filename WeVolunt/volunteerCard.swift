@@ -10,8 +10,6 @@ import SwiftUI
 //this is the recommendation card
 struct recommendVolunteerCard: View {
     @State var showingVolunteerSheet = false
-    
-    
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 20)
@@ -82,7 +80,13 @@ struct recommendVolunteerCard: View {
             //the popup window will show
                 .fullScreenCover(isPresented: $showingVolunteerSheet){
                     ZStack(alignment: .center){
-                        
+                        // the full background
+                        RoundedRectangle(cornerRadius: 25)
+                            .frame(width:.infinity,height:.infinity).ignoresSafeArea()
+                            .background(Color("BabyBlue"))
+                            .opacity(0.05)
+                            
+                        //the pop up sheet
                         RoundedRectangle(cornerRadius: 25)
                             .stroke(Color(.white), lineWidth: 0.5)
                             .frame(width:313,height:563)
@@ -91,6 +95,7 @@ struct recommendVolunteerCard: View {
                             .shadow(radius: 2)
                             .overlay(
                                 VStack{
+                                    
                                     Button {
                                         showingVolunteerSheet.toggle()
                                     } label: {
@@ -99,16 +104,17 @@ struct recommendVolunteerCard: View {
                                     }
                                     .padding(.trailing, 250)
                                     .padding(.top, 20)
-                                    
+//
                                     //content of the pop up window
                                     SelectedVolunteer()
-                                   
+                                        .padding(.bottom,20)
+//
                                     
                                 }
                             )
                     }
                     //this will remove the background from full screen
-                    .background(BackgroundBlurView())
+                    .background(BackgroundBlurView().ignoresSafeArea())
                     
                 }
             
@@ -208,9 +214,10 @@ struct volunteerCard: View {
                                     }
                                     .padding(.trailing, 250)
                                     .padding(.top, 20)
-                                    
+
                                     //content of the pop up window
                                     SelectedVolunteer()
+                                        .padding(.bottom,20)
                                     
                                     
                                 }
@@ -252,9 +259,10 @@ struct RoundedCorner: Shape {
 struct BackgroundBlurView: UIViewRepresentable {
     func makeUIView(context: Context) -> UIView {
         //this will make the view blurry
-        let view = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+        let view = UIVisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterial))
         //this will change the corner radius of the popup
         view.layer.cornerRadius = 25
+        view.layer.opacity = 0.5
         view.clipsToBounds = true
         DispatchQueue.main.async {
             //this will remove the background around the popup

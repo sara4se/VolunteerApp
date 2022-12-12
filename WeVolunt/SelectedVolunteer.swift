@@ -13,6 +13,7 @@ struct SelectedVolunteer: View {
             ZStack{
                 // *** background should be here ***
                 VStack{
+                    
                     // *** START PAGE CONTENT ***
                     Text("this is the selected volunteer page")
                         .padding()
