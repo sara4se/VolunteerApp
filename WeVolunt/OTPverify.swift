@@ -18,7 +18,7 @@ struct OTPverify: View {
     var body: some View {
         VStack(spacing: 20){
             Spacer()
-
+            
             // *** START PAGE CONTENT ***
             Image(systemName: "person.badge.shield.checkmark")
                 .resizable()
@@ -27,7 +27,7 @@ struct OTPverify: View {
             Text("OTP verification ")
                 .font(.title2).bold()
                 .foregroundColor(Color("ourBlue"))
-                
+            
             HStack{
                 Text("Enter the OTP sent to")
                     .foregroundColor(Color("volunteerFont"))
@@ -38,7 +38,7 @@ struct OTPverify: View {
                     .foregroundColor(Color("ourOrange"))
                     .font(.system(size: 15))
             }
-              
+            
             OTPField()
                 .padding(30.0)
             HStack{
@@ -57,24 +57,24 @@ struct OTPverify: View {
             Spacer()
             //verify button
             Button{
-            
-                    }label: {
-                        NavigationLink(destination: VolunteerRegister()  .environmentObject(OTPverify.userModelView), label:{
-                        Text("verify")
-                            .frame(width:281 , height:41 )
-                            .foregroundColor(.white)
-                            .background(Color("ourBlue"))
-                            .cornerRadius(8)
-                            .fontWeight(.semibold)
-                        })
-                           
-                    }
+                
+            }label: {
+                NavigationLink(destination: VolunteerRegister()  .environmentObject(OTPverify.userModelView), label:{
+                    Text("verify")
+                        .frame(width:281 , height:41 )
+                        .foregroundColor(.white)
+                        .background(Color("ourBlue"))
+                        .cornerRadius(8)
+                        .fontWeight(.semibold)
+                })
+                
+            }
             Spacer()
             
         }
         .onChange(of: otpModel.otpFields){newValue in
-                OTPcondition(value: newValue)
-            }
+            OTPcondition(value: newValue)
+        }
     }
     
     
@@ -118,14 +118,14 @@ struct OTPverify: View {
     }
     
     func activeStateForIndex(index: Int)->OTPfield{
-            switch index{
-            case 0: return .field1
-            case 1: return .field2
-            case 2: return .field3
-            default: return .field4
-            }
+        switch index{
+        case 0: return .field1
+        case 1: return .field2
+        case 2: return .field3
+        default: return .field4
         }
-
+    }
+    
     
 }
 enum OTPfield{

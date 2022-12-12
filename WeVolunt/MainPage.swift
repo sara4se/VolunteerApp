@@ -16,118 +16,118 @@ struct MainPage: View {
     var body: some View {
         //the navigation view might be removed from here later, but for now im keeping it so we can see it in the preview
         NavigationView(){
-                VStack{
+            VStack{
+                
+                
+                backgroundShape()
+                    .frame(width: 534,height: 253)
+                    .frame(height: 10)
+                    .foregroundStyle(LinearGradient(colors: [ .blue.opacity(0.3),Color("ourBlue"),],
+                                                    startPoint: .topLeading, endPoint: .bottomTrailing))
+                    .offset(y:-100)
+                
+                // display the recommendationns based on selected interests
+                if(recommendations == false){
+                    Text("Just for you")
                     
-                    
-                    backgroundShape()
-                        .frame(width: 534,height: 253)
-                        .frame(height: 10)
-                        .foregroundStyle(LinearGradient(colors: [ .blue.opacity(0.3),Color("ourBlue"),],
-                                                        startPoint: .topLeading, endPoint: .bottomTrailing))
-                        .offset(y:-100)
-                    
-                    // display the recommendationns based on selected interests
-                    if(recommendations == false){
-                        Text("Just for you")
-                        
-                        //    .padding(.top, 50.0)
-                            .frame(maxWidth:365, alignment: .leading)
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .foregroundColor(Color("ourBlue"))
-                            .padding(.vertical)
-                        
-                        ScrollView(.horizontal){
-                            HStack(spacing:30){
-                                recommendVolunteerCard()
-                                recommendVolunteerCard()
-                                recommendVolunteerCard()
-                                
-                                
-                                
-                                //                            //this is sample for recommended volunteer
-                                //
-                                //                                                       Text("click here to open selected volunteer")
-                                //
-                                //                                                           .frame(width:250 , height:94 )
-                                //                                                           .border(Color.purple, width: 1)
-                                //                                                           .fontWeight(.semibold)
-                                //                                                           .onTapGesture(perform: {
-                                //                                                               showingVolunteerSheet.toggle()
-                                //                                })
-                                //                                .sheet(isPresented:  $showingVolunteerSheet){
-                                //                                    SelectedVolunteer()
-                                //                                }
-                                //                            Text("click here to open selected volunteer")
-                                //
-                                //                                .frame(width:250 , height:94 )
-                                //                                .border(Color.purple, width: 1)
-                                //                                .fontWeight(.semibold)
-                                //
-                                //                                .onTapGesture(perform: {
-                                //                                    showingVolunteerSheet.toggle()
-                                //                                })
-                                //                                .sheet(isPresented:  $showingVolunteerSheet){
-                                //                                    SelectedVolunteer()
-                                //                                }
-                                
-                            }
-                            .padding(.horizontal)
-                        }
-                        
-                        
-                    }
-                    
-                    
-                    // *** START PAGE CONTENT ***
-                    Text("All Categories")
-                    
+                    //    .padding(.top, 50.0)
                         .frame(maxWidth:365, alignment: .leading)
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundColor(Color("ourBlue"))
                         .padding(.vertical)
                     
-                 
-                    //**** STARTING CATEGORIES: *****
-                    
-                    List {
-                        
-                        ForEach(searchResults) { eachCategory in
-                            categoryRow(showingVolunteerSheet: $showingVolunteerSheet , eachCategory:eachCategory)
+                    ScrollView(.horizontal){
+                        HStack(spacing:30){
+                            recommendVolunteerCard()
+                            recommendVolunteerCard()
+                            recommendVolunteerCard()
+                            
+                            
+                            
+                            //                            //this is sample for recommended volunteer
+                            //
+                            //                                                       Text("click here to open selected volunteer")
+                            //
+                            //                                                           .frame(width:250 , height:94 )
+                            //                                                           .border(Color.purple, width: 1)
+                            //                                                           .fontWeight(.semibold)
+                            //                                                           .onTapGesture(perform: {
+                            //                                                               showingVolunteerSheet.toggle()
+                            //                                })
+                            //                                .sheet(isPresented:  $showingVolunteerSheet){
+                            //                                    SelectedVolunteer()
+                            //                                }
+                            //                            Text("click here to open selected volunteer")
+                            //
+                            //                                .frame(width:250 , height:94 )
+                            //                                .border(Color.purple, width: 1)
+                            //                                .fontWeight(.semibold)
+                            //
+                            //                                .onTapGesture(perform: {
+                            //                                    showingVolunteerSheet.toggle()
+                            //                                })
+                            //                                .sheet(isPresented:  $showingVolunteerSheet){
+                            //                                    SelectedVolunteer()
+                            //                                }
+                            
                         }
-                        .listRowSeparator(.hidden)
-                        .listRowInsets(EdgeInsets())
+                        .padding(.horizontal)
                     }
-                    .listStyle(.plain)
-                    
-                    
-                    
-                    
-                    
-                    // **** END OF CATEGORIES *****
-                }// search bar
-               
-                
-                .toolbar{
-                    
-                    
-                    NavigationLink(destination: ProfilePage(), label:{
-                        Label("Profile", systemImage: "person.circle")
-                            .foregroundColor(.white)
-                    })
-                    
-                    
-                    
-                    .navigationBarTitle("Explore", displayMode: .inline)
-                    
                     
                     
                 }
-                .searchable(text: $searchText, placement:.automatic, prompt: "Searcah for categories" )
-            
                 
-
+                
+                // *** START PAGE CONTENT ***
+                Text("All Categories")
+                
+                    .frame(maxWidth:365, alignment: .leading)
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color("ourBlue"))
+                    .padding(.vertical)
+                
+                
+                //**** STARTING CATEGORIES: *****
+                
+                List {
+                    
+                    ForEach(searchResults) { eachCategory in
+                        categoryRow(showingVolunteerSheet: $showingVolunteerSheet , eachCategory:eachCategory)
+                    }
+                    .listRowSeparator(.hidden)
+                    .listRowInsets(EdgeInsets())
+                }
+                .listStyle(.plain)
+                
+                
+                
+                
+                
+                // **** END OF CATEGORIES *****
+            }// search bar
+            
+            
+            .toolbar{
+                
+                
+                NavigationLink(destination: ProfilePage(), label:{
+                    Label("Profile", systemImage: "person.circle")
+                        .foregroundColor(.white)
+                })
+                
+                
+                
+                .navigationBarTitle("Explore", displayMode: .inline)
+                
+                
+                
+            }
+            .searchable(text: $searchText, placement:.automatic, prompt: "Searcah for categories" )
+            
+            
+            
         }
         
         
@@ -190,7 +190,7 @@ struct categoryRow: View {
                 volunteerCard()
                 volunteerCard()
                 volunteerCard()
-
+                
                 
             }
             .padding()

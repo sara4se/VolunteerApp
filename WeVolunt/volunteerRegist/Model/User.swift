@@ -8,7 +8,7 @@
 import Foundation
 
 struct User {
-var userName: String
-var userPhoneNumber : Int
-var isLogd: Bool
+    var userName: String
+    var userPhoneNumber : Int
+    var isLogd: Bool
 }

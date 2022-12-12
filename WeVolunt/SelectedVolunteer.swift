@@ -27,7 +27,7 @@ struct SelectedVolunteer: View {
                             .fontWeight(.semibold)
                         
                     })
-
+                    
                 }
             }
             

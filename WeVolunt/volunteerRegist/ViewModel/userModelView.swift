@@ -7,10 +7,10 @@
 
 import Foundation
 class userModelView : ObservableObject {
-@Published var user : User
-
+    @Published var user : User
+    
     init(){
         user = User(userName:"",userPhoneNumber: 0000000,isLogd: false)
     }
-
+    
 }

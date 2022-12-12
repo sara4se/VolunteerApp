@@ -8,8 +8,8 @@
 import SwiftUI
 
 class OTPviewModel: ObservableObject {
-@Published var otpText : String = ""
-@Published var otpFields: [String] = Array(repeating: "", count: 4)
+    @Published var otpText : String = ""
+    @Published var otpFields: [String] = Array(repeating: "", count: 4)
     
     
 }

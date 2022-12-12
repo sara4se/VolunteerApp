@@ -33,40 +33,40 @@ struct recommendVolunteerCard: View {
                                 .offset(x:-50, y:50)
                                 .shadow(radius: 1)
                         }
-                                      VStack {
+                        VStack {
+                            
+                            //volunteer Title
+                            Text("Photographer")
+                                .foregroundColor(Color("volunteerFont"))
+                                .padding(.top)
+                            // seperater line
+                            Rectangle()
+                                .fill(Color("volunteerFont"))
+                                .frame(height:0.5)
+                            
+                            HStack(alignment: .center){
                                 
-                                //volunteer Title
-                                Text("Photographer")
+                                Image(systemName: "mappin.and.ellipse")
+                                    .foregroundColor(Color("ourOrange"))
+                                Text("Jed")
+                                    .font(.callout)
                                     .foregroundColor(Color("volunteerFont"))
-                                    .padding(.top)
-                                // seperater line
-                                Rectangle()
-                                    .fill(Color("volunteerFont"))
-                                    .frame(height:0.5)
+                                Image(systemName: "calendar")
+                                    .foregroundColor(Color("ourOrange"))
+                                Text("1 dec")
+                                    .font(.callout)
+                                    .foregroundColor(Color("volunteerFont"))
                                 
-                                          HStack(alignment: .center){
-                                    
-                                            Image(systemName: "mappin.and.ellipse")
-                                                .foregroundColor(Color("ourOrange"))
-                                            Text("Jed")
-                                                .font(.callout)
-                                                .foregroundColor(Color("volunteerFont"))
-                                            Image(systemName: "calendar")
-                                                .foregroundColor(Color("ourOrange"))
-                                            Text("1 dec")
-                                                .font(.callout)
-                                                .foregroundColor(Color("volunteerFont"))
-                                        
-                                  
-                                           
                                 
-                                }
+                                
+                                
+                            }
                             
                         }
                         Spacer()
-                        }
-                       
-            
+                    }
+                    
+                    
                     
                 )
             
@@ -85,7 +85,7 @@ struct recommendVolunteerCard: View {
                             .frame(width:.infinity,height:.infinity).ignoresSafeArea()
                             .background(Color("BabyBlue"))
                             .opacity(0.05)
-                            
+                        
                         //the pop up sheet
                         RoundedRectangle(cornerRadius: 25)
                             .stroke(Color(.white), lineWidth: 0.5)
@@ -104,11 +104,11 @@ struct recommendVolunteerCard: View {
                                     }
                                     .padding(.trailing, 250)
                                     .padding(.top, 20)
-//
+                                    //
                                     //content of the pop up window
                                     SelectedVolunteer()
                                         .padding(.bottom,20)
-//
+                                    //
                                     
                                 }
                             )
@@ -119,7 +119,7 @@ struct recommendVolunteerCard: View {
                 }
             
         }
-      
+        
         
     }
 }
@@ -214,7 +214,7 @@ struct volunteerCard: View {
                                     }
                                     .padding(.trailing, 250)
                                     .padding(.top, 20)
-
+                                    
                                     //content of the pop up window
                                     SelectedVolunteer()
                                         .padding(.bottom,20)
@@ -278,7 +278,7 @@ struct BackgroundBlurView: UIViewRepresentable {
 //this is the preview of the page
 struct volunteerCard_Previews: PreviewProvider {
     static var previews: some View {
-      //  volunteerCard()
+        //  volunteerCard()
         recommendVolunteerCard()
     }
 }
