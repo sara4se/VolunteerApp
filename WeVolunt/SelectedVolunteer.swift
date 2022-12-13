@@ -18,7 +18,7 @@ struct SelectedVolunteer: View {
                     Text("this is the selected volunteer page")
                         .padding()
                     //enroll button
-                    NavigationLink(destination: LoginPage(), label:{
+                    NavigationLink(destination: VolunteerRegister(), label:{
                         Text("Enroll")
                             .frame(width:307 , height:44 )
                             .foregroundColor(.white)

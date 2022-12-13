@@ -83,7 +83,7 @@ struct recommendVolunteerCard: View {
                         // the full background
                         RoundedRectangle(cornerRadius: 25)
                             .frame(width:.infinity,height:.infinity).ignoresSafeArea()
-                            .background(Color("BabyBlue"))
+                           .background(Color("BabyBlue"))
                             .opacity(0.05)
                         
                         //the pop up sheet
@@ -262,7 +262,7 @@ struct BackgroundBlurView: UIViewRepresentable {
         let view = UIVisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterial))
         //this will change the corner radius of the popup
         view.layer.cornerRadius = 25
-        view.layer.opacity = 0.5
+        view.layer.opacity = 0.6
         view.clipsToBounds = true
         DispatchQueue.main.async {
             //this will remove the background around the popup
