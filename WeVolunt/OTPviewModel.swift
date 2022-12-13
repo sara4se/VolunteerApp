@@ -36,11 +36,11 @@ class OTPviewModel: ObservableObject {
         do{
             isLoading = true
             let result = try await PhoneAuthProvider.provider().verifyPhoneNumber("+\(code)\(phoneNumber)",uiDelegate: nil)
-        
+            
             DispatchQueue.main.async {
                 self.isLoading = false
                 self.verificationCode = result
-             //   self.verificationCode = "123456"
+                //   self.verificationCode = "123456"
                 self.navigationTag = "VERIFICATION"
             }
             
@@ -61,7 +61,7 @@ class OTPviewModel: ObservableObject {
             self.showAlert.toggle()
         }
     }
-   
+    
     
     //verify the OTP function
     func verifyOTP()async{

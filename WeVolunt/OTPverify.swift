@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OTPverify: View {
     //this is for the user model view
-   // @StateObject static var userModelView: userModelView = .init()
+    // @StateObject static var userModelView: userModelView = .init()
     
     // this is for the OTP model view
     @EnvironmentObject var otpModel : OTPviewModel
@@ -61,17 +61,17 @@ struct OTPverify: View {
             //verify button
             Button{
                 Task{await otpModel.verifyOTP()}
-
-            }label: {
-                    Text("verify")
-                        .frame(width:281 , height:41 )
-                        .foregroundColor(.white)
-                        .background(Color("ourBlue"))
-                        .cornerRadius(8)
-                        .fontWeight(.semibold)
-                        .opacity(otpModel.isLoading ? 0 : 1)
                 
-
+            }label: {
+                Text("verify")
+                    .frame(width:281 , height:41 )
+                    .foregroundColor(.white)
+                    .background(Color("ourBlue"))
+                    .cornerRadius(8)
+                    .fontWeight(.semibold)
+                    .opacity(otpModel.isLoading ? 0 : 1)
+                
+                
             }
             .overlay{
                 //loading before oppening the CAPTCHA
@@ -87,7 +87,7 @@ struct OTPverify: View {
                             .fontWeight(.semibold)
                     })}
             }
-
+            
             Spacer()
             
         }
@@ -97,7 +97,7 @@ struct OTPverify: View {
         
         //sending alerts in case error occure
         .alert(otpModel.errorMsg,isPresented: $otpModel.showAlert){}
-            
+        
     }
     
     
@@ -136,7 +136,7 @@ struct OTPverify: View {
             }
         }
     }
-  
+    
     
     //costume OTP field
     @ViewBuilder

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoginPage: View {
     @StateObject var otpModel: OTPviewModel = .init()
- //   @State var phoneNumber: String = ""
+    //   @State var phoneNumber: String = ""
     var body: some View {
         VStack{
             Spacer()
@@ -39,7 +39,7 @@ struct LoginPage: View {
             Spacer()
             //user phone number
             HStack(alignment: .center){
-               
+                
                 Text("+966")
                     .foregroundColor(Color("ourBlue"))
                     .font(.system(size: 17))
@@ -67,7 +67,7 @@ struct LoginPage: View {
             //            })
             //
             //login button
-          
+            
             Spacer()
             Spacer()
             
@@ -79,17 +79,17 @@ struct LoginPage: View {
                 
             }label: {
                 VStack{
-//                NavigationLink(destination: OTPverify().environmentObject(otpModel),label:{
-//                    Text("this is navigstion")
-              //  })
-                Text("Login")
-                    .frame(width:281 , height:41 )
-                    .foregroundColor(.white)
-                    .background(Color("ourBlue"))
-                    .cornerRadius(8)
-                    .fontWeight(.semibold)
-                    .opacity(otpModel.isLoading ? 0 : 1)
-            }
+                    //                NavigationLink(destination: OTPverify().environmentObject(otpModel),label:{
+                    //                    Text("this is navigstion")
+                    //  })
+                    Text("Login")
+                        .frame(width:281 , height:41 )
+                        .foregroundColor(.white)
+                        .background(Color("ourBlue"))
+                        .cornerRadius(8)
+                        .fontWeight(.semibold)
+                        .opacity(otpModel.isLoading ? 0 : 1)
+                }
                 .overlay{
                     //loading before oppening the CAPTCHA
                     ProgressView()
@@ -106,29 +106,29 @@ struct LoginPage: View {
                                 .fontWeight(.semibold)
                         })}
                 }
-                           
-                        
+                
+                
                 
             }
             .background()
             .disabled(otpModel.phoneNumber == "")
             .opacity(otpModel.phoneNumber == "" ? 0.4 : 1)
             
-           
+            
             Spacer()
-          
+            
         }
         
         .frame(maxHeight: .infinity,alignment: .top)
         //        .background{
-////            NavigationLink(destination: OTPverify().environmentObject(otpModel),label:{})
-//
-//            NavigationLink(tag: "VERIFICATION", selection: $otpModel.navigationTag){
-//                OTPverify().environmentObject(otpModel)
-//            } label: {}
-//                .labelsHidden()
-//        }
-         
+        ////            NavigationLink(destination: OTPverify().environmentObject(otpModel),label:{})
+        //
+        //            NavigationLink(tag: "VERIFICATION", selection: $otpModel.navigationTag){
+        //                OTPverify().environmentObject(otpModel)
+        //            } label: {}
+        //                .labelsHidden()
+        //        }
+        
         
         //sending alerts in case error occure
         .alert(otpModel.errorMsg,isPresented: $otpModel.showAlert){}
