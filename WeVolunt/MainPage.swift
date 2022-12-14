@@ -87,7 +87,8 @@ struct MainPage: View {
                     .fontWeight(.bold)
                     .foregroundColor(Color("ourBlue"))
                     .padding(.vertical)
-                
+                    .searchable(text: $searchText, placement:.automatic, prompt: "Searcah for categories" )
+
                 
                 //**** STARTING CATEGORIES: *****
                 
@@ -124,7 +125,7 @@ struct MainPage: View {
                 
                 
             }
-            .searchable(text: $searchText, placement:.automatic, prompt: "Searcah for categories" )
+         //   .searchable(text: $searchText, placement:.automatic, prompt: "Searcah for categories" )
             
             
             

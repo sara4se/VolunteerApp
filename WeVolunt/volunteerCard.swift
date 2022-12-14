@@ -96,21 +96,16 @@ struct recommendVolunteerCard: View {
                             .overlay(
                                 VStack{
                                     
-                                    Button {
-                                        showingVolunteerSheet.toggle()
-                                    } label: {
-                                        Image(systemName: "xmark.circle")
-                                            .foregroundColor(Color("ourOrange"))
-                                    }
-                                    .padding(.trailing, 250)
-                                    .padding(.top, 20)
-                                    //
+                                  
                                     //content of the pop up window
-                                    SelectedVolunteer()
-                                        .padding(.bottom,20)
+                                 
+                                    SelectedVolunteer(showingVolunteerSheet:$showingVolunteerSheet)
+                                     //   .padding(.vertical)
                                     //
                                     
                                 }
+                                .frame(width:313,height:563)
+                                .cornerRadius(25)
                             )
                     }
                     //this will remove the background from full screen
@@ -197,7 +192,13 @@ struct volunteerCard: View {
             //the popup window will show
                 .fullScreenCover(isPresented: $showingVolunteerSheet){
                     ZStack(alignment: .center){
+                        // the full background
+                        RoundedRectangle(cornerRadius: 25)
+                            .frame(width:.infinity,height:.infinity).ignoresSafeArea()
+                           .background(Color("BabyBlue"))
+                            .opacity(0.05)
                         
+                        //the pop up sheet
                         RoundedRectangle(cornerRadius: 25)
                             .stroke(Color(.white), lineWidth: 0.5)
                             .frame(width:313,height:563)
@@ -206,25 +207,21 @@ struct volunteerCard: View {
                             .shadow(radius: 2)
                             .overlay(
                                 VStack{
-                                    Button {
-                                        showingVolunteerSheet.toggle()
-                                    } label: {
-                                        Image(systemName: "xmark.circle")
-                                            .foregroundColor(Color("ourOrange"))
-                                    }
-                                    .padding(.trailing, 250)
-                                    .padding(.top, 20)
                                     
+                                  
                                     //content of the pop up window
-                                    SelectedVolunteer()
-                                        .padding(.bottom,20)
-                                    
+                                 
+                                    SelectedVolunteer(showingVolunteerSheet:$showingVolunteerSheet)
+                                     //   .padding(.vertical)
+                                    //
                                     
                                 }
+                                .frame(width:313,height:563)
+                                .cornerRadius(25)
                             )
                     }
                     //this will remove the background from full screen
-                    .background(BackgroundBlurView())
+                    .background(BackgroundBlurView().ignoresSafeArea())
                     
                 }
             
@@ -278,7 +275,7 @@ struct BackgroundBlurView: UIViewRepresentable {
 //this is the preview of the page
 struct volunteerCard_Previews: PreviewProvider {
     static var previews: some View {
-        //  volunteerCard()
+          volunteerCard()
         recommendVolunteerCard()
     }
 }

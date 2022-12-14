@@ -20,8 +20,8 @@ struct ProfilePage: View {
                     .onTapGesture(perform: {
                         showingVolunteerSheet.toggle()
                     })
-                    .sheet(isPresented:  $showingVolunteerSheet){
-                        EnrolledVolunteer()
+                    .fullScreenCover(isPresented: $showingVolunteerSheet){
+                        EnrolledVolunteer(showingVolunteerSheet:$showingVolunteerSheet)
                     }
             }
             

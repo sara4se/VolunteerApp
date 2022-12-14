@@ -116,6 +116,7 @@
 				D41ED3EA2948629D00EFB697 /* shared */,
 				D41ED3E9294732B000EFB697 /* volunteerRegist */,
 				D44D20E2293F4AB700E5FCEC /* WeVoluntApp.swift */,
+				D44D2102293F8B0A00E5FCEC /* VolunteerRegister.swift */,
 				D44D20F0293F7B3E00E5FCEC /* SplashScreen.swift */,
 				D44D20F2293F7B6300E5FCEC /* MainPage.swift */,
 				D45FD3832942137E0023819B /* volunteerCard.swift */,
@@ -164,7 +165,6 @@
 		D45FD3802942111B0023819B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D44D2102293F8B0A00E5FCEC /* VolunteerRegister.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
