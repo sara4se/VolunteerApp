@@ -31,6 +31,8 @@
 		D45FD37D2941B9640023819B /* categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45FD37C2941B9640023819B /* categories.swift */; };
 		D45FD382294211FA0023819B /* categoriesModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45FD381294211FA0023819B /* categoriesModelView.swift */; };
 		D45FD3842942137E0023819B /* volunteerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45FD3832942137E0023819B /* volunteerCard.swift */; };
+		D47D2D97294B3DC800087BC5 /* volunteer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47D2D96294B3DC800087BC5 /* volunteer.swift */; };
+		D47D2D99294B43C500087BC5 /* volunteerModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47D2D98294B43C500087BC5 /* volunteerModelView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,8 @@
 		D45FD37C2941B9640023819B /* categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = categories.swift; sourceTree = "<group>"; };
 		D45FD381294211FA0023819B /* categoriesModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = categoriesModelView.swift; sourceTree = "<group>"; };
 		D45FD3832942137E0023819B /* volunteerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = volunteerCard.swift; sourceTree = "<group>"; };
+		D47D2D96294B3DC800087BC5 /* volunteer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = volunteer.swift; sourceTree = "<group>"; };
+		D47D2D98294B43C500087BC5 /* volunteerModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = volunteerModelView.swift; sourceTree = "<group>"; };
 		D4C7CA9129491351009AB02D /* WeVolunt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WeVolunt.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,7 +122,6 @@
 				D44D20E2293F4AB700E5FCEC /* WeVoluntApp.swift */,
 				D44D20F0293F7B3E00E5FCEC /* SplashScreen.swift */,
 				D44D20F2293F7B6300E5FCEC /* MainPage.swift */,
-				D45FD3832942137E0023819B /* volunteerCard.swift */,
 				D44D20F8293F853C00E5FCEC /* SelectedVolunteer.swift */,
 				D44D20F4293F7C2E00E5FCEC /* InterestPage.swift */,
 				D44D2100293F8ACA00E5FCEC /* SignUp.swift */,
@@ -130,6 +133,9 @@
 				D44D20FA293F89A600E5FCEC /* LoginPage.swift */,
 				D44D20F6293F83EE00E5FCEC /* ProfilePage.swift */,
 				D45FD37C2941B9640023819B /* categories.swift */,
+				D47D2D96294B3DC800087BC5 /* volunteer.swift */,
+				D45FD3832942137E0023819B /* volunteerCard.swift */,
+				D47D2D98294B43C500087BC5 /* volunteerModelView.swift */,
 				D45FD381294211FA0023819B /* categoriesModelView.swift */,
 				D44D20E6293F4AB800E5FCEC /* Assets.xcassets */,
 				D44D20E8293F4AB800E5FCEC /* Preview Content */,
@@ -256,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D44D20FB293F89A600E5FCEC /* LoginPage.swift in Sources */,
+				D47D2D97294B3DC800087BC5 /* volunteer.swift in Sources */,
 				D44D20F7293F83EE00E5FCEC /* ProfilePage.swift in Sources */,
 				D44D20F1293F7B3E00E5FCEC /* SplashScreen.swift in Sources */,
 				D41ED3E429471FC800EFB697 /* OTPviewModel.swift in Sources */,
@@ -269,6 +276,7 @@
 				D44D20F5293F7C2E00E5FCEC /* InterestPage.swift in Sources */,
 				D44D2103293F8B0A00E5FCEC /* VolunteerRegister.swift in Sources */,
 				D45FD3842942137E0023819B /* volunteerCard.swift in Sources */,
+				D47D2D99294B43C500087BC5 /* volunteerModelView.swift in Sources */,
 				D44D20F3293F7B6300E5FCEC /* MainPage.swift in Sources */,
 				D44D2105293F8BE300E5FCEC /* SubmitNotify.swift in Sources */,
 				D44D2101293F8ACA00E5FCEC /* SignUp.swift in Sources */,

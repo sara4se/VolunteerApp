@@ -10,7 +10,7 @@ import SwiftUI
 struct OTPverify: View {
     //this is for the user model view
     // @StateObject static var userModelView: userModelView = .init()
-    @EnvironmentObject var modelView : userModelView
+    
     // this is for the OTP model view
     @EnvironmentObject var otpModel : OTPviewModel
     
@@ -70,7 +70,7 @@ struct OTPverify: View {
                     .cornerRadius(8)
                     .fontWeight(.semibold)
                     .opacity(otpModel.isLoading ? 0 : 1)
-              
+                
                 
             }
             .overlay{
@@ -78,7 +78,7 @@ struct OTPverify: View {
                 ProgressView()
                     .opacity(otpModel.isLoading ? 1 : 0)
                 //the navigation button will appear when the virification code is sent
-                if (otpModel.log_status == true ){
+                if (otpModel.log_status){
                     NavigationLink(destination: VolunteerRegister().environmentObject(otpModel) , label:{
                         Text("this is navigstion")
                             .foregroundColor(.white)

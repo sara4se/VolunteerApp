@@ -9,128 +9,140 @@ import SwiftUI
 
 //this is the recommendation card
 struct recommendVolunteerCard: View {
+  //  @StateObject var volunteers = volunteerModelView()
+  //  @StateObject var  volunteerList = [volunteers.volunteerList]
+    
+ 
+    @State var volunteerList: [Volunteer]
     @State var showingVolunteerSheet = false
+    var eachVol: Volunteer
+    
     var body: some View {
-        // there should be printing for all the dictionary list item
-        
-        ZStack{
-            RoundedRectangle(cornerRadius: 20)
-                .stroke(Color(.gray), lineWidth: 0.5)
-                .frame(width:148,height:203)
-                .overlay(
-                    VStack (alignment: .center){
-                        
-                        ZStack{
-                            Image("volunteerImage")
-                                .resizable()
-                                .frame(width: 148, height: 96)
-                                .shadow(radius: 1)
-                            
-                            //this is from the costumise shape and view extention
-                                .cornerRadius(20, corners: [.topLeft, .topRight])
-                            Image("volunteerCompany")
-                                .resizable()
-                                .clipShape(Circle())
-                                .frame(width: 37, height: 37)
-                                .offset(x:-50, y:50)
-                                .shadow(radius: 1)
-                        }
-                        VStack {
-                            
-                            //volunteer Title
-                            Text("Photographer")
-                                .foregroundColor(Color("volunteerFont"))
-                                .padding(.top)
-                            // seperater line
-                            Rectangle()
-                                .fill(Color("volunteerFont"))
-                                .frame(height:0.5)
-                            
-                            HStack(alignment: .center){
+     
+                ZStack{
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color(.gray), lineWidth: 0.5)
+                        .frame(width:148,height:203)
+                        .overlay(
+                            VStack (alignment: .center){
                                 
-                                Image(systemName: "mappin.and.ellipse")
-                                    .foregroundColor(Color("ourOrange"))
-                                Text("Jed")
-                                    .font(.callout)
-                                    .foregroundColor(Color("volunteerFont"))
-                                Image(systemName: "calendar")
-                                    .foregroundColor(Color("ourOrange"))
-                                Text("1 dec")
-                                    .font(.callout)
-                                    .foregroundColor(Color("volunteerFont"))
-                                
-                                
-                                
-                                
-                            }
-                            
-                        }
-                        Spacer()
-                    }
-                    
-                    
-                    
-                )
-            
-            
-            
-                .onTapGesture(perform: {
-                    showingVolunteerSheet.toggle()
-                    
-                })
-            
-            //the popup window will show
-                .fullScreenCover(isPresented: $showingVolunteerSheet){
-                    ZStack(alignment: .center){
-                        // the full background
-                        RoundedRectangle(cornerRadius: 25)
-                            .frame(width:.infinity,height:.infinity).ignoresSafeArea()
-                           .background(Color("BabyBlue"))
-                            .opacity(0.05)
-                        
-                        //the pop up sheet
-                        RoundedRectangle(cornerRadius: 25)
-                            .stroke(Color(.white), lineWidth: 0.5)
-                            .frame(width:313,height:563)
-                            .background(.white)
-                            .cornerRadius(25)
-                            .shadow(radius: 2)
-                            .overlay(
-                                VStack{
+                                ZStack{
+                                    Image("volunteerImage")
+                                        .resizable()
+                                        .frame(width: 148, height: 96)
+                                        .shadow(radius: 1)
                                     
-                                  
-                                    //content of the pop up window
-                                 
-                                    SelectedVolunteer(showingVolunteerSheet:$showingVolunteerSheet)
-                                     //   .padding(.vertical)
-                                    //
+                                    //this is from the costumise shape and view extention
+                                        .cornerRadius(20, corners: [.topLeft, .topRight])
+                                    Image("volunteerCompany")
+                                        .resizable()
+                                        .clipShape(Circle())
+                                        .frame(width: 37, height: 37)
+                                        .offset(x:-50, y:50)
+                                        .shadow(radius: 1)
+                                }
+                                VStack {
+                                    
+                                    //volunteer Title
+                                    Text(eachVol.volunteerName)
+                                        .foregroundColor(Color("volunteerFont"))
+                                        .padding(.top)
+                                    // seperater line
+                                    Rectangle()
+                                        .fill(Color("volunteerFont"))
+                                        .frame(height:0.5)
+                                    
+                                    HStack(alignment: .center){
+                                        
+                                        Image(systemName: "mappin.and.ellipse")
+                                            .foregroundColor(Color("ourOrange"))
+                                        Text(eachVol.volunteerLocation)
+                                            .font(.callout)
+                                            .foregroundColor(Color("volunteerFont"))
+                                        Image(systemName: "calendar")
+                                            .foregroundColor(Color("ourOrange"))
+                                        Text(eachVol.volunteerDate)
+                                            .font(.callout)
+                                            .foregroundColor(Color("volunteerFont"))
+                                        
+                                        
+                                        
+                                        
+                                    }
                                     
                                 }
-                                .frame(width:313,height:563)
-                                .cornerRadius(25)
-                            )
-                    }
-                    //this will remove the background from full screen
-                    .background(BackgroundBlurView().ignoresSafeArea())
+                                Spacer()
+                            }
+                            
+                            
+                            
+                        )
+                    
+                    
+                    
+                        .onTapGesture(perform: {
+                            showingVolunteerSheet.toggle()
+                            
+                        })
+                    
+                    //the popup window will show
+                        .fullScreenCover(isPresented: $showingVolunteerSheet){
+                            ZStack(alignment: .center){
+                                // the full background
+                                RoundedRectangle(cornerRadius: 25)
+                                    .frame(width:.infinity,height:.infinity).ignoresSafeArea()
+                                    .background(Color("BabyBlue"))
+                                    .opacity(0.05)
+                                
+                                //the pop up sheet
+                                RoundedRectangle(cornerRadius: 25)
+                                    .stroke(Color(.white), lineWidth: 0.5)
+                                    .frame(width:313,height:563)
+                                    .background(.white)
+                                    .cornerRadius(25)
+                                    .shadow(radius: 2)
+                                    .overlay(
+                                        VStack{
+                                            
+                                            
+                                            //content of the pop up window
+                                            
+                                            SelectedVolunteer(showingVolunteerSheet:$showingVolunteerSheet)
+                                            //   .padding(.vertical)
+                                            //
+                                            
+                                        }
+                                            .frame(width:313,height:563)
+                                            .cornerRadius(25)
+                                    )
+                            }
+                            //this will remove the background from full screen
+                            .background(BackgroundBlurView().ignoresSafeArea())
+                            
+                        }
                     
                 }
-            
-        }
-        
+            }
         
     }
-}
+        
+  //  }
+//}
 
 //this is all categories volunteering cards
 struct volunteerCard: View {
     @State var showingVolunteerSheet  = false
+    var eachVol: Volunteer
     var body: some View {
         // there should be printing for all the dictionary list item
+        
         ZStack{
             RoundedRectangle(cornerRadius: 20)
                 .stroke(Color(.gray), lineWidth: 0.5)
                 .frame(width:250,height:94)
                 .overlay(
+                    
+                    //oppurtonity content
                     HStack {
                         Image("volunteerImage")
                             .resizable()
@@ -143,7 +155,7 @@ struct volunteerCard: View {
                         
                         VStack(alignment: .center) {
                             //volunteer Title
-                            Text("Photographer")
+                            Text(eachVol.volunteerName)
                                 .foregroundColor(Color("volunteerFont"))
                             
                             // seperater line
@@ -162,7 +174,7 @@ struct volunteerCard: View {
                                         Spacer()
                                         Image(systemName: "mappin.and.ellipse")
                                             .foregroundColor(Color("ourOrange"))
-                                        Text("Jed")
+                                        Text(eachVol.volunteerLocation)
                                             .font(.callout)
                                             .foregroundColor(Color("volunteerFont"))
                                         Spacer()
@@ -171,7 +183,7 @@ struct volunteerCard: View {
                                         Spacer()
                                         Image(systemName: "calendar")
                                             .foregroundColor(Color("ourOrange"))
-                                        Text("1 dec")
+                                        Text(eachVol.volunteerDate)
                                             .font(.callout)
                                             .foregroundColor(Color("volunteerFont"))
                                     }
@@ -275,10 +287,11 @@ struct BackgroundBlurView: UIViewRepresentable {
 }
 
 
-//this is the preview of the page
-struct volunteerCard_Previews: PreviewProvider {
-    static var previews: some View {
-          volunteerCard()
-        recommendVolunteerCard()
-    }
-}
+////this is the preview of the page
+//struct volunteerCard_Previews: PreviewProvider {
+//    @StateObject static var volunteers = volunteerModelView()
+//    static var previews: some View {
+//       //   volunteerCard()
+//        recommendVolunteerCard(volunteerList: volunteerList).environmentObject(volunteers)
+//    }
+//}

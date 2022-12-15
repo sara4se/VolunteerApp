@@ -165,7 +165,7 @@ struct VolunteerRegister: View {
                             //login button (look for a way to make the navigation link into a button and go to the login page
                             
                 Button{
-                //    modelView.user.isLogd.toggle()
+                  //  otpModel.log_status.toggle()
                 }label: {
                     NavigationLink(destination: LoginPage()
                                    //LoginPage()

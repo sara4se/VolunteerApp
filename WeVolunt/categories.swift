@@ -7,7 +7,7 @@
 
 import Foundation
 
-// A struct to store exactly one restaurant's data.
+// A struct to store exactly one category
 struct categories: Identifiable {
     let id = UUID()
     let name: String

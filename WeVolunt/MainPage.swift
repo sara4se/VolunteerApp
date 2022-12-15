@@ -13,6 +13,12 @@ struct MainPage: View {
     @State private var searchText = ""
     var categoriesList: [categories]
     
+    @State var volunteersList: [Volunteer]
+    
+    let columns = [GridItem(.flexible())]
+    let rows = [GridItem(.flexible())]
+       
+    
     var body: some View {
         //the navigation view might be removed from here later, but for now im keeping it so we can see it in the preview
         NavigationView(){
@@ -37,45 +43,19 @@ struct MainPage: View {
                         .foregroundColor(Color("ourBlue"))
                         .padding(.vertical)
                     
-                    ScrollView(.horizontal){
-                        HStack(spacing:30){
-                            recommendVolunteerCard()
-                            recommendVolunteerCard()
-                            recommendVolunteerCard()
-                            
-                            
-                            
-                            //                            //this is sample for recommended volunteer
-                            //
-                            //                                                       Text("click here to open selected volunteer")
-                            //
-                            //                                                           .frame(width:250 , height:94 )
-                            //                                                           .border(Color.purple, width: 1)
-                            //                                                           .fontWeight(.semibold)
-                            //                                                           .onTapGesture(perform: {
-                            //                                                               showingVolunteerSheet.toggle()
-                            //                                })
-                            //                                .sheet(isPresented:  $showingVolunteerSheet){
-                            //                                    SelectedVolunteer()
-                            //                                }
-                            //                            Text("click here to open selected volunteer")
-                            //
-                            //                                .frame(width:250 , height:94 )
-                            //                                .border(Color.purple, width: 1)
-                            //                                .fontWeight(.semibold)
-                            //
-                            //                                .onTapGesture(perform: {
-                            //                                    showingVolunteerSheet.toggle()
-                            //                                })
-                            //                                .sheet(isPresented:  $showingVolunteerSheet){
-                            //                                    SelectedVolunteer()
-                            //                                }
+                 //   to view the recommended volunteers
+                    LazyVGrid(columns: columns, spacing: 0) {
+                        ScrollView(.horizontal){
+                            LazyHGrid(rows: rows, spacing: 0) {
+                                ForEach(volunteersList) {eachVol in
+                                    recommendVolunteerCard(volunteerList: volunteersList, eachVol: eachVol)
+                                }
+                                .padding(.horizontal)
+                            }
                             
                         }
-                        .padding(.horizontal)
                     }
-                    
-                    
+
                 }
                 
                 
@@ -89,48 +69,34 @@ struct MainPage: View {
                     .padding(.vertical)
                     .searchable(text: $searchText, placement:.automatic, prompt: "Searcah for categories" )
 
-                
                 //**** STARTING CATEGORIES: *****
                 
-                List {
-                    
-                    ForEach(searchResults) { eachCategory in
-                        categoryRow(showingVolunteerSheet: $showingVolunteerSheet , eachCategory:eachCategory)
+                //lazy grid
+                ScrollView(.vertical){
+                    LazyVGrid(columns: columns, spacing: 10) {
+                        ForEach(searchResults) { eachCategory in
+                            categoryRow(volunteersList: volunteersList, showingVolunteerSheet: $showingVolunteerSheet , eachCategory:eachCategory)
+                        }
                     }
-                    .listRowSeparator(.hidden)
-                    .listRowInsets(EdgeInsets())
                 }
-                .listStyle(.plain)
-                
-                
-                
-                
-                
                 // **** END OF CATEGORIES *****
-            }// search bar
+                
+                
+            }
             
             
             .toolbar{
-                
-                
                 NavigationLink(destination: ProfilePage(), label:{
                     Label("Profile", systemImage: "person.circle")
                         .foregroundColor(.white)
                 })
                 
-                
-                
                 .navigationBarTitle("Explore", displayMode: .inline)
-                
-                
-                
+              
             }
          //   .searchable(text: $searchText, placement:.automatic, prompt: "Searcah for categories" )
-            
-            
-            
+     
         }
-        
         
         .accentColor(.white)
         .navigationBarBackButtonHidden(true)
@@ -150,54 +116,37 @@ struct MainPage: View {
 
 //each category row
 struct categoryRow: View {
+   // @StateObject var volunteers = volunteerModelView()
+    var volunteersList: [Volunteer]
     @Binding var showingVolunteerSheet : Bool
     var eachCategory:categories
+    let rows = [
+        GridItem(.flexible())
+    ]
     var body: some View{
+        
         Text(eachCategory.name)
-            .frame(maxWidth:300, alignment: .leading)
+            .frame(maxWidth:350, alignment: .leading)
             .font(.title2)
             .fontWeight(.bold)
             .foregroundColor(Color("ourOrange"))
-            .padding(.horizontal)
-        //category content 1
+       
+        //category content
         ScrollView(.horizontal){
-            HStack(spacing:30){
-                //**** this is sample for
-                //                Text("click here to open selected volunteer")
-                //
-                //                    .frame(width:250 , height:94 )
-                //                    .border(Color.purple, width: 1)
-                //                    .fontWeight(.semibold)
-                //                    .onTapGesture(perform: {
-                //                        showingVolunteerSheet.toggle()
-                //                    })
-                //                    .sheet(isPresented:  $showingVolunteerSheet){
-                //                        SelectedVolunteer()
-                //                    }
-                //                Text("click here to open selected volunteer")
-                //
-                //                    .frame(width:250 , height:94 )
-                //                    .border(Color.purple, width: 1)
-                //                    .fontWeight(.semibold)
-                //
-                //                    .onTapGesture(perform: {
-                //                        showingVolunteerSheet.toggle()
-                //                    })
-                //                    .sheet(isPresented:  $showingVolunteerSheet){
-                //                        SelectedVolunteer()
-                //                    }
+
+
+            LazyHGrid(rows: rows, spacing: 10) {
+                   // Spacer()
+                ForEach(volunteersList.filter { $0.volunteerCategory.contains(eachCategory.name)}) {eachVol in
+                        volunteerCard(eachVol: eachVol)
+                      
+                    }
+                    .padding()
                 
-                //show the volunteer oppurtunities
-                volunteerCard()
-                volunteerCard()
-                volunteerCard()
-                
-                
+                }
+
             }
-            .padding()
-            
-            
-        }
+  
         
     }
 }
@@ -224,7 +173,7 @@ struct backgroundShape: Shape {
 
 struct MainPage_Previews: PreviewProvider {
     static var previews: some View {
-        MainPage( categoriesList: categoriesList)
+        MainPage( categoriesList: categoriesList, volunteersList: volunteerList)
     }
 }
 
