@@ -27,8 +27,10 @@ class OTPviewModel: ObservableObject {
     @Published var isLoading: Bool = false
     
     @Published var navigationTag: String?
-    @AppStorage("log_status") var log_status = true
-    
+  //  @AppStorage("log_status") var log_status = false
+    @Published var  log_status : Bool = false
+
+    @EnvironmentObject var modelView : userModelView
     
     //sending OTP
     func sendOTP()async{
@@ -42,6 +44,8 @@ class OTPviewModel: ObservableObject {
                 self.verificationCode = result
                 //   self.verificationCode = "123456"
                 self.navigationTag = "VERIFICATION"
+                self.log_status = true
+                
             }
             
         }
@@ -72,6 +76,7 @@ class OTPviewModel: ObservableObject {
             DispatchQueue.main.async {[self] in
                 isLoading = false
                 log_status = true
+               
             }
         }catch{
             handleError(error: error.localizedDescription)

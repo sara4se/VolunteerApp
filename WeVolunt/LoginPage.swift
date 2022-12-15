@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct LoginPage: View {
-    @StateObject var otpModel: OTPviewModel = .init()
+    @StateObject var otpModel: OTPviewModel = OTPviewModel()
+//    @EnvironmentObject var otpModel : OTPviewModel
     //   @State var phoneNumber: String = ""
     var body: some View {
         VStack{
@@ -97,7 +98,6 @@ struct LoginPage: View {
                     
                     //the navigation button will appear when the virification code is sent
                     if (!otpModel.verificationCode.isEmpty){
-                        
                         NavigationLink(destination: OTPverify().environmentObject(otpModel),label:{
                             Text("this is navigstion")
                                 .foregroundColor(.white)
@@ -137,7 +137,8 @@ struct LoginPage: View {
 
 
 struct LoginPage_Previews: PreviewProvider {
+    @StateObject static var otpModel : OTPviewModel = .init()
     static var previews: some View {
-        LoginPage()
+        LoginPage().environmentObject(otpModel)
     }
 }

@@ -10,12 +10,14 @@ import SwiftUI
 struct VolunteerRegister: View {
     @State var showingVolunteerSheet = false
 
-    //  @EnvironmentObject var otpModel: OTPviewModel
-    
-    @AppStorage("log_status") var log_status = false
+  //  @EnvironmentObject var otpModel: OTPviewModel
+   @StateObject var otpModel: OTPviewModel = OTPviewModel()
+   // @AppStorage("log_status") var log_status = false
     
     // this will create an object from the model to use it and its published attributes
-    @EnvironmentObject var modelView : userModelView
+    //@EnvironmentObject var modelView : userModelView
+    
+    @StateObject var modelView = userModelView()
     
     @State private var date = Date()
     @State var textFieldText1: String = ""
@@ -26,7 +28,24 @@ struct VolunteerRegister: View {
         VStack(spacing: 20){
             
             //if the user alr logged in the form page will appear
-            if (log_status == true) {
+            if (otpModel.log_status) {
+//                if(modelView.user.isLogd){
+//
+//                        NavigationLink(destination: LoginPage()
+//                                       //LoginPage()
+//                                       , label:{
+//                            Text("this is navigation")
+//                                .frame(width:281 , height:41 )
+//                                .foregroundColor(.white)
+//                                .background(Color("ourBlue"))
+//                                .cornerRadius(8)
+//                                .fontWeight(.semibold)
+//
+//                        })
+//
+//                }
+                
+           
                 VStack(spacing: 20){
                     Image(systemName: "highlighter")
                         .font(.system(size: 40)).bold()
@@ -146,7 +165,7 @@ struct VolunteerRegister: View {
                             //login button (look for a way to make the navigation link into a button and go to the login page
                             
                 Button{
-                    log_status.toggle()
+                //    modelView.user.isLogd.toggle()
                 }label: {
                     NavigationLink(destination: LoginPage()
                                    //LoginPage()
@@ -157,11 +176,15 @@ struct VolunteerRegister: View {
                             .background(Color("ourBlue"))
                             .cornerRadius(8)
                             .fontWeight(.semibold)
-                        
+
                     })
                 }
                 
+                
                             .padding()
+                
+                
+            
                 Spacer()
                 
 //                Image(systemName: "exclamationmark.triangle")
@@ -229,10 +252,10 @@ public func body(content: Content) -> some View
 
 
 struct VolunteerRegister_Previews: PreviewProvider {
-      @StateObject static var otpModel : OTPviewModel = .init()
+      @StateObject static var modelView : userModelView = .init()
     //  @StateObject static var userModelView: userModelView = .init()
     static var previews: some View {
         VolunteerRegister()
-        .environmentObject(otpModel)
+        .environmentObject(modelView)
     }
 }

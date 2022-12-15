@@ -11,6 +11,8 @@ import SwiftUI
 struct recommendVolunteerCard: View {
     @State var showingVolunteerSheet = false
     var body: some View {
+        // there should be printing for all the dictionary list item
+        
         ZStack{
             RoundedRectangle(cornerRadius: 20)
                 .stroke(Color(.gray), lineWidth: 0.5)
@@ -123,6 +125,7 @@ struct recommendVolunteerCard: View {
 struct volunteerCard: View {
     @State var showingVolunteerSheet  = false
     var body: some View {
+        // there should be printing for all the dictionary list item
         ZStack{
             RoundedRectangle(cornerRadius: 20)
                 .stroke(Color(.gray), lineWidth: 0.5)
