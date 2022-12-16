@@ -13,7 +13,12 @@ struct MainPage: View {
     @State private var searchText = ""
     var categoriesList: [categories]
     
-    @State var volunteersList: [Volunteer]
+    //@State var volunteersList: [Volunteer]
+    
+    @StateObject var volunteerViewModel : VolunteerViewModel //create object volunteer....
+   /*/ init (volunteerViewModel : VolunteerViewModel){
+        _volunteerViewModel = StateObject(wrappedValue: volunteerViewModel) //call the object
+    }*/
     
     let columns = [GridItem(.flexible())]
     let rows = [GridItem(.flexible())]
@@ -47,8 +52,9 @@ struct MainPage: View {
                     LazyVGrid(columns: columns, spacing: 0) {
                         ScrollView(.horizontal){
                             LazyHGrid(rows: rows, spacing: 0) {
-                                ForEach(volunteersList) {eachVol in
-                                    recommendVolunteerCard(volunteerList: volunteersList, eachVol: eachVol)
+                                ForEach(volunteerViewModel.listVolunteerOpps) {listVol in
+                                   recommendVolunteerCard(volunteerViewModel: volunteerViewModel)
+                                    
                                 }
                                 .padding(.horizontal)
                             }
@@ -75,7 +81,8 @@ struct MainPage: View {
                 ScrollView(.vertical){
                     LazyVGrid(columns: columns, spacing: 10) {
                         ForEach(searchResults) { eachCategory in
-                            categoryRow(volunteersList: volunteersList, showingVolunteerSheet: $showingVolunteerSheet , eachCategory:eachCategory)
+                            //categoryRow(volunteersList: volunteersList, showingVolunteerSheet: $showingVolunteerSheet , eachCategory:eachCategory)
+                            categoryRow(volunteers: <#T##VolunteerViewModel#>, showingVolunteerSheet: <#T##Binding<Bool>#>, eachCategory: <#T##categories#>)
                         }
                     }
                 }
@@ -116,29 +123,30 @@ struct MainPage: View {
 
 //each category row
 struct categoryRow: View {
-   // @StateObject var volunteers = volunteerModelView()
-    var volunteersList: [Volunteer]
+    @StateObject var volunteers : VolunteerViewModel
+   // var volunteersList: [Volunteer]
     @Binding var showingVolunteerSheet : Bool
     var eachCategory:categories
     let rows = [
         GridItem(.flexible())
     ]
     var body: some View{
-        
-        Text(eachCategory.name)
-            .frame(maxWidth:350, alignment: .leading)
-            .font(.title2)
-            .fontWeight(.bold)
-            .foregroundColor(Color("ourOrange"))
-       
+        ForEach(volunteers.listVolunteerOpps){list in
+            
+            Text(list.VolunteerCategories)
+                .frame(maxWidth:350, alignment: .leading)
+                .font(.title2)
+                .fontWeight(.bold)
+                .foregroundColor(Color("ourOrange"))
+        }
         //category content
         ScrollView(.horizontal){
 
 
             LazyHGrid(rows: rows, spacing: 10) {
                    // Spacer()
-                ForEach(volunteersList.filter { $0.volunteerCategory.contains(eachCategory.name)}) {eachVol in
-                        volunteerCard(eachVol: eachVol)
+                ForEach(volunteers.listVolunteerOpps.filter { $0.VolunteerCategories.contains(eachCategory.name)}) {eachVol in
+                        volunteerCard(volunteerViewModel: volunteers)
                       
                     }
                     .padding()
@@ -150,6 +158,8 @@ struct categoryRow: View {
         
     }
 }
+
+
 
 //background header shape
 struct backgroundShape: Shape {
@@ -170,10 +180,13 @@ struct backgroundShape: Shape {
     }
 }
 
-
+/*
 struct MainPage_Previews: PreviewProvider {
+    var volunteerViewModel : VolunteerViewModel
+    
     static var previews: some View {
-        MainPage( categoriesList: categoriesList, volunteersList: volunteerList)
+        
+        MainPage( categoriesList: categoriesList, volunteersList: volunteerList, volunteerViewModel: volunteerViewModel )
     }
-}
+}*/
 

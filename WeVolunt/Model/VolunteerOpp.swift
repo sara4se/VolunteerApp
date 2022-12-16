@@ -13,6 +13,7 @@ import CloudKit
 struct VolunteerOpp: Identifiable {
     
     let id: CKRecord.ID
+    let VolunteerCategories : String
     let VolunteerTitle : String
     let OrganizationName : String
     let Description : String
@@ -26,6 +27,7 @@ struct VolunteerOpp: Identifiable {
     init(record:CKRecord) {
         
         self.id = record.recordID
+        self.VolunteerCategories = record["VolunteerCategories"] as? String ?? "N/A"
         self.VolunteerTitle = record["VolunteerTitle"] as? String ?? "N/A"
         self.OrganizationName = record["OrganizationNam"] as? String ?? "N/A"
         self.Description = record["Description"] as? String ?? "N/A"

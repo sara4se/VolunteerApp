@@ -70,7 +70,7 @@ struct InterestPage: View {
                 //next button
                 
                 VStack{
-                    NavigationLink(destination:   MainPage( categoriesList: categoriesList, volunteersList: volunteerList), label:{
+                    NavigationLink(destination:   LoginPage(), label:{
                         Text("Next")
                             .frame(width:281 , height:41 )
                             .foregroundColor(.white)
@@ -82,7 +82,7 @@ struct InterestPage: View {
                 
                 .toolbar{
                     
-                    NavigationLink(destination:  MainPage( categoriesList: categoriesList, volunteersList: volunteerList), label:{
+                    NavigationLink(destination:  LoginPage(), label:{
                         Text("Skip").foregroundColor(Color.skipColor).font(Font.custom("SF-Compact", size: CGFloat(20)))
                         
                     })
