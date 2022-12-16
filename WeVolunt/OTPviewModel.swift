@@ -44,7 +44,7 @@ class OTPviewModel: ObservableObject {
                 self.verificationCode = result
                 //   self.verificationCode = "123456"
                 self.navigationTag = "VERIFICATION"
-                self.log_status = true
+              //  self.log_status = true
                 
             }
             
