@@ -19,7 +19,7 @@ struct InterestPage: View {
     
     
     @StateObject var userSettings : UserSettings = UserSettings(enterdInterstTogle: true, username: "", isPrivate: true, arrayOfSelected: [])
-    @State var itemsTitles: [Title] = [Title(titleStr:"Environmental" , fontsize : 60) ,Title(titleStr:"Sports" , fontsize : 40),Title(titleStr:"Social" , fontsize : 40), Title(titleStr:"Religious" , fontsize : 60),Title(titleStr:"Technical" , fontsize : 50),Title(titleStr:"Education" , fontsize : 50),Title(titleStr:"Entertainment" , fontsize : 60) ,Title(titleStr:"Health" , fontsize : 40)]
+    @State var itemsTitles: [Title] = [Title(titleStr:"Environmental" , fontsize : 60) ,Title(titleStr:"Sports" , fontsize : 40),Title(titleStr:"Social" , fontsize : 30), Title(titleStr:"Religious" , fontsize : 60),Title(titleStr:"Technical" , fontsize : 50),Title(titleStr:"Education" , fontsize : 50),Title(titleStr:"Entertainment" , fontsize : 50) ,Title(titleStr:"Health" , fontsize : 40)]
     
     //  @State var selections: [String] = []
     let layout = [
