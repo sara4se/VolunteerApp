@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		569B17EA294C7F3D0068F1BF /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569B17E9294C7F3C0068F1BF /* UserSettings.swift */; };
 		D41ED3E429471FC800EFB697 /* OTPviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41ED3E329471FC800EFB697 /* OTPviewModel.swift */; };
 		D41ED3E6294721A300EFB697 /* userModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41ED3E5294721A300EFB697 /* userModelView.swift */; };
 		D41ED3E8294721E200EFB697 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41ED3E7294721E200EFB697 /* User.swift */; };
@@ -36,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		569B17E9294C7F3C0068F1BF /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		569B17EC294C7F590068F1BF /* SF-Compact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact.ttf"; sourceTree = "<group>"; };
 		D41ED3E329471FC800EFB697 /* OTPviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPviewModel.swift; sourceTree = "<group>"; };
 		D41ED3E5294721A300EFB697 /* userModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userModelView.swift; sourceTree = "<group>"; };
 		D41ED3E7294721E200EFB697 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -78,6 +81,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		569B17EB294C7F590068F1BF /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				569B17EC294C7F590068F1BF /* SF-Compact.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		D41ED3E9294732B000EFB697 /* volunteerRegist */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +126,7 @@
 		D44D20E1293F4AB700E5FCEC /* WeVolunt */ = {
 			isa = PBXGroup;
 			children = (
+				569B17EB294C7F590068F1BF /* Fonts */,
 				D4C7CA9129491351009AB02D /* WeVolunt.entitlements */,
 				D41ED3ED2948630C00EFB697 /* Info.plist */,
 				D41ED3EA2948629D00EFB697 /* shared */,
@@ -123,6 +135,7 @@
 				D44D20F0293F7B3E00E5FCEC /* SplashScreen.swift */,
 				D44D20F2293F7B6300E5FCEC /* MainPage.swift */,
 				D44D20F8293F853C00E5FCEC /* SelectedVolunteer.swift */,
+				569B17E9294C7F3C0068F1BF /* UserSettings.swift */,
 				D44D20F4293F7C2E00E5FCEC /* InterestPage.swift */,
 				D44D2100293F8ACA00E5FCEC /* SignUp.swift */,
 				D44D2106293F937C00E5FCEC /* EnrolledVolunteer.swift */,
@@ -265,6 +278,7 @@
 				D47D2D97294B3DC800087BC5 /* volunteer.swift in Sources */,
 				D44D20F7293F83EE00E5FCEC /* ProfilePage.swift in Sources */,
 				D44D20F1293F7B3E00E5FCEC /* SplashScreen.swift in Sources */,
+				569B17EA294C7F3D0068F1BF /* UserSettings.swift in Sources */,
 				D41ED3E429471FC800EFB697 /* OTPviewModel.swift in Sources */,
 				D44D20FD293F8A5E00E5FCEC /* OTPverify.swift in Sources */,
 				D45FD37D2941B9640023819B /* categories.swift in Sources */,
@@ -410,7 +424,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WeVolunt/Preview Content\"";
-				DEVELOPMENT_TEAM = KX287ZLHJH;
+				DEVELOPMENT_TEAM = 44QNX63HR6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeVolunt/Info.plist;

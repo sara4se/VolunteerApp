@@ -7,18 +7,20 @@
 
 import SwiftUI
 
-
 extension Color {
     static let skipColor = Color("SkipColor")
     static let darkBlue = Color("DarkBlue")
     static let lightBlue = Color("LightBlue")
     static let babyBlue = Color("BabyBlue")
+    static let DarkOrange = Color("DarkOrange")
+    static let LightOrange = Color("LightOrange")
     static let backgroundColor = Color("BackgroundColor")
     
 }
 
 struct SplashScreen: View {
-    @State var tapLocation: CGPoint?
+   
+   @State var tapLocation: CGPoint?
     @State private var isActive = false
     var body: some View {
         ZStack{
@@ -46,7 +48,7 @@ struct SplashScreen: View {
             }
         }
         .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 withAnimation (.easeOut){
                     self.isActive = true
                 }
