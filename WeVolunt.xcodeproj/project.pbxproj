@@ -65,6 +65,8 @@
 		D47D2D96294B3DC800087BC5 /* volunteer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = volunteer.swift; sourceTree = "<group>"; };
 		D47D2D98294B43C500087BC5 /* volunteerModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = volunteerModelView.swift; sourceTree = "<group>"; };
 		D4C7CA9129491351009AB02D /* WeVolunt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WeVolunt.entitlements; sourceTree = "<group>"; };
+		F400FA91294CEA8700F5A77B /* VolunteerOpp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerOpp.swift; sourceTree = "<group>"; };
+		F400FA93294CEA8E00F5A77B /* volunteerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = volunteerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,8 @@
 		D44D20E1293F4AB700E5FCEC /* WeVolunt */ = {
 			isa = PBXGroup;
 			children = (
+				F400FA92294CEA8E00F5A77B /* ViewModel */,
+				F400FA90294CEA8700F5A77B /* Model */,
 				569B17EB294C7F590068F1BF /* Fonts */,
 				D4C7CA9129491351009AB02D /* WeVolunt.entitlements */,
 				D41ED3ED2948630C00EFB697 /* Info.plist */,
@@ -193,6 +197,22 @@
 			children = (
 			);
 			path = "OTP verification";
+			sourceTree = "<group>";
+		};
+		F400FA90294CEA8700F5A77B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F400FA91294CEA8700F5A77B /* VolunteerOpp.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F400FA92294CEA8E00F5A77B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F400FA93294CEA8E00F5A77B /* volunteerViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -421,10 +441,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = WeVolunt/WeVolunt.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WeVolunt/Preview Content\"";
-				DEVELOPMENT_TEAM = 44QNX63HR6;
+				DEVELOPMENT_TEAM = 45BF26C7ZG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeVolunt/Info.plist;
@@ -438,8 +459,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.WeVolunt;
+				PRODUCT_BUNDLE_IDENTIFIER = twq.com.example.WeVolunt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -452,10 +474,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = WeVolunt/WeVolunt.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WeVolunt/Preview Content\"";
-				DEVELOPMENT_TEAM = KX287ZLHJH;
+				DEVELOPMENT_TEAM = 45BF26C7ZG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeVolunt/Info.plist;
@@ -469,8 +492,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.WeVolunt;
+				PRODUCT_BUNDLE_IDENTIFIER = twq.com.example.WeVolunt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
