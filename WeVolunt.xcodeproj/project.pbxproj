@@ -35,6 +35,8 @@
 		D47D2D97294B3DC800087BC5 /* volunteer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47D2D96294B3DC800087BC5 /* volunteer.swift */; };
 		D47D2D99294B43C500087BC5 /* volunteerModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47D2D98294B43C500087BC5 /* volunteerModelView.swift */; };
 		D49C215A294EEE3700BB900F /* mustloginpage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49C2159294EEE3700BB900F /* mustloginpage.swift */; };
+		F400FA94294CEEB000F5A77B /* VolunteerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F400FA93294CEA8E00F5A77B /* VolunteerViewModel.swift */; };
+		F400FA97294CEF6E00F5A77B /* VolunteerOpp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F400FA91294CEA8700F5A77B /* VolunteerOpp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +69,8 @@
 		D47D2D98294B43C500087BC5 /* volunteerModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = volunteerModelView.swift; sourceTree = "<group>"; };
 		D49C2159294EEE3700BB900F /* mustloginpage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mustloginpage.swift; sourceTree = "<group>"; };
 		D4C7CA9129491351009AB02D /* WeVolunt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WeVolunt.entitlements; sourceTree = "<group>"; };
+		F400FA91294CEA8700F5A77B /* VolunteerOpp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerOpp.swift; sourceTree = "<group>"; };
+		F400FA93294CEA8E00F5A77B /* VolunteerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,8 @@
 		D44D20E1293F4AB700E5FCEC /* WeVolunt */ = {
 			isa = PBXGroup;
 			children = (
+				F400FA98294CEF7D00F5A77B /* Model */,
+				F400FA96294CEF1A00F5A77B /* ViewModel */,
 				569B17EB294C7F590068F1BF /* Fonts */,
 				D4C7CA9129491351009AB02D /* WeVolunt.entitlements */,
 				D41ED3ED2948630C00EFB697 /* Info.plist */,
@@ -196,6 +202,22 @@
 			children = (
 			);
 			path = "OTP verification";
+			sourceTree = "<group>";
+		};
+		F400FA96294CEF1A00F5A77B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F400FA93294CEA8E00F5A77B /* VolunteerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F400FA98294CEF7D00F5A77B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F400FA91294CEA8700F5A77B /* VolunteerOpp.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D44D20FB293F89A600E5FCEC /* LoginPage.swift in Sources */,
+				F400FA94294CEEB000F5A77B /* VolunteerViewModel.swift in Sources */,
 				D47D2D97294B3DC800087BC5 /* volunteer.swift in Sources */,
 				D44D20F7293F83EE00E5FCEC /* ProfilePage.swift in Sources */,
 				D44D20F1293F7B3E00E5FCEC /* SplashScreen.swift in Sources */,
@@ -287,6 +310,7 @@
 				D45FD37D2941B9640023819B /* categories.swift in Sources */,
 				D44D2107293F937C00E5FCEC /* EnrolledVolunteer.swift in Sources */,
 				D44D20E3293F4AB700E5FCEC /* WeVoluntApp.swift in Sources */,
+				F400FA97294CEF6E00F5A77B /* VolunteerOpp.swift in Sources */,
 				D44D20F9293F853C00E5FCEC /* SelectedVolunteer.swift in Sources */,
 				D45FD382294211FA0023819B /* categoriesModelView.swift in Sources */,
 				D41ED3E6294721A300EFB697 /* userModelView.swift in Sources */,
@@ -425,6 +449,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = WeVolunt/WeVolunt.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WeVolunt/Preview Content\"";
@@ -442,8 +467,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.WeVolunt;
+				PRODUCT_BUNDLE_IDENTIFIER = me.sara.twq.com.example.WeVolunt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -456,10 +482,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = WeVolunt/WeVolunt.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WeVolunt/Preview Content\"";
-				DEVELOPMENT_TEAM = KX287ZLHJH;
+				DEVELOPMENT_TEAM = 44QNX63HR6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeVolunt/Info.plist;
@@ -473,8 +500,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.WeVolunt;
+				PRODUCT_BUNDLE_IDENTIFIER = me.sara.twq.com.example.WeVolunt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

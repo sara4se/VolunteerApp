@@ -6,16 +6,22 @@
 //
 
 import SwiftUI
+import CloudKit
 
 //this is the recommendation card
 struct recommendVolunteerCard: View {
   //  @StateObject var volunteers = volunteerModelView()
-  //  @StateObject var  volunteerList = [volunteers.volunteerList]
+  // @StateObject var  volunteerList = [volunteers.volunteerList]
     
  
-    @State var volunteerList: [Volunteer]
+    @State var volunteerList: VolunteerOpp
     @State var showingVolunteerSheet = false
-    var eachVol: Volunteer
+   // var eachVol: Volunteer
+    
+    @StateObject var volunteerViewModel : VolunteerViewModel = VolunteerViewModel() //create object volunteer....
+   /*/ init (volunteerViewModel : VolunteerViewModel){
+        _volunteerViewModel = StateObject(wrappedValue: volunteerViewModel) //call the object
+    }*/
     
     var body: some View {
      
@@ -44,31 +50,36 @@ struct recommendVolunteerCard: View {
                                 VStack {
                                     
                                     //volunteer Title
-                                    Text(eachVol.volunteerName)
-                                        .foregroundColor(Color("volunteerFont"))
-                                        .padding(.top)
-                                    // seperater line
-                                    Rectangle()
-                                        .fill(Color("volunteerFont"))
-                                        .frame(height:0.5)
+                                    //Text(eachVol.volunteerName)
+                                    
+                                    Text(volunteerList.VolunteerTitle)
+                                            .foregroundColor(Color("volunteerFont"))
+                                            .padding(.top)
+                                        // seperater line
+                                        Rectangle()
+                                            .fill(Color("volunteerFont"))
+                                            .frame(height:0.5)
+                                    
+                                    
+                                     
                                     
                                     HStack(alignment: .center){
                                         
                                         Image(systemName: "mappin.and.ellipse")
                                             .foregroundColor(Color("ourOrange"))
-                                        Text(eachVol.volunteerLocation)
+                                        Text(volunteerList.Location)
                                             .font(.callout)
                                             .foregroundColor(Color("volunteerFont"))
                                         Image(systemName: "calendar")
                                             .foregroundColor(Color("ourOrange"))
-                                        Text(eachVol.volunteerDate)
+                                        Text(volunteerList.Date)
                                             .font(.callout)
                                             .foregroundColor(Color("volunteerFont"))
                                         
                                         
-                                        
-                                        
                                     }
+                                        
+                                    
                                     
                                 }
                                 Spacer()
@@ -132,7 +143,8 @@ struct recommendVolunteerCard: View {
 //this is all categories volunteering cards
 struct volunteerCard: View {
     @State var showingVolunteerSheet  = false
-    var eachVol: Volunteer
+    @StateObject var volunteerViewModel : VolunteerViewModel
+   // var eachVol: Volunteer
     var body: some View {
         // there should be printing for all the dictionary list item
         
@@ -155,42 +167,43 @@ struct volunteerCard: View {
                         
                         VStack(alignment: .center) {
                             //volunteer Title
-                            Text(eachVol.volunteerName)
-                                .foregroundColor(Color("volunteerFont"))
-                            
-                            // seperater line
-                            Rectangle()
-                                .fill(Color("volunteerFont"))
-                                .frame(height:0.5)
-                            
-                            HStack{
-                                // orgnization logo
-                                Image("volunteerCompany")
-                                    .resizable()
-                                    .clipShape(Circle())
-                                    .frame(width: 37, height: 37)
-                                VStack{
-                                    HStack{
-                                        Spacer()
-                                        Image(systemName: "mappin.and.ellipse")
-                                            .foregroundColor(Color("ourOrange"))
-                                        Text(eachVol.volunteerLocation)
-                                            .font(.callout)
-                                            .foregroundColor(Color("volunteerFont"))
-                                        Spacer()
+                            ForEach(volunteerViewModel.listVolunteerOpps) { list in
+                                Text(list.VolunteerTitle)
+                                    .foregroundColor(Color("volunteerFont"))
+                                
+                                // seperater line
+                                Rectangle()
+                                    .fill(Color("volunteerFont"))
+                                    .frame(height:0.5)
+                                
+                                HStack{
+                                    // orgnization logo
+                                    Image("volunteerCompany")
+                                        .resizable()
+                                        .clipShape(Circle())
+                                        .frame(width: 37, height: 37)
+                                    VStack{
+                                        HStack{
+                                            Spacer()
+                                            Image(systemName: "mappin.and.ellipse")
+                                                .foregroundColor(Color("ourOrange"))
+                                            Text(list.Location)
+                                                .font(.callout)
+                                                .foregroundColor(Color("volunteerFont"))
+                                            Spacer()
+                                        }
+                                        HStack{
+                                            Spacer()
+                                            Image(systemName: "calendar")
+                                                .foregroundColor(Color("ourOrange"))
+                                            Text(list.Date)
+                                                .font(.callout)
+                                                .foregroundColor(Color("volunteerFont"))
+                                        }
+                                        .padding(.trailing, 5.0)
                                     }
-                                    HStack{
-                                        Spacer()
-                                        Image(systemName: "calendar")
-                                            .foregroundColor(Color("ourOrange"))
-                                        Text(eachVol.volunteerDate)
-                                            .font(.callout)
-                                            .foregroundColor(Color("volunteerFont"))
-                                    }
-                                    .padding(.trailing, 5.0)
                                 }
                             }
-                            
                         }
                         Spacer()
                     }

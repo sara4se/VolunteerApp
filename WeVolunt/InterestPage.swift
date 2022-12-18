@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CloudKit
 
 struct Title : Identifiable {
     var titleStr = ""
@@ -17,7 +18,14 @@ struct Title : Identifiable {
 
 struct InterestPage: View {
     
-    
+//    var categoriesList: [categories]
+    @StateObject var categorie : categories = categories() //create object
+   //@State var volunteersList: [Volunteer]
+   @StateObject var volunteerViewModel : VolunteerViewModel = VolunteerViewModel()  //create object
+//    init (volunteerViewModel : VolunteerViewModel){
+//         _volunteerViewModel = StateObject(wrappedValue: volunteerViewModel)
+//     }
+  
     @StateObject var userSettings : UserSettings = UserSettings(enterdInterstTogle: true, username: "", isPrivate: true, arrayOfSelected: [])
     @State var itemsTitles: [Title] = [Title(titleStr:"Environmental" , fontsize : 60) ,Title(titleStr:"Sports" , fontsize : 40),Title(titleStr:"Social" , fontsize : 30), Title(titleStr:"Religious" , fontsize : 60),Title(titleStr:"Technical" , fontsize : 50),Title(titleStr:"Education" , fontsize : 50),Title(titleStr:"Entertainment" , fontsize : 50) ,Title(titleStr:"Health" , fontsize : 40)]
     
@@ -49,13 +57,14 @@ struct InterestPage: View {
                 VStack(spacing: 1){
                     ScrollView(.vertical){
                         LazyVGrid(columns: layout, spacing: 10) {
-                            ForEach(self.itemsTitles) { item in
-                                MultipleSelectionRow(title: item.titleStr, isSelected: userSettings.arrayOfSelected.contains(item.titleStr) , font: UIFont.systemFont(ofSize:CGFloat(item.fontsize) , weight: .light) ) {
-                                    if userSettings.arrayOfSelected.contains(item.titleStr) {
-                                        userSettings.arrayOfSelected.removeAll(where: { $0 == item.titleStr })
+                            ForEach(categoriesList) { item in
+                                MultipleSelectionRow(title: item.name, isSelected: userSettings.arrayOfSelected.contains(item.name))
+                                {
+                                    if userSettings.arrayOfSelected.contains(item.name) {
+                                        userSettings.arrayOfSelected.removeAll(where: { $0 == item.name })
                                     }
                                     else {
-                                        userSettings.arrayOfSelected.append(item.titleStr)
+                                        userSettings.arrayOfSelected.append(item.name)
                                         self.itemsTitles.removeAll(where: {$0.id == item.id})
                                         
                                     }
@@ -70,7 +79,7 @@ struct InterestPage: View {
                 //next button
                 
                 VStack{
-                    NavigationLink(destination:   MainPage( categoriesList: categoriesList, volunteersList: volunteerList), label:{
+                    NavigationLink(destination: MainPage() , label:{
                         Text("Next")
                             .frame(width:281 , height:41 )
                             .foregroundColor(.white)
@@ -82,12 +91,16 @@ struct InterestPage: View {
                 
                 .toolbar{
                     
-                    NavigationLink(destination:  MainPage( categoriesList: categoriesList, volunteersList: volunteerList), label:{
+                    NavigationLink(destination:  MainPage() , label:{
                         Text("Skip").foregroundColor(Color.skipColor).font(Font.custom("SF-Compact", size: CGFloat(20)))
                         
                     })
                 }
             }
+        }.onAppear{
+             
+                volunteerViewModel.fetchProfile()
+            
         }.background(Color.backgroundColor)
     }
     
@@ -97,7 +110,7 @@ struct InterestPage: View {
         var title: String
         var isSelected: Bool
         
-        var font = UIFont.preferredFont(forTextStyle: .body)  // << default !!
+      //  var font = UIFont.preferredFont(forTextStyle: .body)  // << default !!
         
         var action: () -> Void
         
@@ -105,7 +118,7 @@ struct InterestPage: View {
         @State private var dim = false
         
         var body: some View {
-            let size = font.lineHeight * 2.0
+          //  let size = font.lineHeight * 2.0
             
             Button(action: self.action,
                    label: {
@@ -114,7 +127,7 @@ struct InterestPage: View {
                     if self.isSelected {
                     }
                 }
-            }).frame(width: size, height: 49)
+            }).frame(width: 100, height: 49)
                 .foregroundColor(self.isSelected ? Color.white : Color.lightBlue)
                 .background(self.isSelected ? Color.skipColor : Color.backgroundColor)
                 .overlay( /// apply a rounded border
@@ -136,8 +149,13 @@ struct InterestPage: View {
         }
     }
 }
+
+
 struct InterestPage_Previews: PreviewProvider {
+    
+ 
+    
     static var previews: some View {
-        InterestPage()
+      InterestPage()
     }
 }
