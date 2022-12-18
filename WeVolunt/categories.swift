@@ -8,13 +8,18 @@
 import Foundation
 
 // A struct to store exactly one category
-struct categories: Identifiable {
+class categories: Identifiable , ObservableObject {
     let id = UUID()
-    let name: String
+    var name: String = ""
+    
+    init(name: String) {
+        self.name = name
+    }
+    init() {
+        
+    }
 }
-
-
-var categoriesList = [
+ var categoriesList = [
     categories(name: "Environmental"),
     categories(name: "Religious"),
     categories(name: "Entertainment"),
@@ -24,6 +29,6 @@ var categoriesList = [
     categories(name: "Technical"),
     categories(name: "Sports")
 ]
-
+    
 
 

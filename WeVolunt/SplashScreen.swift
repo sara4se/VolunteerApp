@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CloudKit
 
 extension Color {
     static let skipColor = Color("SkipColor")
@@ -19,14 +20,14 @@ extension Color {
 }
 
 struct SplashScreen: View {
-   
+     
    @State var tapLocation: CGPoint?
     @State private var isActive = false
     var body: some View {
         ZStack{
             
             if self.isActive{
-                InterestPage()
+              InterestPage()
             }
             else{
                 VStack{
