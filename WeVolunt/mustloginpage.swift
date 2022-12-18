@@ -15,7 +15,7 @@ struct mustloginpage: View {
     var body: some View {
         VStack(spacing: 20){
             if (otpModel.log_status == false) {
-             //   else{
+             //   else{ 
                     VStack(alignment:.center){
                                     Image(systemName: "exclamationmark.triangle")
                                         .font(.system(size: 60))
