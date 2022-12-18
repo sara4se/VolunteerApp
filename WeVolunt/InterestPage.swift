@@ -21,7 +21,6 @@ struct InterestPage: View {
 //    var categoriesList: [categories]
     @StateObject var categorie : categories = categories() //create object
    //@State var volunteersList: [Volunteer]
-   
    @StateObject var volunteerViewModel : VolunteerViewModel = VolunteerViewModel()  //create object
 //    init (volunteerViewModel : VolunteerViewModel){
 //         _volunteerViewModel = StateObject(wrappedValue: volunteerViewModel)
@@ -98,6 +97,10 @@ struct InterestPage: View {
                     })
                 }
             }
+        }.onAppear{
+             
+                volunteerViewModel.fetchProfile()
+            
         }.background(Color.backgroundColor)
     }
     
