@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct OTPverify: View {
+    
     //this is for the user model view
     // @StateObject static var userModelView: userModelView = .init()
     
     // this is for the OTP model view
     @EnvironmentObject var otpModel : OTPviewModel
-    
+    @Binding var showingVolunteerSheet: Bool
     //textfield focus state
     @FocusState var activeField: OTPfield?
     
@@ -78,14 +79,17 @@ struct OTPverify: View {
                 ProgressView()
                     .opacity(otpModel.isLoading ? 1 : 0)
                 //the navigation button will appear when the virification code is sent
-                if (otpModel.log_status){
-                    NavigationLink(destination: VolunteerRegister().environmentObject(otpModel) , label:{
+                
+             //   if (otpModel.log_status){
+                    NavigationLink(destination: VolunteerRegister(showingVolunteerSheet:$showingVolunteerSheet).environmentObject(otpModel) , label:{
                         Text("this is navigstion")
                             .foregroundColor(.white)
                             .background(Color("ourBlue"))
                             .cornerRadius(8)
                             .fontWeight(.semibold)
-                    })}
+                    })
+                    
+             //   }
             }
             
             Spacer()
@@ -185,7 +189,7 @@ enum OTPfield{
 struct OTPverify_Previews: PreviewProvider {
     @StateObject static var otpModel : OTPviewModel = .init()
     static var previews: some View {
-        OTPverify().environmentObject(otpModel)
+        OTPverify(showingVolunteerSheet: .constant(true)).environmentObject(otpModel)
     }
 }
 

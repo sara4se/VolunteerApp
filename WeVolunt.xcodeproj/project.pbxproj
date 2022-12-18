@@ -34,6 +34,7 @@
 		D45FD3842942137E0023819B /* volunteerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45FD3832942137E0023819B /* volunteerCard.swift */; };
 		D47D2D97294B3DC800087BC5 /* volunteer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47D2D96294B3DC800087BC5 /* volunteer.swift */; };
 		D47D2D99294B43C500087BC5 /* volunteerModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47D2D98294B43C500087BC5 /* volunteerModelView.swift */; };
+		D49C215A294EEE3700BB900F /* mustloginpage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49C2159294EEE3700BB900F /* mustloginpage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		D45FD3832942137E0023819B /* volunteerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = volunteerCard.swift; sourceTree = "<group>"; };
 		D47D2D96294B3DC800087BC5 /* volunteer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = volunteer.swift; sourceTree = "<group>"; };
 		D47D2D98294B43C500087BC5 /* volunteerModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = volunteerModelView.swift; sourceTree = "<group>"; };
+		D49C2159294EEE3700BB900F /* mustloginpage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mustloginpage.swift; sourceTree = "<group>"; };
 		D4C7CA9129491351009AB02D /* WeVolunt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WeVolunt.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +143,7 @@
 				D44D2106293F937C00E5FCEC /* EnrolledVolunteer.swift */,
 				D44D2104293F8BE300E5FCEC /* SubmitNotify.swift */,
 				D44D2102293F8B0A00E5FCEC /* VolunteerRegister.swift */,
+				D49C2159294EEE3700BB900F /* mustloginpage.swift */,
 				D41ED3E329471FC800EFB697 /* OTPviewModel.swift */,
 				D44D20FC293F8A5E00E5FCEC /* OTPverify.swift */,
 				D44D20FA293F89A600E5FCEC /* LoginPage.swift */,
@@ -295,6 +298,7 @@
 				D44D2105293F8BE300E5FCEC /* SubmitNotify.swift in Sources */,
 				D44D2101293F8ACA00E5FCEC /* SignUp.swift in Sources */,
 				D41ED3E8294721E200EFB697 /* User.swift in Sources */,
+				D49C215A294EEE3700BB900F /* mustloginpage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

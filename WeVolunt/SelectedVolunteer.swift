@@ -126,7 +126,7 @@ struct SelectedVolunteer: View {
                             //enroll button
                             Button{
                             }label: {
-                                NavigationLink(destination: VolunteerRegister(), label:{
+                                NavigationLink(destination: mustloginpage(showingVolunteerSheet:$showingVolunteerSheet), label:{
                                     Text("Enroll")
                                         .frame(width:281 , height:41 )
                                         .foregroundColor(.white)

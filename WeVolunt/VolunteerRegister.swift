@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct VolunteerRegister: View {
-    @State var showingVolunteerSheet = false
+    @Binding var showingVolunteerSheet: Bool
 
   //  @EnvironmentObject var otpModel: OTPviewModel
    @StateObject var otpModel: OTPviewModel = OTPviewModel()
@@ -28,7 +28,7 @@ struct VolunteerRegister: View {
         VStack(spacing: 20){
             
             //if the user alr logged in the form page will appear
-            if (otpModel.log_status) {
+         //   if (otpModel.log_status) {
 //                if(modelView.user.isLogd){
 //
 //                        NavigationLink(destination: LoginPage()
@@ -146,74 +146,9 @@ struct VolunteerRegister: View {
                     })
                 }
              
-            }
+          //  }
             
             
-            
-            
-            //if the user isnt logging in then the u must login will appear
-            else{
-                VStack(alignment:.center){
-                                Image(systemName: "exclamationmark.triangle")
-                                    .font(.system(size: 60))
-                                    .imageScale(.large)
-                                    .foregroundColor(.orange)
-                                Text("you must login").bold()
-                            }.padding(.top,100)
-                            Spacer()
-                            
-                            //login button (look for a way to make the navigation link into a button and go to the login page
-                            
-                Button{
-                 //   otpModel.log_status.toggle()
-                }label: {
-                    NavigationLink(destination: LoginPage()
-                                   //LoginPage()
-                                   , label:{
-                        Text("Login")
-                            .frame(width:281 , height:41 )
-                            .foregroundColor(.white)
-                            .background(Color("ourBlue"))
-                            .cornerRadius(8)
-                            .fontWeight(.semibold)
-
-                    })
-                }
-                
-                
-                            .padding()
-                
-                
-            
-                Spacer()
-                
-//                Image(systemName: "exclamationmark.triangle")
-//                    .imageScale(.large)
-//                    .foregroundColor(.orange)
-//                Text("you must login")
-                
-                
-                //login button (look for a way to make the navigation link into a button and go to the login page
-//                Button{
-//                   log_status.toggle()
-//                }label: {
-//                    NavigationLink(destination: LoginPage()
-//                                   //LoginPage()
-//                                   , label:{
-//                        Text("Login")
-//                        Text("Login")
-//                            .frame(width:281 , height:41 )
-//                            .foregroundColor(.white)
-//                            .background(Color("ourBlue"))
-//                            .cornerRadius(8)
-//                            .fontWeight(.semibold)
-//
-//                    })
-//                }
-//
-                //this will trigger the botton and switch it once its clicked
-                //  modelView.user.isLogd.toggle()
-            }
         }
         
         
@@ -252,10 +187,10 @@ public func body(content: Content) -> some View
 
 
 struct VolunteerRegister_Previews: PreviewProvider {
-      @StateObject static var modelView : userModelView = .init()
+//      @StateObject static var modelView : userModelView = .init()
     //  @StateObject static var userModelView: userModelView = .init()
     static var previews: some View {
-        VolunteerRegister()
-        .environmentObject(modelView)
+        VolunteerRegister(showingVolunteerSheet: .constant(true))
+//        .environmentObject(modelView)
     }
 }

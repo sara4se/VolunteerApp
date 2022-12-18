@@ -11,7 +11,6 @@ struct SubmitNotify: View {
     @Binding var showingVolunteerSheet: Bool
     var body: some View {
         VStack{
-                  
                   ZStack{
                       VStack{
                           Image(systemName: "checkmark.circle")
