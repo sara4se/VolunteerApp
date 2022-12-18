@@ -18,7 +18,7 @@ struct recommendVolunteerCard: View {
     @State var showingVolunteerSheet = false
    // var eachVol: Volunteer
     
-    @StateObject var volunteerViewModel : VolunteerViewModel //create object volunteer....
+    @StateObject var volunteerViewModel : VolunteerViewModel = VolunteerViewModel() //create object volunteer....
    /*/ init (volunteerViewModel : VolunteerViewModel){
         _volunteerViewModel = StateObject(wrappedValue: volunteerViewModel) //call the object
     }*/

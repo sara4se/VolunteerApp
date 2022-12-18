@@ -6,16 +6,17 @@
 //
 
 import SwiftUI
+import CloudKit
 
 struct MainPage: View {
     @State var showingVolunteerSheet = false
     @State var recommendations = false
     @State private var searchText = ""
-    var categoriesList: [categories]
-    
+    // var categoriesList: [categories]
+  //  @StateObject var categories : categories  //create object
     //@State var volunteersList: [Volunteer]
     
-    @StateObject var volunteerViewModel : VolunteerViewModel //create object volunteer....
+    @StateObject var volunteerViewModel : VolunteerViewModel = VolunteerViewModel()  //create object volunteer....
    /*/ init (volunteerViewModel : VolunteerViewModel){
         _volunteerViewModel = StateObject(wrappedValue: volunteerViewModel) //call the object
     }*/
@@ -53,7 +54,7 @@ struct MainPage: View {
                         ScrollView(.horizontal){
                             LazyHGrid(rows: rows, spacing: 0) {
                                 ForEach(volunteerViewModel.listVolunteerOpps) {listVol in
-                                   recommendVolunteerCard(volunteerViewModel: volunteerViewModel)
+                                    recommendVolunteerCard()
                                     
                                 }
                                 .padding(.horizontal)
@@ -82,7 +83,7 @@ struct MainPage: View {
                     LazyVGrid(columns: columns, spacing: 10) {
                         ForEach(searchResults) { eachCategory in
                             //categoryRow(volunteersList: volunteersList, showingVolunteerSheet: $showingVolunteerSheet , eachCategory:eachCategory)
-                            categoryRow(volunteers: <#T##VolunteerViewModel#>, showingVolunteerSheet: <#T##Binding<Bool>#>, eachCategory: <#T##categories#>)
+                            categoryRow(showingVolunteerSheet: $showingVolunteerSheet, eachCategory: eachCategory)
                         }
                     }
                 }
@@ -123,10 +124,10 @@ struct MainPage: View {
 
 //each category row
 struct categoryRow: View {
-    @StateObject var volunteers : VolunteerViewModel
+    @StateObject var volunteers : VolunteerViewModel = VolunteerViewModel()
    // var volunteersList: [Volunteer]
     @Binding var showingVolunteerSheet : Bool
-    var eachCategory:categories
+    var eachCategory : categories
     let rows = [
         GridItem(.flexible())
     ]
