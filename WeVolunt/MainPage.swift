@@ -54,8 +54,8 @@ struct MainPage: View {
                         ScrollView(.horizontal){
                             LazyHGrid(rows: rows, spacing: 0) {
                                 ForEach(volunteerViewModel.listVolunteerOpps) {listVol in
-                                    recommendVolunteerCard()
-                                    
+                                 //   recommendVolunteerCard(listVol)
+                                   recommendVolunteerCard(volunteerList: listVol)
                                 }
                                 .padding(.horizontal)
                             }
@@ -104,6 +104,8 @@ struct MainPage: View {
             }
          //   .searchable(text: $searchText, placement:.automatic, prompt: "Searcah for categories" )
      
+        }.onAppear{
+            volunteerViewModel.fetchProfile()
         }
         
         .accentColor(.white)

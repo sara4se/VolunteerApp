@@ -11,10 +11,10 @@ import CloudKit
 //this is the recommendation card
 struct recommendVolunteerCard: View {
   //  @StateObject var volunteers = volunteerModelView()
-  //  @StateObject var  volunteerList = [volunteers.volunteerList]
+  // @StateObject var  volunteerList = [volunteers.volunteerList]
     
  
-    //@State var volunteerList: [Volunteer]
+    @State var volunteerList: VolunteerOpp
     @State var showingVolunteerSheet = false
    // var eachVol: Volunteer
     
@@ -51,8 +51,8 @@ struct recommendVolunteerCard: View {
                                     
                                     //volunteer Title
                                     //Text(eachVol.volunteerName)
-                                    ForEach(volunteerViewModel.listVolunteerOpps) { list in
-                                        Text(list.VolunteerTitle)
+                                    
+                                    Text(volunteerList.VolunteerTitle)
                                             .foregroundColor(Color("volunteerFont"))
                                             .padding(.top)
                                         // seperater line
@@ -67,19 +67,19 @@ struct recommendVolunteerCard: View {
                                         
                                         Image(systemName: "mappin.and.ellipse")
                                             .foregroundColor(Color("ourOrange"))
-                                        Text(list.Location)
+                                        Text(volunteerList.Location)
                                             .font(.callout)
                                             .foregroundColor(Color("volunteerFont"))
                                         Image(systemName: "calendar")
                                             .foregroundColor(Color("ourOrange"))
-                                        Text(list.Date)
+                                        Text(volunteerList.Date)
                                             .font(.callout)
                                             .foregroundColor(Color("volunteerFont"))
                                         
                                         
                                     }
                                         
-                                    }
+                                    
                                     
                                 }
                                 Spacer()
