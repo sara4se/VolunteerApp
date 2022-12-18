@@ -113,7 +113,7 @@ struct InterestPage: View {
       //  var font = UIFont.preferredFont(forTextStyle: .body)  // << default !!
         
         var action: () -> Void
-         
+          
         @State private var half = false
         @State private var dim = false
         
