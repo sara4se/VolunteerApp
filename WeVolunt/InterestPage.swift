@@ -91,7 +91,7 @@ struct InterestPage: View {
                 
                 .toolbar{
                     
-                    NavigationLink(destination:  MainPage() , label:{
+                    NavigationLink(destination: MainPage() , label:{
                         Text("Skip").foregroundColor(Color.skipColor).font(Font.custom("SF-Compact", size: CGFloat(20)))
                         
                     })
@@ -113,7 +113,7 @@ struct InterestPage: View {
       //  var font = UIFont.preferredFont(forTextStyle: .body)  // << default !!
         
         var action: () -> Void
-        
+         
         @State private var half = false
         @State private var dim = false
         
