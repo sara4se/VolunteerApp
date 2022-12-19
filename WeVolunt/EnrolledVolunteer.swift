@@ -9,7 +9,10 @@ import SwiftUI
 
 struct EnrolledVolunteer: View {
     @Binding var showingVolunteerSheet: Bool
-
+    @State var volunteerList: VolunteerOpp
+    @StateObject var volunteerViewModel : VolunteerViewModel = VolunteerViewModel()  //create object
+    
+    
     var body: some View {
         ScrollView(.vertical){
             
@@ -25,7 +28,7 @@ struct EnrolledVolunteer: View {
                 //
                 Spacer()
                 // *** START PAGE CONTENT ***
-                Text("Helping Affected Families ")
+                Text(volunteerList.VolunteerTitle)
                     .font(.system(size: 24,weight: .bold))
                     .foregroundColor(Color("ourBlue"))
                     .multilineTextAlignment(.leading)
@@ -33,20 +36,23 @@ struct EnrolledVolunteer: View {
                     .padding(.bottom,3)
                 
                 
-                Text("Nafaa  Charity Association")
+                Text(volunteerList.OrganizationName)
                     .font(.system(size: 19 , weight: .regular))
                 //  .multilineTextAlignment(.leading)
                     .padding(.trailing,60)
                     .foregroundColor(Color("ourOrange"))
                 
                 
-                Image("volunteerImage")
-                    .resizable()
-                    .frame(width: 290,height: 131)
-                    .cornerRadius(26)
-                    .padding(.bottom,3)
+                if let url = volunteerList.ImageURL, let data = try? Data(contentsOf: url),
+                   let image = UIImage(data: data){
+                    Image(uiImage: image)
+                        .resizable()
+                        .frame(width: 290,height: 131)
+                        .cornerRadius(26)
+                        .padding(.bottom,3)
+                }
                 
-                Text("Participate in field visits to help \naffected families and record data")
+                Text(volunteerList.Description)
                     .foregroundColor(Color("volunteerFont"))
                     .multilineTextAlignment(.leading)
                     .padding(.top,16)
@@ -61,7 +67,7 @@ struct EnrolledVolunteer: View {
                             .foregroundColor(Color("ourOrange"))
                         //  .padding(.leading,-75)
                         
-                        Text("1 December")
+                        Text(volunteerList.Date)
                             .foregroundColor(Color("volunteerFont"))
                             .multilineTextAlignment(.leading)
                             .padding(.leading,12)
@@ -76,7 +82,7 @@ struct EnrolledVolunteer: View {
                         //.padding(.leading,-90)
                         
                         
-                        Text("Jeddah")
+                        Text(volunteerList.Location)
                             .foregroundColor(Color("volunteerFont"))
                             .multilineTextAlignment(.leading)
                             .padding(.leading,13)
@@ -90,7 +96,7 @@ struct EnrolledVolunteer: View {
                         //  .padding(.leading,-90)
                             .padding(.bottom,29)
                         
-                        Text("3 Hours")
+                        Text(String(volunteerList.VolunteeringHours) + (" Hours"))
                             .foregroundColor(Color("volunteerFont"))
                             .padding(.bottom,29)
                             .padding(.leading,12)
@@ -127,10 +133,10 @@ struct EnrolledVolunteer: View {
     }
 }
 
-struct EnrolledVolunteer_Previews: PreviewProvider {
+/*struct EnrolledVolunteer_Previews: PreviewProvider {
     @Binding var showingVolunteerSheet: Bool
-
+   
     static var previews: some View {
         EnrolledVolunteer(showingVolunteerSheet: .constant(true))
     }
-}
+}*/

@@ -132,7 +132,7 @@ struct recommendVolunteerCard: View {
                                                 //
                                             }
                                             else{
-                                                EnrolledVolunteer(showingVolunteerSheet: $showingVolunteerSheet)
+                                                EnrolledVolunteer(showingVolunteerSheet: $showingVolunteerSheet, volunteerList: volunteerList) //i changed to volunteerList: volunteerList(remaz)
                                             }
                                         }
                                             .frame(width:313,height:563)
