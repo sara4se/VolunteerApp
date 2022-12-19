@@ -52,7 +52,7 @@ struct MainPage: View {
                     
                  //   to view the recommended volunteers
                     LazyVGrid(columns: columns, spacing: 0) {
-                        ScrollView(.vertical){
+                        ScrollView(.horizontal){
                             LazyHGrid(rows: rows, spacing: 0) {
                                 ForEach(volunteerViewModel.listVolunteerOpps) {listVol in
                                  //   recommendVolunteerCard(listVol)
