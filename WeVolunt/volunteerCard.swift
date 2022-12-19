@@ -12,8 +12,8 @@ import CloudKit
 struct recommendVolunteerCard: View {
   //  @StateObject var volunteers = volunteerModelView()
   // @StateObject var  volunteerList = [volunteers.volunteerList]
-    
- 
+    @Binding var BWitSheet : Int
+   
     @State var volunteerList: VolunteerOpp
     @State var showingVolunteerSheet = false
    // var eachVol: Volunteer
@@ -115,13 +115,16 @@ struct recommendVolunteerCard: View {
                                     .overlay(
                                         VStack{
                                             
-                                            
-                                            //content of the pop up window
-                                            
-                                            SelectedVolunteer(showingVolunteerSheet:$showingVolunteerSheet)
-                                            //   .padding(.vertical)
-                                            //
-                                            
+                                            if ( BWitSheet == 1){
+                                                //content of the pop up window
+                                                
+                                                SelectedVolunteer(showingVolunteerSheet:$showingVolunteerSheet, volunteerList: volunteerList)
+                                                //   .padding(.vertical)
+                                                //
+                                            }
+                                            else{
+                                                EnrolledVolunteer(showingVolunteerSheet: $showingVolunteerSheet)
+                                            }
                                         }
                                             .frame(width:313,height:563)
                                             .cornerRadius(25)
@@ -241,7 +244,7 @@ struct volunteerCard: View {
                                   
                                     //content of the pop up window
                                  
-                                    SelectedVolunteer(showingVolunteerSheet:$showingVolunteerSheet)
+                                    SelectedVolunteer(showingVolunteerSheet:$showingVolunteerSheet, volunteerList: eachVol)
                                      //   .padding(.vertical)
                                     //
                                     

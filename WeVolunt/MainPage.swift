@@ -12,6 +12,7 @@ struct MainPage: View {
     @State var showingVolunteerSheet = false
     @State var recommendations = false
     @State private var searchText = ""
+    @State var BWitSheet : Int = 1
     // var categoriesList: [categories]
   //  @StateObject var categories : categories  //create object
     //@State var volunteersList: [Volunteer]
@@ -56,7 +57,8 @@ struct MainPage: View {
                             LazyHGrid(rows: rows, spacing: 0) {
                                 ForEach(volunteerViewModel.listVolunteerOpps) {listVol in
                                  //   recommendVolunteerCard(listVol)
-                                   recommendVolunteerCard(volunteerList: listVol)
+                                    recommendVolunteerCard(BWitSheet:
+                                                        $BWitSheet, volunteerList: listVol)
                                 }
                                 .padding(.horizontal)
                             }
