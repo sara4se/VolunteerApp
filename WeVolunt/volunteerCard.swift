@@ -142,9 +142,9 @@ struct recommendVolunteerCard: View {
 
 //this is all categories volunteering cards
 struct volunteerCard: View {
-    @State var volunteerList: VolunteerOpp
+   // @State var volunteerList: VolunteerOpp
     @State var showingVolunteerSheet = false
-   // var eachVol: Volunteer
+    var eachVol: VolunteerOpp
     
     @StateObject var volunteerViewModel : VolunteerViewModel = VolunteerViewModel() //create object volunteer....
    // var eachVol: VolunteerOpp
@@ -170,7 +170,7 @@ struct volunteerCard: View {
                         
                         VStack(alignment: .center) {
                             //volunteer Title
-                            Text(volunteerList.VolunteerTitle)
+                            Text(eachVol.VolunteerTitle)
                                     .foregroundColor(Color("volunteerFont"))
                                 
                                 // seperater line
@@ -189,7 +189,7 @@ struct volunteerCard: View {
                                             Spacer()
                                             Image(systemName: "mappin.and.ellipse")
                                                 .foregroundColor(Color("ourOrange"))
-                                            Text(volunteerList.Location)
+                                            Text(eachVol.Location)
                                                 .font(.callout)
                                                 .foregroundColor(Color("volunteerFont"))
                                             Spacer()
@@ -198,7 +198,7 @@ struct volunteerCard: View {
                                             Spacer()
                                             Image(systemName: "calendar")
                                                 .foregroundColor(Color("ourOrange"))
-                                            Text(volunteerList.Date)
+                                            Text(eachVol.Date)
                                                 .font(.callout)
                                                 .foregroundColor(Color("volunteerFont"))
                                         }

@@ -21,7 +21,8 @@ struct MainPage: View {
         _volunteerViewModel = StateObject(wrappedValue: volunteerViewModel) //call the object
     }*/
     
-    let columns = [GridItem(.flexible())]
+    let columns = [GridItem(.flexible())
+    ]
     let rows = [GridItem(.flexible())]
        
     
@@ -51,7 +52,7 @@ struct MainPage: View {
                     
                  //   to view the recommended volunteers
                     LazyVGrid(columns: columns, spacing: 0) {
-                        ScrollView(.horizontal){
+                        ScrollView(.vertical){
                             LazyHGrid(rows: rows, spacing: 0) {
                                 ForEach(volunteerViewModel.listVolunteerOpps) {listVol in
                                  //   recommendVolunteerCard(listVol)
@@ -84,9 +85,11 @@ struct MainPage: View {
                         ForEach(searchResults) { eachCategory in
                             //categoryRow(volunteersList: volunteersList, showingVolunteerSheet: $showingVolunteerSheet , eachCategory:eachCategory)
                             categoryRow(showingVolunteerSheet: $showingVolunteerSheet, eachCategory: eachCategory)
+                           
                         }
                     }
                 }
+                //.frame(width: CGFloat(481),height: .infinity)
                 // **** END OF CATEGORIES *****
                 
                 
@@ -128,7 +131,7 @@ struct MainPage: View {
 struct categoryRow: View {
     
 //    
-//    @StateObject var volunteerViewModel: VolunteerViewModel = VolunteerViewModel()  //create object volunteer
+    @StateObject var volunteerViewModel: VolunteerViewModel = VolunteerViewModel()  //create object volunteer
 //   // var volunteersList: [Volunteer]
     
     @Binding var showingVolunteerSheet : Bool
@@ -138,29 +141,33 @@ struct categoryRow: View {
     ]
     var body: some View{
       //  ForEach(volunteerViewModel.listVolunteerOpps){list in
-            
+          
             Text(eachCategory.name)
-           //Text(list.volunteerCategory)
+            //Text(list.VolunteerCategories)
                 .frame(maxWidth:350, alignment: .leading)
                 .font(.title2)
                 .fontWeight(.bold)
                 .foregroundColor(Color("ourOrange"))
-       // }
+        // }
         //category content
-        ScrollView(.horizontal){
+        VStack (spacing : 20){
+            ScrollView(.horizontal){
 
 
-            LazyHGrid(rows: rows, spacing: 10) {
-                   // Spacer()
-//                ForEach(volunteerViewModel.listVolunteerOpps.filter { $0.VolunteerCategories.contains(eachCategory.name)}) {listVol in
-//                        volunteerCard(volunteerList: listVol)
-//
-//                    }
-//                    .padding()
+                LazyHGrid(rows: rows, spacing: 20) {
+                    
+                    ForEach(volunteerViewModel.listVolunteerOpps.filter { $0.VolunteerCategories.contains(eachCategory.name)}) {listVol in
+                            volunteerCard(eachVol: listVol)
+
+                        }
                 
-                }
+                    
+                }.padding()
 
-            }
+            }.onAppear{
+                volunteerViewModel.fetchProfile()
+        }
+        }
   
         
     }
