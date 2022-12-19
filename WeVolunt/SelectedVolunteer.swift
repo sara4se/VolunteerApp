@@ -104,7 +104,7 @@ struct SelectedVolunteer: View {
                                         //  .padding(.leading,-90)
                                             .padding(.bottom,29)
                                         
-                                        Text(String(volunteerList.VolunteeringHours))
+                                        Text(String(volunteerList.VolunteeringHours) + (" Hours"))
                                             .foregroundColor(Color("volunteerFont"))
                                             .padding(.bottom,29)
                                             .padding(.leading,12)

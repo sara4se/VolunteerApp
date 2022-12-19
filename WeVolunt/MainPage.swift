@@ -28,6 +28,7 @@ struct MainPage: View {
        
     
     var body: some View {
+        
         //the navigation view might be removed from here later, but for now im keeping it so we can see it in the preview
         NavigationView(){
             VStack{
@@ -115,7 +116,7 @@ struct MainPage: View {
         
         .accentColor(.white)
         .navigationBarBackButtonHidden(true)
-        
+       
     }
     
     var searchResults: [categories] {
