@@ -126,33 +126,37 @@ struct MainPage: View {
 
 //each category row
 struct categoryRow: View {
-    @StateObject var volunteers : VolunteerViewModel = VolunteerViewModel()
-   // var volunteersList: [Volunteer]
+    
+//    
+//    @StateObject var volunteerViewModel: VolunteerViewModel = VolunteerViewModel()  //create object volunteer
+//   // var volunteersList: [Volunteer]
+    
     @Binding var showingVolunteerSheet : Bool
     var eachCategory : categories
     let rows = [
         GridItem(.flexible())
     ]
     var body: some View{
-        ForEach(volunteers.listVolunteerOpps){list in
+      //  ForEach(volunteerViewModel.listVolunteerOpps){list in
             
-            Text(list.VolunteerCategories)
+            Text(eachCategory.name)
+           //Text(list.volunteerCategory)
                 .frame(maxWidth:350, alignment: .leading)
                 .font(.title2)
                 .fontWeight(.bold)
                 .foregroundColor(Color("ourOrange"))
-        }
+       // }
         //category content
         ScrollView(.horizontal){
 
 
             LazyHGrid(rows: rows, spacing: 10) {
                    // Spacer()
-                ForEach(volunteers.listVolunteerOpps.filter { $0.VolunteerCategories.contains(eachCategory.name)}) {eachVol in
-                        volunteerCard(volunteerViewModel: volunteers)
-                      
-                    }
-                    .padding()
+//                ForEach(volunteerViewModel.listVolunteerOpps.filter { $0.VolunteerCategories.contains(eachCategory.name)}) {listVol in
+//                        volunteerCard(volunteerList: listVol)
+//
+//                    }
+//                    .padding()
                 
                 }
 
@@ -183,13 +187,11 @@ struct backgroundShape: Shape {
     }
 }
 
-/*
+
 struct MainPage_Previews: PreviewProvider {
-    var volunteerViewModel : VolunteerViewModel
-    
     static var previews: some View {
         
-        MainPage( categoriesList: categoriesList, volunteersList: volunteerList, volunteerViewModel: volunteerViewModel )
+        MainPage()
     }
-}*/
+}
 

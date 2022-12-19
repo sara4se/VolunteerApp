@@ -98,6 +98,7 @@ struct LoginPage: View {
                         .opacity(otpModel.isLoading ? 1 : 0)
                     
                     //the navigation button will appear when the virification code is sent
+                    
                     if (!otpModel.verificationCode.isEmpty){
                         NavigationLink(destination: OTPverify(showingVolunteerSheet:$showingVolunteerSheet).environmentObject(otpModel),label:{
                             Text("this is navigstion")

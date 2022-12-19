@@ -46,7 +46,6 @@
 		D41ED3E5294721A300EFB697 /* userModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userModelView.swift; sourceTree = "<group>"; };
 		D41ED3E7294721E200EFB697 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D41ED3EB294862E200EFB697 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		D41ED3ED2948630C00EFB697 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D44D20DF293F4AB700E5FCEC /* WeVolunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeVolunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44D20E2293F4AB700E5FCEC /* WeVoluntApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeVoluntApp.swift; sourceTree = "<group>"; };
 		D44D20E6293F4AB800E5FCEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -71,6 +70,7 @@
 		D4C7CA9129491351009AB02D /* WeVolunt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WeVolunt.entitlements; sourceTree = "<group>"; };
 		F400FA91294CEA8700F5A77B /* VolunteerOpp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerOpp.swift; sourceTree = "<group>"; };
 		F400FA93294CEA8E00F5A77B /* VolunteerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerViewModel.swift; sourceTree = "<group>"; };
+		F400FABC294F07DF00F5A77B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,13 +136,13 @@
 				F400FA96294CEF1A00F5A77B /* ViewModel */,
 				569B17EB294C7F590068F1BF /* Fonts */,
 				D4C7CA9129491351009AB02D /* WeVolunt.entitlements */,
-				D41ED3ED2948630C00EFB697 /* Info.plist */,
+				F400FABC294F07DF00F5A77B /* Info.plist */,
 				D41ED3EA2948629D00EFB697 /* shared */,
 				D41ED3E9294732B000EFB697 /* volunteerRegist */,
 				D44D20E2293F4AB700E5FCEC /* WeVoluntApp.swift */,
 				D44D20F0293F7B3E00E5FCEC /* SplashScreen.swift */,
-				D44D20F2293F7B6300E5FCEC /* MainPage.swift */,
 				D44D20F8293F853C00E5FCEC /* SelectedVolunteer.swift */,
+				D44D20F2293F7B6300E5FCEC /* MainPage.swift */,
 				569B17E9294C7F3C0068F1BF /* UserSettings.swift */,
 				D44D20F4293F7C2E00E5FCEC /* InterestPage.swift */,
 				D44D2100293F8ACA00E5FCEC /* SignUp.swift */,
@@ -453,7 +453,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WeVolunt/Preview Content\"";
-				DEVELOPMENT_TEAM = KX287ZLHJH;
+				DEVELOPMENT_TEAM = 45BF26C7ZG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeVolunt/Info.plist;
@@ -467,7 +467,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.WeVolunt;
+				PRODUCT_BUNDLE_IDENTIFIER = twq.com.example.WeVolunt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -486,7 +486,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WeVolunt/Preview Content\"";
-				DEVELOPMENT_TEAM = KX287ZLHJH;
+				DEVELOPMENT_TEAM = 45BF26C7ZG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeVolunt/Info.plist;
@@ -500,7 +500,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.WeVolunt;
+				PRODUCT_BUNDLE_IDENTIFIER = twq.com.example.WeVolunt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

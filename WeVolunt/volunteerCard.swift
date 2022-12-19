@@ -142,9 +142,12 @@ struct recommendVolunteerCard: View {
 
 //this is all categories volunteering cards
 struct volunteerCard: View {
-    @State var showingVolunteerSheet  = false
-    @StateObject var volunteerViewModel : VolunteerViewModel
+    @State var volunteerList: VolunteerOpp
+    @State var showingVolunteerSheet = false
    // var eachVol: Volunteer
+    
+    @StateObject var volunteerViewModel : VolunteerViewModel = VolunteerViewModel() //create object volunteer....
+   // var eachVol: VolunteerOpp
     var body: some View {
         // there should be printing for all the dictionary list item
         
@@ -167,8 +170,7 @@ struct volunteerCard: View {
                         
                         VStack(alignment: .center) {
                             //volunteer Title
-                            ForEach(volunteerViewModel.listVolunteerOpps) { list in
-                                Text(list.VolunteerTitle)
+                            Text(volunteerList.VolunteerTitle)
                                     .foregroundColor(Color("volunteerFont"))
                                 
                                 // seperater line
@@ -187,7 +189,7 @@ struct volunteerCard: View {
                                             Spacer()
                                             Image(systemName: "mappin.and.ellipse")
                                                 .foregroundColor(Color("ourOrange"))
-                                            Text(list.Location)
+                                            Text(volunteerList.Location)
                                                 .font(.callout)
                                                 .foregroundColor(Color("volunteerFont"))
                                             Spacer()
@@ -196,7 +198,7 @@ struct volunteerCard: View {
                                             Spacer()
                                             Image(systemName: "calendar")
                                                 .foregroundColor(Color("ourOrange"))
-                                            Text(list.Date)
+                                            Text(volunteerList.Date)
                                                 .font(.callout)
                                                 .foregroundColor(Color("volunteerFont"))
                                         }
@@ -204,7 +206,7 @@ struct volunteerCard: View {
                                     }
                                 }
                             }
-                        }
+                        
                         Spacer()
                     }
                     

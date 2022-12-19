@@ -27,8 +27,8 @@ struct InterestPage: View {
 //     }
   
     @StateObject var userSettings : UserSettings = UserSettings(enterdInterstTogle: true, username: "", isPrivate: true, arrayOfSelected: [])
-    @State var itemsTitles: [Title] = [Title(titleStr:"Environmental" , fontsize : 60) ,Title(titleStr:"Sports" , fontsize : 40),Title(titleStr:"Social" , fontsize : 30), Title(titleStr:"Religious" , fontsize : 60),Title(titleStr:"Technical" , fontsize : 50),Title(titleStr:"Education" , fontsize : 50),Title(titleStr:"Entertainment" , fontsize : 50) ,Title(titleStr:"Health" , fontsize : 40)]
-    
+//    @State var itemsTitles: [Title] = [Title(titleStr:"Environmental" , fontsize : 60) ,Title(titleStr:"Sports" , fontsize : 40),Title(titleStr:"Social" , fontsize : 30), Title(titleStr:"Religious" , fontsize : 60),Title(titleStr:"Technical" , fontsize : 50),Title(titleStr:"Education" , fontsize : 50),Title(titleStr:"Entertainment" , fontsize : 50) ,Title(titleStr:"Health" , fontsize : 40)]
+//    
     //  @State var selections: [String] = []
     let layout = [
         GridItem(.adaptive(minimum: 130, maximum: 120))
@@ -65,7 +65,7 @@ struct InterestPage: View {
                                     }
                                     else {
                                         userSettings.arrayOfSelected.append(item.name)
-                                        self.itemsTitles.removeAll(where: {$0.id == item.id})
+                                        categoriesList.removeAll(where: {$0.id == item.id})
                                         
                                     }
                                 }
