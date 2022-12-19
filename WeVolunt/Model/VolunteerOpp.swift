@@ -22,7 +22,10 @@ struct VolunteerOpp: Identifiable {
     let Location : String
     let VolunteeringHours : Int
     let Requirement : String
- //   let VolunteerImage : CKAsset
+   // let VolunteerImage : CKAsset
+   // let OrganizationImage : CKAsset
+    let ImageURL : URL?
+    let OrgURL : URL?
    
     
    
@@ -37,9 +40,22 @@ struct VolunteerOpp: Identifiable {
         self.Location = record["Location"] as? String ?? "N/A"
         self.VolunteeringHours = record["VolunteeringHours"] as? Int ?? 0
         self.Requirement = record["Requirement"] as? String ?? "N/A"
+        
+        //bring the image from ck
+        let ImageAsset = record["VolunteerImage"] as? CKAsset
+        self.ImageURL = ImageAsset?.fileURL
+        
+        let OrgAsset = record["OrganizationImage"] as? CKAsset
+        self.OrgURL = OrgAsset?.fileURL
+        
+        
      //   self.VolunteerImage = record["VolunteerImage"] as? CKAsset ?? Image("Logo")
     }
 //    ? UIImage(named:"Logo") as! CKAsset
+    
+    
+    
+    
     func toDictionary()->[String : Any]{
         return ["VolunteerTitle" : VolunteerTitle]
     }

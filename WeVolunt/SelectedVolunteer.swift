@@ -51,11 +51,15 @@ struct SelectedVolunteer: View {
                                     .foregroundColor(Color("ourOrange"))
                                 
                                 
-                                Image("volunteerImage")
+                               // Image("volunteerImage")
+                            if let url = volunteerList.ImageURL, let data = try? Data(contentsOf: url),
+                               let image = UIImage(data: data){
+                                Image(uiImage: image)
                                     .resizable()
                                     .frame(width: 290,height: 131)
                                     .cornerRadius(26)
                                     .padding(.bottom,3)
+                            }
                                 //  ScrollView(.vertical){
                                 //  LazyVStack(spacing: 10)
                                 //  LazyVStack{

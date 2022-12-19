@@ -33,19 +33,28 @@ struct recommendVolunteerCard: View {
                             VStack (alignment: .center){
                                 
                                 ZStack{
-                                    Image("volunteerImage")
-                                        .resizable()
-                                        .frame(width: 148, height: 96)
-                                        .shadow(radius: 1)
-                                    
-                                    //this is from the costumise shape and view extention
-                                        .cornerRadius(20, corners: [.topLeft, .topRight])
-                                    Image("volunteerCompany")
-                                        .resizable()
-                                        .clipShape(Circle())
-                                        .frame(width: 37, height: 37)
-                                        .offset(x:-50, y:50)
-                                        .shadow(radius: 1)
+                                    if let url = volunteerList.ImageURL, let data = try? Data(contentsOf: url),
+                                       let image = UIImage(data: data){
+                                        Image(uiImage: image)
+                                        
+                                        // Image("volunteerImage")
+                                            .resizable()
+                                            .frame(width: 148, height: 96)
+                                            .shadow(radius: 1)
+                                        
+                                        //this is from the costumise shape and view extention
+                                            .cornerRadius(20, corners: [.topLeft, .topRight])
+                                    }
+                                    //Image("volunteerCompany")
+                                    if let url = volunteerList.OrgURL, let data = try? Data(contentsOf: url),
+                                       let image = UIImage(data: data){
+                                        Image(uiImage: image)
+                                            .resizable()
+                                            .clipShape(Circle())
+                                            .frame(width: 37, height: 37)
+                                            .offset(x:-50, y:50)
+                                            .shadow(radius: 1)
+                                    }
                                 }
                                 VStack {
                                     
@@ -162,13 +171,18 @@ struct volunteerCard: View {
                     
                     //oppurtonity content
                     HStack {
-                        Image("volunteerImage")
-                            .resizable()
-                            .frame(width: 108, height: 94)
-                        
-                        //this is from the costumise shape and view extention
-                            .cornerRadius(20, corners: [.topLeft, .bottomLeft])
-                        
+                        if let url = eachVol.ImageURL, let data = try? Data(contentsOf: url),
+                           let image = UIImage(data: data){
+                            Image(uiImage: image)
+                            
+                            // Image("volunteerImage")
+                                .resizable()
+                                .frame(width: 148, height: 96)
+                                .shadow(radius: 1)
+                            
+                            //this is from the costumise shape and view extention
+                                .cornerRadius(20, corners: [.topLeft, .topRight])
+                        }
                         Spacer()
                         
                         VStack(alignment: .center) {
@@ -183,10 +197,14 @@ struct volunteerCard: View {
                                 
                                 HStack{
                                     // orgnization logo
-                                    Image("volunteerCompany")
+                                  //  Image("volunteerCompany")
+                                    if let url = eachVol.OrgURL, let data = try? Data(contentsOf: url),
+                                       let image = UIImage(data: data){
+                                        Image(uiImage: image)
                                         .resizable()
                                         .clipShape(Circle())
                                         .frame(width: 37, height: 37)
+                                    }
                                     VStack{
                                         HStack{
                                             Spacer()
