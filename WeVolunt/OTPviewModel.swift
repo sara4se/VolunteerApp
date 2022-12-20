@@ -34,6 +34,10 @@ class OTPviewModel: ObservableObject {
     
     //sending OTP
     func sendOTP()async{
+        
+        //to enable tesing code, if u want to use real number u should make it false
+        Auth.auth().settings?.isAppVerificationDisabledForTesting = false
+        
         if isLoading{return}
         do{
             isLoading = true
@@ -70,6 +74,7 @@ class OTPviewModel: ObservableObject {
     //verify the OTP function
     func verifyOTP()async{
         do{
+            otpText = otpFields.joined(separator: "")//print the array as string 
             isLoading = true
             let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationCode, verificationCode: otpText)
             let _ = try await Auth.auth().signIn(with: credential)
