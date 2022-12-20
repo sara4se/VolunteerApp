@@ -61,7 +61,8 @@ struct InterestPage: View {
                                 MultipleSelectionRow(title: item.name, isSelected: userSettings.arrayOfSelected.contains(item.name))
                                 {
                                     if userSettings.arrayOfSelected.contains(item.name) {
-                                        userSettings.arrayOfSelected.removeAll(where: { $0 == item.name })
+                                   //     userSettings.arrayOfSelected.removeAll(where: { $0 == item.name })
+                                        print(userSettings.arrayOfSelected)
                                     }
                                     else {
                                         userSettings.arrayOfSelected.append(item.name)

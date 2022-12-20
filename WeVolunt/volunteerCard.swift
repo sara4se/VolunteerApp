@@ -177,18 +177,20 @@ struct volunteerCard: View {
                             
                             // Image("volunteerImage")
                                 .resizable()
-                                .frame(width: 148, height: 96)
+                                .frame(width: 108, height: 94)
                                 .shadow(radius: 1)
                             
                             //this is from the costumise shape and view extention
-                                .cornerRadius(20, corners: [.topLeft, .topRight])
+                                .cornerRadius(20, corners: [.topLeft, .bottomLeft])
                         }
                         Spacer()
                         
-                        VStack(alignment: .center) {
+                        VStack(alignment: .leading) {
+                           // Spacer()
                             //volunteer Title
                             Text(eachVol.VolunteerTitle)
                                     .foregroundColor(Color("volunteerFont"))
+                                    .offset(y:8)
                                 
                                 // seperater line
                                 Rectangle()
@@ -203,32 +205,36 @@ struct volunteerCard: View {
                                         Image(uiImage: image)
                                         .resizable()
                                         .clipShape(Circle())
+                                        .offset(x:-30)
                                         .frame(width: 37, height: 37)
                                     }
-                                    VStack{
+                                    VStack(alignment: .leading){
                                         HStack{
-                                            Spacer()
+                                            //Spacer()
                                             Image(systemName: "mappin.and.ellipse")
                                                 .foregroundColor(Color("ourOrange"))
                                             Text(eachVol.Location)
                                                 .font(.callout)
                                                 .foregroundColor(Color("volunteerFont"))
-                                            Spacer()
+                                           // Spacer()
                                         }
                                         HStack{
-                                            Spacer()
+                                           // Spacer()
                                             Image(systemName: "calendar")
                                                 .foregroundColor(Color("ourOrange"))
                                             Text(eachVol.Date)
                                                 .font(.callout)
                                                 .foregroundColor(Color("volunteerFont"))
                                         }
-                                        .padding(.trailing, 5.0)
+                                       // .padding(.trailing, 5.0)
+                                        
+
                                     }
+                                    .offset(x:-30)
                                 }
                             }
                         
-                        Spacer()
+                        //Spacer()
                     }
                     
                 )

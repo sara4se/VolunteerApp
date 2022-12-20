@@ -10,9 +10,11 @@ import CloudKit
 
 struct MainPage: View {
     @State var showingVolunteerSheet = false
-    @State var recommendations = false
+  //  @State var recommendations = false
+    @StateObject var userSettings : UserSettings = UserSettings(enterdInterstTogle: true, username: "", isPrivate: true, arrayOfSelected: [])
     @State private var searchText = ""
     @State var BWitSheet : Int = 1
+    
     // var categoriesList: [categories]
   //  @StateObject var categories : categories  //create object
     //@State var volunteersList: [Volunteer]
@@ -42,7 +44,8 @@ struct MainPage: View {
                     .offset(y:-100)
                 
                 // display the recommendationns based on selected interests
-                if(recommendations == false){
+                if(userSettings.arrayOfSelected.isEmpty){
+                
                     Text("Just for you")
                     
                     //    .padding(.top, 50.0)
@@ -71,6 +74,7 @@ struct MainPage: View {
                 
                 
                 // *** START PAGE CONTENT ***
+          
                 Text("All Categories")
                 
                     .frame(maxWidth:365, alignment: .leading)
@@ -111,6 +115,7 @@ struct MainPage: View {
          //   .searchable(text: $searchText, placement:.automatic, prompt: "Searcah for categories" )
      
         }.onAppear{
+            
             volunteerViewModel.fetchProfile()
         }
         

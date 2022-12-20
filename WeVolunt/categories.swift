@@ -18,6 +18,7 @@ class categories: Identifiable , ObservableObject {
     init() {
         
     }
+    
 }
  var categoriesList = [
     categories(name: "Environmental"),
