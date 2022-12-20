@@ -27,8 +27,8 @@ struct InterestPage: View {
 //     }
   
     @StateObject var userSettings : UserSettings = UserSettings(enterdInterstTogle: true, username: "", isPrivate: true, arrayOfSelected: [])
-//    @State var itemsTitles: [Title] = [Title(titleStr:"Environmental" , fontsize : 60) ,Title(titleStr:"Sports" , fontsize : 40),Title(titleStr:"Social" , fontsize : 30), Title(titleStr:"Religious" , fontsize : 60),Title(titleStr:"Technical" , fontsize : 50),Title(titleStr:"Education" , fontsize : 50),Title(titleStr:"Entertainment" , fontsize : 50) ,Title(titleStr:"Health" , fontsize : 40)]
-//    
+    @State var itemsTitles: [Title] = [Title(titleStr:"Environmental" , fontsize : 60) ,Title(titleStr:"Sports" , fontsize : 40),Title(titleStr:"Social" , fontsize : 30), Title(titleStr:"Religious" , fontsize : 60),Title(titleStr:"Technical" , fontsize : 50),Title(titleStr:"Education" , fontsize : 50),Title(titleStr:"Entertainment" , fontsize : 50) ,Title(titleStr:"Health" , fontsize : 40)]
+    
     //  @State var selections: [String] = []
     let layout = [
         GridItem(.adaptive(minimum: 130, maximum: 120))
@@ -57,16 +57,16 @@ struct InterestPage: View {
                 VStack(spacing: 1){
                     ScrollView(.vertical){
                         LazyVGrid(columns: layout, spacing: 10) {
-                            ForEach(categoriesList) { item in
-                                MultipleSelectionRow(title: item.name, isSelected: userSettings.arrayOfSelected.contains(item.name))
+                            ForEach(itemsTitles) { item in
+                                MultipleSelectionRow(title: item.titleStr, isSelected: userSettings.arrayOfSelected.contains(item.titleStr))
                                 {
-                                    if userSettings.arrayOfSelected.contains(item.name) {
-                                   //     userSettings.arrayOfSelected.removeAll(where: { $0 == item.name })
+                                    if userSettings.arrayOfSelected.contains(item.titleStr) {
+//                                        userSettings.arrayOfSelected.removeAll(where: { $0 == item.name })
                                         print(userSettings.arrayOfSelected)
                                     }
                                     else {
-                                        userSettings.arrayOfSelected.append(item.name)
-                                        categoriesList.removeAll(where: {$0.id == item.id})
+                                        userSettings.arrayOfSelected.append(item.titleStr)
+                                        itemsTitles.removeAll(where: {$0.id == item.id})
                                         
                                     }
                                 }
@@ -80,7 +80,7 @@ struct InterestPage: View {
                 //next button
                 
                 VStack{
-                    NavigationLink(destination: MainPage() , label:{
+                    NavigationLink(destination: MainPage().environmentObject(userSettings) , label:{
                         Text("Next")
                             .frame(width:281 , height:41 )
                             .foregroundColor(.white)
@@ -92,7 +92,7 @@ struct InterestPage: View {
                 
                 .toolbar{
                     
-                    NavigationLink(destination: MainPage() , label:{
+                    NavigationLink(destination: MainPage().environmentObject(userSettings) , label:{
                         Text("Skip").foregroundColor(Color.skipColor).font(Font.custom("SF-Compact", size: CGFloat(20)))
                         
                     })
@@ -107,47 +107,48 @@ struct InterestPage: View {
     
     
     
-    struct MultipleSelectionRow: View {
-        var title: String
-        var isSelected: Bool
+
+}
+struct MultipleSelectionRow: View {
+    var title: String
+    var isSelected: Bool
+    
+  //  var font = UIFont.preferredFont(forTextStyle: .body)  // << default !!
+    
+    var action: () -> Void
+     
+    @State private var half = false
+    @State private var dim = false
+    
+    var body: some View {
+      //  let size = font.lineHeight * 2.0
         
-      //  var font = UIFont.preferredFont(forTextStyle: .body)  // << default !!
-        
-        var action: () -> Void
-         
-        @State private var half = false
-        @State private var dim = false
-        
-        var body: some View {
-          //  let size = font.lineHeight * 2.0
-            
-            Button(action: self.action,
-                   label: {
-                HStack {
-                    Text(self.title)
-                    if self.isSelected {
-                    }
+        Button(action: self.action,
+               label: {
+            HStack {
+                Text(self.title)
+                if self.isSelected {
                 }
-            }).frame(width: 100, height: 49)
-                .foregroundColor(self.isSelected ? Color.white : Color.lightBlue)
-                .background(self.isSelected ? Color.skipColor : Color.backgroundColor)
-                .overlay( /// apply a rounded border
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(.blue, lineWidth: 1)
-                )
-                .scaleEffect(half ? 1.0  : 0.5)
-                .opacity(dim ? 1.0 : 0.2 )
-                .animation(Animation.easeInOut(duration: 1.0))
-                .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-                        self.dim.toggle()
-                        self.half.toggle()
-                    }
-                                                  
-                                                  
-                    )}
-            
-        }
+            }
+        }).frame(width: 100, height: 49)
+            .foregroundColor(self.isSelected ? Color.white : Color.lightBlue)
+            .background(self.isSelected ? Color.skipColor : Color.backgroundColor)
+            .overlay( /// apply a rounded border
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(.blue, lineWidth: 1)
+            )
+            .scaleEffect(half ? 1.0  : 0.5)
+            .opacity(dim ? 1.0 : 0.2 )
+            .animation(Animation.easeInOut(duration: 1.0))
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                    self.dim.toggle()
+                    self.half.toggle()
+                }
+                                              
+                                              
+                )}
+        
     }
 }
 

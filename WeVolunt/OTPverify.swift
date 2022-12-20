@@ -64,7 +64,7 @@ struct OTPverify: View {
                 Task{await otpModel.verifyOTP()}
                 
             }label: {
-                Text("verify")
+                Text("Login")
                     .frame(width:281 , height:41 )
                     .foregroundColor(.white)
                     .background(Color("ourBlue"))
@@ -82,7 +82,8 @@ struct OTPverify: View {
                 
             //    if (otpModel.log_status){
                     NavigationLink(destination: VolunteerRegister(showingVolunteerSheet:$showingVolunteerSheet).environmentObject(otpModel) , label:{
-                        Text("this is navigstion")
+                        Text("Login")
+                            .frame(width:281 , height:41 )
                             .foregroundColor(.white)
                             .background(Color("ourBlue"))
                             .cornerRadius(8)

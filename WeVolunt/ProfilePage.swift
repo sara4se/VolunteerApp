@@ -72,16 +72,20 @@ struct ProfilePage: View {
                 Spacer()
             }.padding(.top,140)
             
-        }.background(Color.backgroundColor).ignoresSafeArea().toolbar{
+        }
+        .background(Color.backgroundColor).ignoresSafeArea()
+            //.toolbar{
             
-            
-            ToolbarItem(placement: .principal) { // <3>
-                VStack {
-                    Text("Profile").font(.subheadline).foregroundColor(.white)
-                    
-                }
-            }
-        }.background(Color.backgroundColor).ignoresSafeArea()
+          
+//            ToolbarItem(placement: .principal) { // <3>
+//                VStack {
+//                    Text("Profile").font(.subheadline).foregroundColor(.white)
+//
+//                }
+            //}
+        
+  //      }
+            .navigationBarTitle("Profile", displayMode: .inline)
     }
 }
 

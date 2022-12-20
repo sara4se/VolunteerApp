@@ -11,7 +11,7 @@ import CloudKit
 struct MainPage: View {
     @State var showingVolunteerSheet = false
   //  @State var recommendations = false
-    @StateObject var userSettings : UserSettings = UserSettings(enterdInterstTogle: true, username: "", isPrivate: true, arrayOfSelected: [])
+    @EnvironmentObject var userSettings : UserSettings
     @State private var searchText = ""
     @State var BWitSheet : Int = 1
     
@@ -44,7 +44,7 @@ struct MainPage: View {
                     .offset(y:-100)
                 
                 // display the recommendationns based on selected interests
-                if(userSettings.arrayOfSelected.isEmpty){
+                if(!userSettings.arrayOfSelected.isEmpty){
                 
                     Text("Just for you")
                     
@@ -100,7 +100,7 @@ struct MainPage: View {
                 // **** END OF CATEGORIES *****
                 
                 
-            }
+            } 
             
             
             .toolbar{
@@ -121,6 +121,7 @@ struct MainPage: View {
         
         .accentColor(.white)
         .navigationBarBackButtonHidden(true)
+        
        
     }
     
@@ -144,6 +145,7 @@ struct categoryRow: View {
     
     @Binding var showingVolunteerSheet : Bool
     var eachCategory : categories
+    @StateObject var userSettings : UserSettings = UserSettings(enterdInterstTogle: true, username: "", isPrivate: true, arrayOfSelected: [])
     let rows = [
         GridItem(.flexible())
     ]
@@ -202,11 +204,11 @@ struct backgroundShape: Shape {
     }
 }
 
-
-struct MainPage_Previews: PreviewProvider {
-    static var previews: some View {
-        
-        MainPage()
-    }
-}
+//
+//struct MainPage_Previews: PreviewProvider {
+//    static var previews: some View {
+//
+//        MainPage()
+//    }
+//}
 
