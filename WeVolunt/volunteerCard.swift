@@ -15,10 +15,11 @@ struct recommendVolunteerCard: View {
     @Binding var BWitSheet : Int
    
     @State var volunteerList: VolunteerOpp
+    
     @State var showingVolunteerSheet = false
    // var eachVol: Volunteer
     
-    @StateObject var volunteerViewModel : VolunteerViewModel = VolunteerViewModel() //create object volunteer....
+   // @StateObject var volunteerViewModel : VolunteerViewModel = VolunteerViewModel() //create object volunteer....
    /*/ init (volunteerViewModel : VolunteerViewModel){
         _volunteerViewModel = StateObject(wrappedValue: volunteerViewModel) //call the object
     }*/
@@ -127,7 +128,7 @@ struct recommendVolunteerCard: View {
                                             if ( BWitSheet == 1){
                                                 //content of the pop up window
                                                 
-                                                SelectedVolunteer(showingVolunteerSheet:$showingVolunteerSheet, volunteerList: volunteerList)
+                                                SelectedVolunteer(showingVolunteerSheet:$showingVolunteerSheet, volunteerSelected: volunteerList)
                                                 //   .padding(.vertical)
                                                 //
                                             }
@@ -267,8 +268,7 @@ struct volunteerCard: View {
                                     
                                   
                                     //content of the pop up window
-                                 
-                                    SelectedVolunteer(showingVolunteerSheet:$showingVolunteerSheet, volunteerList: eachVol)
+                                    SelectedVolunteer(showingVolunteerSheet:$showingVolunteerSheet, volunteerSelected: eachVol)
                                      //   .padding(.vertical)
                                     //
                                     

@@ -11,7 +11,8 @@ import CloudKit
 struct SelectedVolunteer: View {
     
     @Binding var showingVolunteerSheet: Bool
-    @State var volunteerList: VolunteerOpp
+    @State var volunteerSelected: VolunteerOpp
+    @State var volunteerSelectedList: [VolunteerOpp] = []
     @StateObject var volunteerViewModel : VolunteerViewModel = VolunteerViewModel()  //create object
     var body: some View {
          
@@ -23,6 +24,8 @@ struct SelectedVolunteer: View {
                         VStack{
                             Button {
                                 showingVolunteerSheet.toggle()
+                               
+
                             } label: {
                                 Image(systemName: "xmark.circle")
                                     .foregroundColor(Color("ourOrange"))
@@ -36,15 +39,17 @@ struct SelectedVolunteer: View {
                             
                            // ForEach(volunteerViewModel.listVolunteerOpps){list in
                                 
-                                Text(volunteerList.VolunteerTitle)
+                                Text(volunteerSelected.VolunteerTitle)
                                     .font(.system(size: 24,weight: .bold))
                                     .foregroundColor(Color("ourBlue"))
-                                    .multilineTextAlignment(.leading)
+//                                    .multilineTextAlignment(.leading)
                                 //.fixedSize(horizontal: false, vertical: true)
+                                   // .frame(width: .infinity,height: 50)
                                     .padding(.bottom,3)
+                                    .padding(.trailing,10)
                                 
                                 
-                            Text(volunteerList.OrganizationName)
+                            Text(volunteerSelected.OrganizationName)
                                     .font(.system(size: 19 , weight: .regular))
                                 //  .multilineTextAlignment(.leading)
                                     .padding(.trailing,60)
@@ -52,7 +57,7 @@ struct SelectedVolunteer: View {
                                 
                                 
                                // Image("volunteerImage")
-                            if let url = volunteerList.ImageURL, let data = try? Data(contentsOf: url),
+                            if let url = volunteerSelected.ImageURL, let data = try? Data(contentsOf: url),
                                let image = UIImage(data: data){
                                 Image(uiImage: image)
                                     .resizable()
@@ -63,7 +68,7 @@ struct SelectedVolunteer: View {
                                 //  ScrollView(.vertical){
                                 //  LazyVStack(spacing: 10)
                                 //  LazyVStack{
-                            Text(volunteerList.Description)
+                            Text(volunteerSelected.Description)
                                     .foregroundColor(Color("volunteerFont"))
                                     .padding(.top,16)
                                 // .padding(.leading,40)
@@ -79,7 +84,7 @@ struct SelectedVolunteer: View {
                                             .foregroundColor(Color("ourOrange"))
                                         // .padding(.leading,-75)
                                         
-                                        Text(volunteerList.Date)
+                                        Text(volunteerSelected.Date)
                                             .foregroundColor(Color("volunteerFont"))
                                             .multilineTextAlignment(.leading)
                                             .padding(.leading,12)
@@ -91,7 +96,7 @@ struct SelectedVolunteer: View {
                                             .foregroundColor(Color("ourOrange"))
                                         //  .padding(.leading,-90)
                                         
-                                        Text(volunteerList.Location)
+                                        Text(volunteerSelected.Location)
                                             .foregroundColor(Color("volunteerFont"))
                                             .multilineTextAlignment(.leading)
                                             .padding(.leading,13)
@@ -104,7 +109,7 @@ struct SelectedVolunteer: View {
                                         //  .padding(.leading,-90)
                                             .padding(.bottom,29)
                                         
-                                        Text(String(volunteerList.VolunteeringHours) + (" Hours"))
+                                        Text(String(volunteerSelected.VolunteeringHours) + (" Hours"))
                                             .foregroundColor(Color("volunteerFont"))
                                             .padding(.bottom,29)
                                             .padding(.leading,12)
@@ -124,7 +129,7 @@ struct SelectedVolunteer: View {
                                 //.padding(.leading, -30.0)
                                     .padding(.bottom,16)
                                 
-                            Text(volunteerList.Requirement)
+                            Text(volunteerSelected.Requirement)
                                     .font(.system(size: 18,weight: .regular))
                                     .foregroundColor(Color("volunteerFont"))
                                     .padding(.bottom,24)
@@ -135,6 +140,8 @@ struct SelectedVolunteer: View {
                                                        
                             //enroll button
                             Button{
+//                                  volunteerSelectedList.append(volunteerSelected)
+//                                print(volunteerSelectedList)
                             }label: {
                                 NavigationLink(destination: mustloginpage(showingVolunteerSheet:$showingVolunteerSheet), label:{
                                     Text("Enroll")

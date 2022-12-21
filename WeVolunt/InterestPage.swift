@@ -27,7 +27,7 @@ struct InterestPage: View {
 //     }
   
     @StateObject var userSettings : UserSettings = UserSettings(enterdInterstTogle: true, username: "", isPrivate: true, arrayOfSelected: [])
-    @State var itemsTitles: [Title] = [Title(titleStr:"Environmental" , fontsize : 60) ,Title(titleStr:"Sports" , fontsize : 40),Title(titleStr:"Social" , fontsize : 30), Title(titleStr:"Religious" , fontsize : 60),Title(titleStr:"Technical" , fontsize : 50),Title(titleStr:"Education" , fontsize : 50),Title(titleStr:"Entertainment" , fontsize : 50) ,Title(titleStr:"Health" , fontsize : 40)]
+    @State var itemsTitles: [Title] = [Title(titleStr:"Environmental" , fontsize : 60) ,Title(titleStr:"Sports" , fontsize : 40),Title(titleStr:"Social" , fontsize : 30), Title(titleStr:"Religious" , fontsize : 50),Title(titleStr:"Technical" , fontsize : 50),Title(titleStr:"Education" , fontsize : 50),Title(titleStr:"Entertainment" , fontsize : 50) ,Title(titleStr:"Health" , fontsize : 40)]
     
     //  @State var selections: [String] = []
     let layout = [
@@ -58,7 +58,7 @@ struct InterestPage: View {
                     ScrollView(.vertical){
                         LazyVGrid(columns: layout, spacing: 10) {
                             ForEach(itemsTitles) { item in
-                                MultipleSelectionRow(title: item.titleStr, isSelected: userSettings.arrayOfSelected.contains(item.titleStr))
+                                MultipleSelectionRow(title: item.titleStr, isSelected: userSettings.arrayOfSelected.contains(item.titleStr),font: UIFont.systemFont(ofSize: CGFloat(item.fontsize),weight: .light))
                                 {
                                     if userSettings.arrayOfSelected.contains(item.titleStr) {
 //                                        userSettings.arrayOfSelected.removeAll(where: { $0 == item.name })
@@ -113,7 +113,7 @@ struct MultipleSelectionRow: View {
     var title: String
     var isSelected: Bool
     
-  //  var font = UIFont.preferredFont(forTextStyle: .body)  // << default !!
+   var font = UIFont.preferredFont(forTextStyle: .body)  // << default !!
     
     var action: () -> Void
      
@@ -121,7 +121,7 @@ struct MultipleSelectionRow: View {
     @State private var dim = false
     
     var body: some View {
-      //  let size = font.lineHeight * 2.0
+        let size = font.lineHeight * 2.0
         
         Button(action: self.action,
                label: {
@@ -130,9 +130,9 @@ struct MultipleSelectionRow: View {
                 if self.isSelected {
                 }
             }
-        }).frame(width: 100, height: 49)
+        }).frame(width: size, height: 49)
             .foregroundColor(self.isSelected ? Color.white : Color.lightBlue)
-            .background(self.isSelected ? Color.skipColor : Color.backgroundColor)
+            .background(self.isSelected ? Color.skipColor : Color.white)
             .overlay( /// apply a rounded border
                 RoundedRectangle(cornerRadius: 8)
                     .stroke(.blue, lineWidth: 1)

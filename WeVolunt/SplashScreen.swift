@@ -37,7 +37,7 @@ struct SplashScreen: View {
                         
                         .fill(.linearGradient(colors: [Color.darkBlue, Color.lightBlue,Color.babyBlue], startPoint: .leading, endPoint: .trailing)).frame(width:CGFloat( 249.56),height:CGFloat(239.21))}.padding(.trailing,200).padding(.top,10).ignoresSafeArea()
                     Spacer()
-                    Image("Logo").resizable().frame(width: 162.45, height: 146.15).shadow(radius: 6)
+                    Image("Logo").resizable().frame(width: 162.45, height: 146.15)
                     HStack{
                         Text("WE").foregroundColor(.darkBlue)   .font(.custom("SF-Compact", size: 40)).bold()
                         Text("VOLUNT").foregroundColor(Color("ourOrange"))   .font(.custom("SF-Compact", size: 40)).bold().padding(.horizontal,-10)
@@ -48,7 +48,7 @@ struct SplashScreen: View {
                     
                     
                     
-                }.ignoresSafeArea().background(Color.backgroundColor)
+                }.ignoresSafeArea() 
             }
         }
         .onAppear {

@@ -14,7 +14,7 @@ struct MainPage: View {
     @EnvironmentObject var userSettings : UserSettings
     @State private var searchText = ""
     @State var BWitSheet : Int = 1
-    
+    @State var volunteerSelectedList: [VolunteerOpp] = []
     // var categoriesList: [categories]
     //  @StateObject var categories : categories  //create object
     //@State var volunteersList: [Volunteer]
@@ -113,7 +113,7 @@ struct MainPage: View {
             
             
             .toolbar{
-                NavigationLink(destination: ProfilePage(), label:{
+                NavigationLink(destination: ProfilePage(volunteerSelectedList: $volunteerSelectedList), label:{
                     Label("Profile", systemImage: "person.circle")
                         .foregroundColor(.white)
                 })

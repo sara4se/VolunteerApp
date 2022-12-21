@@ -13,7 +13,7 @@ struct ProfilePage: View {
     @State var BWitSheet : Int = 0
     let columns = [GridItem(.flexible())]
     let rows = [GridItem(.flexible())]
-    
+   @Binding var volunteerSelectedList: [VolunteerOpp]
     
     var body: some View {
         
@@ -21,29 +21,33 @@ struct ProfilePage: View {
             VStack {
                 ZStack(alignment: .top){
                     MyCustomShape2().fill(.linearGradient(colors: [Color.darkBlue, Color.lightBlue,Color.babyBlue], startPoint: .leading, endPoint: .trailing)).frame(width: CGFloat(400),height: CGFloat(400)).ignoresSafeArea()
-                    MyCustomShape3().padding(.bottom,230).padding(.leading,25).foregroundColor(.backgroundColor).frame(width: CGFloat(400),height: CGFloat(400)).ignoresSafeArea()
+                    MyCustomShape3().padding(.bottom,230).padding(.leading,25).foregroundColor(.white).frame(width: CGFloat(400),height: CGFloat(400)).ignoresSafeArea()
                 }
             }.padding(.bottom,370)
             VStack (alignment: .center){
-                HStack {
-                    Text("Hello Ahmad").font(Font.custom("SF-Compact", size: CGFloat(25))).foregroundColor(.white)
-                }.frame(width: .infinity,height: 2,alignment: .leading).padding(.trailing,210)
-                
+                VStack {
+                    HStack {
+                        Text("Hello Ahmad").font(Font.custom("SF-Compact", size: CGFloat(25))).foregroundColor(.white)
+                    }.frame(width: .infinity,height: 2,alignment: .leading).padding(.trailing,210).padding(.bottom,100)
+    
+              
                 //.padding(.trailing,150).padding(.bottom,100)
-                ZStack{
-                    Circle()
-                        .strokeBorder(.linearGradient(colors: [Color.DarkOrange,Color.LightOrange,Color.LightOrange], startPoint: .bottomLeading, endPoint: .topTrailing), lineWidth: 30)
-                        .background(Circle().fill(Color.backgroundColor))
-                        .frame(width: 202, height: 198)
-                        .overlay {
-                            HStack{
-                                Text("17").font(Font.custom("SF-Compact", size: CGFloat(63))).foregroundColor(Color.darkBlue).frame(alignment : .center)
-                                Text("hrs").font(Font.custom("SF-Compact", size: CGFloat(16))).foregroundColor(Color.darkBlue).frame(width: 23,height: 50,alignment : .bottomTrailing)
+                    HStack {
+                        ZStack{
+                        Circle()
+                            .strokeBorder(.linearGradient(colors: [Color.DarkOrange,Color.LightOrange,Color.LightOrange], startPoint: .bottomLeading, endPoint: .topTrailing), lineWidth: 30)
+                            .background(Circle().fill(Color.white))
+                            .frame(width: 202, height: 198)
+                            .overlay {
+                                HStack{
+                                    Text("17").font(Font.custom("SF-Compact", size: CGFloat(63))).foregroundColor(Color.darkBlue).frame(alignment : .center)
+                                    Text("hrs").font(Font.custom("SF-Compact", size: CGFloat(16))).foregroundColor(Color.darkBlue).frame(width: 23,height: 50,alignment : .bottomTrailing)
+                                }
                             }
-                        }
-                }.frame(width: .infinity ,height: 2,alignment: .leading).padding(.top,100)
+                        }.frame(width: .infinity ,height: 2,alignment: .leading)
+                    }
+                }.padding(.bottom,80)
                 
-                Spacer()
                 
                 HStack (alignment: .top){
                     Text("Total hours of volunteer").font(Font.custom("SF-Compact", size: CGFloat(25))).foregroundColor(Color.skipColor)
@@ -70,10 +74,9 @@ struct ProfilePage: View {
                     volunteerViewModel.fetchProfile()
                 }
                 Spacer()
-            }.padding(.top,140)
+            }.padding(.top,80)
             
         }
-        .background(Color.backgroundColor).ignoresSafeArea()
             //.toolbar{
             
           
@@ -89,11 +92,12 @@ struct ProfilePage: View {
     }
 }
 
-struct ProfilePage_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfilePage()
-    }
-}
+//struct ProfilePage_Previews: PreviewProvider {
+//    @State var volunteerSelectedList: [VolunteerOpp] = []
+//    static var previews: some View {
+//        ProfilePage(volunteerSelectedList: $volunteerSelectedList)
+//    }
+//}
 struct MyCustomShape2: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
