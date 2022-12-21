@@ -38,23 +38,23 @@ struct SelectedVolunteer: View {
                             // *** START PAGE CONTENT ***
                             
                            // ForEach(volunteerViewModel.listVolunteerOpps){list in
-                                
+                            VStack(alignment: .leading){
                                 Text(volunteerSelected.VolunteerTitle)
                                     .font(.system(size: 24,weight: .bold))
                                     .foregroundColor(Color("ourBlue"))
-//                                    .multilineTextAlignment(.leading)
+                                //                                    .multilineTextAlignment(.leading)
                                 //.fixedSize(horizontal: false, vertical: true)
-                                   // .frame(width: .infinity,height: 50)
+                                // .frame(width: .infinity,height: 50)
                                     .padding(.bottom,3)
-                                    .padding(.trailing,10)
+                                //.padding(.trailing,10)
                                 
                                 
-                            Text(volunteerSelected.OrganizationName)
+                                Text(volunteerSelected.OrganizationName)
                                     .font(.system(size: 19 , weight: .regular))
                                 //  .multilineTextAlignment(.leading)
-                                    .padding(.trailing,60)
+                                // .padding(.trailing,60)
                                     .foregroundColor(Color("ourOrange"))
-                                
+                            }//.padding(.leading,25)
                                 
                                // Image("volunteerImage")
                             if let url = volunteerSelected.ImageURL, let data = try? Data(contentsOf: url),
@@ -68,15 +68,16 @@ struct SelectedVolunteer: View {
                                 //  ScrollView(.vertical){
                                 //  LazyVStack(spacing: 10)
                                 //  LazyVStack{
-                            Text(volunteerSelected.Description)
+                         
+                                Text(volunteerSelected.Description)
                                     .foregroundColor(Color("volunteerFont"))
+                                 //   .frame(width: 290,height: 131)
                                     .padding(.top,16)
-                                // .padding(.leading,40)
+                                    .padding(.leading,27)
                                 // .padding(.trailing,60)
                                     .padding(.bottom,22)
                                 // .padding(.bottom,8)
                                 //.padding(.horizontal,30)
-                                
                                 VStack(alignment: .leading){
                                     HStack{
                                         Image(systemName: "calendar")
@@ -117,7 +118,8 @@ struct SelectedVolunteer: View {
                                     }
                                     
                                     
-                                }.padding(.trailing, 100)
+                                }.padding(.trailing, 60)
+                                //.padding(.leading,25)
                             
                                 Text ("Requirements:")
                                     .font(.system(size: 21, weight: .medium))
@@ -160,7 +162,9 @@ struct SelectedVolunteer: View {
                            // Spacer()
                         } .onAppear{
                             volunteerViewModel.fetchProfile()
+                                
                         }
+                       // .padding(.leading,30)
                     }
                     
                 }

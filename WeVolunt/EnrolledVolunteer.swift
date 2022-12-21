@@ -28,21 +28,22 @@ struct EnrolledVolunteer: View {
                 //
                 Spacer()
                 // *** START PAGE CONTENT ***
-                Text(volunteerList.VolunteerTitle)
-                    .font(.system(size: 24,weight: .bold))
-                    .foregroundColor(Color("ourBlue"))
-                    .multilineTextAlignment(.leading)
-                //.fixedSize(horizontal: false, vertical: true)
-                    .padding(.bottom,3)
-                
-                
-                Text(volunteerList.OrganizationName)
-                    .font(.system(size: 19 , weight: .regular))
-                //  .multilineTextAlignment(.leading)
-                    .padding(.trailing,60)
-                    .foregroundColor(Color("ourOrange"))
-                
-                
+                VStack(alignment: .leading){
+                    Text(volunteerList.VolunteerTitle)
+                        .font(.system(size: 24,weight: .bold))
+                        .foregroundColor(Color("ourBlue"))
+                        //.multilineTextAlignment(.leading)
+                    //.fixedSize(horizontal: false, vertical: true)
+                        .padding(.bottom,3)
+                    
+                    
+                    Text(volunteerList.OrganizationName)
+                        .font(.system(size: 19 , weight: .regular))
+                    //  .multilineTextAlignment(.leading)
+                       // .padding(.trailing,60)
+                        .foregroundColor(Color("ourOrange"))
+                    
+                }
                 if let url = volunteerList.ImageURL, let data = try? Data(contentsOf: url),
                    let image = UIImage(data: data){
                     Image(uiImage: image)
@@ -56,8 +57,8 @@ struct EnrolledVolunteer: View {
                     .foregroundColor(Color("volunteerFont"))
                     .multilineTextAlignment(.leading)
                     .padding(.top,16)
-                    .padding(.leading,40)
-                    .padding(.trailing,60)
+                    .padding(.leading,27)
+                  //  .padding(.trailing,60)
                     .padding(.bottom,22)
                 // .padding(.horizontal,30)
                 VStack(alignment: .leading){
