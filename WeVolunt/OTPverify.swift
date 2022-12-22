@@ -49,7 +49,7 @@ struct OTPverify: View {
                     .foregroundColor(Color("volunteerFont"))
                     .font(.system(size: 15))
                 Button{
-                    
+                    Task{await otpModel.sendOTP()} //resend code
                 }
             label: {
                 Text("RESEND NOW")
@@ -64,7 +64,7 @@ struct OTPverify: View {
                 Task{await otpModel.verifyOTP()}
                 
             }label: {
-                Text("verify")
+                Text("Verfiy")
                     .frame(width:281 , height:41 )
                     .foregroundColor(.white)
                     .background(Color("ourBlue"))
@@ -80,16 +80,17 @@ struct OTPverify: View {
                     .opacity(otpModel.isLoading ? 1 : 0)
                 //the navigation button will appear when the virification code is sent
                 
-             //   if (otpModel.log_status){
+                if (otpModel.log_status){
                     NavigationLink(destination: VolunteerRegister(showingVolunteerSheet:$showingVolunteerSheet).environmentObject(otpModel) , label:{
-                        Text("this is navigstion")
+                        Text("Login")
+                            .frame(width:281 , height:41 )
                             .foregroundColor(.white)
                             .background(Color("ourBlue"))
                             .cornerRadius(8)
                             .fontWeight(.semibold)
                     })
                     
-             //   }
+                }
             }
             
             Spacer()

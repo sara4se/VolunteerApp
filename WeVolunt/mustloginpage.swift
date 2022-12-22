@@ -23,10 +23,11 @@ struct mustloginpage: View {
                                         .foregroundColor(.orange)
                                     Text("you must login").bold()
                                 }.padding(.top,100)
-                                Spacer()
+                             //   Spacer()
                                 
                                 //login button (look for a way to make the navigation link into a button and go to the login page
-                                
+                Spacer()
+                Spacer()
                     Button{
                      //   otpModel.log_status.toggle()
                     }label: {

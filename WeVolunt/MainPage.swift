@@ -10,22 +10,27 @@ import CloudKit
 
 struct MainPage: View {
     @State var showingVolunteerSheet = false
-    @State var recommendations = false
+    //  @State var recommendations = false
+    @EnvironmentObject var userSettings : UserSettings
     @State private var searchText = ""
+    @State var BWitSheet : Int = 1
+    @State var volunteerSelectedList: [VolunteerOpp] = []
     // var categoriesList: [categories]
-  //  @StateObject var categories : categories  //create object
+    //  @StateObject var categories : categories  //create object
     //@State var volunteersList: [Volunteer]
     
     @StateObject var volunteerViewModel : VolunteerViewModel = VolunteerViewModel()  //create object volunteer....
-   /*/ init (volunteerViewModel : VolunteerViewModel){
-        _volunteerViewModel = StateObject(wrappedValue: volunteerViewModel) //call the object
-    }*/
+    /*/ init (volunteerViewModel : VolunteerViewModel){
+     _volunteerViewModel = StateObject(wrappedValue: volunteerViewModel) //call the object
+     }*/
     
-    let columns = [GridItem(.flexible())]
+    let columns = [GridItem(.flexible())
+    ]
     let rows = [GridItem(.flexible())]
-       
+    
     
     var body: some View {
+        
         //the navigation view might be removed from here later, but for now im keeping it so we can see it in the preview
         NavigationView(){
             VStack{
@@ -39,7 +44,8 @@ struct MainPage: View {
                     .offset(y:-100)
                 
                 // display the recommendationns based on selected interests
-                if(recommendations == false){
+                if(!userSettings.arrayOfSelected.isEmpty){
+                    
                     Text("Just for you")
                     
                     //    .padding(.top, 50.0)
@@ -49,24 +55,35 @@ struct MainPage: View {
                         .foregroundColor(Color("ourBlue"))
                         .padding(.vertical)
                     
-                 //   to view the recommended volunteers
+                    //   to view the recommended volunteers
                     LazyVGrid(columns: columns, spacing: 0) {
                         ScrollView(.horizontal){
                             LazyHGrid(rows: rows, spacing: 0) {
-                                ForEach(volunteerViewModel.listVolunteerOpps) {listVol in
-                                 //   recommendVolunteerCard(listVol)
-                                   recommendVolunteerCard(volunteerList: listVol)
+                                
+                                //this loop will get the category name from the user default array
+                                ForEach(userSettings.arrayOfSelected,id:\.self){eachCat in
+                                    //this will filter the search based on the selected interests
+                                    ForEach(volunteerViewModel.listVolunteerOpps.filter { $0.VolunteerCategories.contains(eachCat)}) {listVol in
+                                        
+                                        //   ForEach(volunteerViewModel.listVolunteerOpps)
+                                        
+                                        //   recommendVolunteerCard(listVol)
+                                        recommendVolunteerCard(BWitSheet:
+                                                                $BWitSheet, volunteerList: listVol)
+                                    }
+                                    .padding(.horizontal)
                                 }
-                                .padding(.horizontal)
+                                
                             }
                             
                         }
                     }
-
+                    
                 }
                 
                 
                 // *** START PAGE CONTENT ***
+                
                 Text("All Categories")
                 
                     .frame(maxWidth:365, alignment: .leading)
@@ -75,7 +92,7 @@ struct MainPage: View {
                     .foregroundColor(Color("ourBlue"))
                     .padding(.vertical)
                     .searchable(text: $searchText, placement:.automatic, prompt: "Searcah for categories" )
-
+                
                 //**** STARTING CATEGORIES: *****
                 
                 //lazy grid
@@ -84,9 +101,11 @@ struct MainPage: View {
                         ForEach(searchResults) { eachCategory in
                             //categoryRow(volunteersList: volunteersList, showingVolunteerSheet: $showingVolunteerSheet , eachCategory:eachCategory)
                             categoryRow(showingVolunteerSheet: $showingVolunteerSheet, eachCategory: eachCategory)
+                            
                         }
                     }
                 }
+                //.frame(width: CGFloat(481),height: .infinity)
                 // **** END OF CATEGORIES *****
                 
                 
@@ -94,22 +113,24 @@ struct MainPage: View {
             
             
             .toolbar{
-                NavigationLink(destination: ProfilePage(), label:{
+                NavigationLink(destination: ProfilePage(volunteerSelectedList: $volunteerSelectedList), label:{
                     Label("Profile", systemImage: "person.circle")
                         .foregroundColor(.white)
                 })
                 
                 .navigationBarTitle("Explore", displayMode: .inline)
-              
+                
             }
-         //   .searchable(text: $searchText, placement:.automatic, prompt: "Searcah for categories" )
-     
+            //   .searchable(text: $searchText, placement:.automatic, prompt: "Searcah for categories" )
+            
         }.onAppear{
+            
             volunteerViewModel.fetchProfile()
         }
         
         .accentColor(.white)
         .navigationBarBackButtonHidden(true)
+        
         
     }
     
@@ -126,38 +147,47 @@ struct MainPage: View {
 
 //each category row
 struct categoryRow: View {
-    @StateObject var volunteers : VolunteerViewModel = VolunteerViewModel()
-   // var volunteersList: [Volunteer]
+    
+    //
+    @StateObject var volunteerViewModel: VolunteerViewModel = VolunteerViewModel()  //create object volunteer
+    //   // var volunteersList: [Volunteer]
+    
     @Binding var showingVolunteerSheet : Bool
     var eachCategory : categories
+    @StateObject var userSettings : UserSettings = UserSettings(enterdInterstTogle: true, username: "", isPrivate: true, arrayOfSelected: [])
     let rows = [
         GridItem(.flexible())
     ]
     var body: some View{
-        ForEach(volunteers.listVolunteerOpps){list in
-            
-            Text(list.VolunteerCategories)
-                .frame(maxWidth:350, alignment: .leading)
-                .font(.title2)
-                .fontWeight(.bold)
-                .foregroundColor(Color("ourOrange"))
-        }
+        //  ForEach(volunteerViewModel.listVolunteerOpps){list in
+        
+        Text(eachCategory.name)
+        //Text(list.VolunteerCategories)
+            .frame(maxWidth:350, alignment: .leading)
+            .font(.title2)
+            .fontWeight(.bold)
+            .foregroundColor(Color("ourOrange"))
+        // }
         //category content
-        ScrollView(.horizontal){
-
-
-            LazyHGrid(rows: rows, spacing: 10) {
-                   // Spacer()
-                ForEach(volunteers.listVolunteerOpps.filter { $0.VolunteerCategories.contains(eachCategory.name)}) {eachVol in
-                        volunteerCard(volunteerViewModel: volunteers)
-                      
-                    }
-                    .padding()
+        VStack (spacing : 20){
+            ScrollView(.horizontal){
                 
-                }
-
+                
+                LazyHGrid(rows: rows, spacing: 20) {
+                    
+                    ForEach(volunteerViewModel.listVolunteerOpps.filter { $0.VolunteerCategories.contains(eachCategory.name)}) {listVol in
+                        volunteerCard(eachVol: listVol)
+                        
+                    }
+                    
+                    
+                }.padding()
+                
+            }.onAppear{
+                volunteerViewModel.fetchProfile()
             }
-  
+        }
+        
         
     }
 }
@@ -183,13 +213,11 @@ struct backgroundShape: Shape {
     }
 }
 
-/*
-struct MainPage_Previews: PreviewProvider {
-    var volunteerViewModel : VolunteerViewModel
-    
-    static var previews: some View {
-        
-        MainPage( categoriesList: categoriesList, volunteersList: volunteerList, volunteerViewModel: volunteerViewModel )
-    }
-}*/
+//
+//struct MainPage_Previews: PreviewProvider {
+//    static var previews: some View {
+//
+//        MainPage()
+//    }
+//}
 

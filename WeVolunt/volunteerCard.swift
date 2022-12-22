@@ -12,13 +12,14 @@ import CloudKit
 struct recommendVolunteerCard: View {
   //  @StateObject var volunteers = volunteerModelView()
   // @StateObject var  volunteerList = [volunteers.volunteerList]
-    
- 
+    @Binding var BWitSheet : Int
+   
     @State var volunteerList: VolunteerOpp
+    
     @State var showingVolunteerSheet = false
    // var eachVol: Volunteer
     
-    @StateObject var volunteerViewModel : VolunteerViewModel = VolunteerViewModel() //create object volunteer....
+   // @StateObject var volunteerViewModel : VolunteerViewModel = VolunteerViewModel() //create object volunteer....
    /*/ init (volunteerViewModel : VolunteerViewModel){
         _volunteerViewModel = StateObject(wrappedValue: volunteerViewModel) //call the object
     }*/
@@ -33,19 +34,28 @@ struct recommendVolunteerCard: View {
                             VStack (alignment: .center){
                                 
                                 ZStack{
-                                    Image("volunteerImage")
-                                        .resizable()
-                                        .frame(width: 148, height: 96)
-                                        .shadow(radius: 1)
-                                    
-                                    //this is from the costumise shape and view extention
-                                        .cornerRadius(20, corners: [.topLeft, .topRight])
-                                    Image("volunteerCompany")
-                                        .resizable()
-                                        .clipShape(Circle())
-                                        .frame(width: 37, height: 37)
-                                        .offset(x:-50, y:50)
-                                        .shadow(radius: 1)
+                                    if let url = volunteerList.ImageURL, let data = try? Data(contentsOf: url),
+                                       let image = UIImage(data: data){
+                                        Image(uiImage: image)
+                                        
+                                        // Image("volunteerImage")
+                                            .resizable()
+                                            .frame(width: 148, height: 96)
+                                            .shadow(radius: 1)
+                                        
+                                        //this is from the costumise shape and view extention
+                                            .cornerRadius(20, corners: [.topLeft, .topRight])
+                                    }
+                                    //Image("volunteerCompany")
+                                    if let url = volunteerList.OrgURL, let data = try? Data(contentsOf: url),
+                                       let image = UIImage(data: data){
+                                        Image(uiImage: image)
+                                            .resizable()
+                                            .clipShape(Circle())
+                                            .frame(width: 37, height: 37)
+                                            .offset(x:-50, y:50)
+                                            .shadow(radius: 1)
+                                    }
                                 }
                                 VStack {
                                     
@@ -115,13 +125,16 @@ struct recommendVolunteerCard: View {
                                     .overlay(
                                         VStack{
                                             
-                                            
-                                            //content of the pop up window
-                                            
-                                            SelectedVolunteer(showingVolunteerSheet:$showingVolunteerSheet)
-                                            //   .padding(.vertical)
-                                            //
-                                            
+                                            if ( BWitSheet == 1){
+                                                //content of the pop up window
+                                                
+                                                SelectedVolunteer(showingVolunteerSheet:$showingVolunteerSheet, volunteerSelected: volunteerList)
+                                                //   .padding(.vertical)
+                                                //
+                                            }
+                                            else{
+                                                EnrolledVolunteer(showingVolunteerSheet: $showingVolunteerSheet, volunteerList: volunteerList) //i changed to volunteerList: volunteerList(remaz)
+                                            }
                                         }
                                             .frame(width:313,height:563)
                                             .cornerRadius(25)
@@ -142,9 +155,12 @@ struct recommendVolunteerCard: View {
 
 //this is all categories volunteering cards
 struct volunteerCard: View {
-    @State var showingVolunteerSheet  = false
-    @StateObject var volunteerViewModel : VolunteerViewModel
-   // var eachVol: Volunteer
+   // @State var volunteerList: VolunteerOpp
+    @State var showingVolunteerSheet = false
+    var eachVol: VolunteerOpp
+    
+    @StateObject var volunteerViewModel : VolunteerViewModel = VolunteerViewModel() //create object volunteer....
+   // var eachVol: VolunteerOpp
     var body: some View {
         // there should be printing for all the dictionary list item
         
@@ -156,20 +172,26 @@ struct volunteerCard: View {
                     
                     //oppurtonity content
                     HStack {
-                        Image("volunteerImage")
-                            .resizable()
-                            .frame(width: 108, height: 94)
-                        
-                        //this is from the costumise shape and view extention
-                            .cornerRadius(20, corners: [.topLeft, .bottomLeft])
-                        
+                        if let url = eachVol.ImageURL, let data = try? Data(contentsOf: url),
+                           let image = UIImage(data: data){
+                            Image(uiImage: image)
+                            
+                            // Image("volunteerImage")
+                                .resizable()
+                                .frame(width: 108, height: 94)
+                                .shadow(radius: 1)
+                            
+                            //this is from the costumise shape and view extention
+                                .cornerRadius(20, corners: [.topLeft, .bottomLeft])
+                        }
                         Spacer()
                         
-                        VStack(alignment: .center) {
+                        VStack(alignment: .leading) {
+                           // Spacer()
                             //volunteer Title
-                            ForEach(volunteerViewModel.listVolunteerOpps) { list in
-                                Text(list.VolunteerTitle)
+                            Text(eachVol.VolunteerTitle)
                                     .foregroundColor(Color("volunteerFont"))
+                                    .offset(y:8)
                                 
                                 // seperater line
                                 Rectangle()
@@ -178,34 +200,42 @@ struct volunteerCard: View {
                                 
                                 HStack{
                                     // orgnization logo
-                                    Image("volunteerCompany")
+                                  //  Image("volunteerCompany")
+                                    if let url = eachVol.OrgURL, let data = try? Data(contentsOf: url),
+                                       let image = UIImage(data: data){
+                                        Image(uiImage: image)
                                         .resizable()
                                         .clipShape(Circle())
+                                        .offset(x:-30)
                                         .frame(width: 37, height: 37)
-                                    VStack{
+                                    }
+                                    VStack(alignment: .leading){
                                         HStack{
-                                            Spacer()
+                                            //Spacer()
                                             Image(systemName: "mappin.and.ellipse")
                                                 .foregroundColor(Color("ourOrange"))
-                                            Text(list.Location)
+                                            Text(eachVol.Location)
                                                 .font(.callout)
                                                 .foregroundColor(Color("volunteerFont"))
-                                            Spacer()
+                                           // Spacer()
                                         }
                                         HStack{
-                                            Spacer()
+                                           // Spacer()
                                             Image(systemName: "calendar")
                                                 .foregroundColor(Color("ourOrange"))
-                                            Text(list.Date)
+                                            Text(eachVol.Date)
                                                 .font(.callout)
                                                 .foregroundColor(Color("volunteerFont"))
                                         }
-                                        .padding(.trailing, 5.0)
+                                       // .padding(.trailing, 5.0)
+                                        
+
                                     }
+                                    .offset(x:-30)
                                 }
                             }
-                        }
-                        Spacer()
+                        
+                        //Spacer()
                     }
                     
                 )
@@ -238,8 +268,7 @@ struct volunteerCard: View {
                                     
                                   
                                     //content of the pop up window
-                                 
-                                    SelectedVolunteer(showingVolunteerSheet:$showingVolunteerSheet)
+                                    SelectedVolunteer(showingVolunteerSheet:$showingVolunteerSheet, volunteerSelected: eachVol)
                                      //   .padding(.vertical)
                                     //
                                     

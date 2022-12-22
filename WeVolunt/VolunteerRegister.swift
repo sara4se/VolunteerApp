@@ -9,10 +9,10 @@ import SwiftUI
 
 struct VolunteerRegister: View {
     @Binding var showingVolunteerSheet: Bool
-
-  //  @EnvironmentObject var otpModel: OTPviewModel
-   @StateObject var otpModel: OTPviewModel = OTPviewModel()
-   // @AppStorage("log_status") var log_status = false
+    
+    //  @EnvironmentObject var otpModel: OTPviewModel
+    @StateObject var otpModel: OTPviewModel = OTPviewModel()
+    // @AppStorage("log_status") var log_status = false
     
     // this will create an object from the model to use it and its published attributes
     //@EnvironmentObject var modelView : userModelView
@@ -28,24 +28,24 @@ struct VolunteerRegister: View {
         VStack(spacing: 20){
             
             //if the user alr logged in the form page will appear
-         //   if (otpModel.log_status) {
-//                if(modelView.user.isLogd){
-//
-//                        NavigationLink(destination: LoginPage()
-//                                       //LoginPage()
-//                                       , label:{
-//                            Text("this is navigation")
-//                                .frame(width:281 , height:41 )
-//                                .foregroundColor(.white)
-//                                .background(Color("ourBlue"))
-//                                .cornerRadius(8)
-//                                .fontWeight(.semibold)
-//
-//                        })
-//
-//                }
-                
-           
+            //   if (otpModel.log_status) {
+            //                if(modelView.user.isLogd){
+            //
+            //                        NavigationLink(destination: LoginPage()
+            //                                       //LoginPage()
+            //                                       , label:{
+            //                            Text("this is navigation")
+            //                                .frame(width:281 , height:41 )
+            //                                .foregroundColor(.white)
+            //                                .background(Color("ourBlue"))
+            //                                .cornerRadius(8)
+            //                                .fontWeight(.semibold)
+            //
+            //                        })
+            //
+            //                }
+            
+            ScrollView(.vertical){
                 VStack(spacing: 20){
                     Image(systemName: "highlighter")
                         .font(.system(size: 40)).bold()
@@ -71,10 +71,13 @@ struct VolunteerRegister: View {
                             // .underline(color:.gray)
                             
                         }.padding(.horizontal,30)
-                        Rectangle()
-                            .fill(Color(.gray))
-                            .frame(height:0.5)
-                            .padding(.horizontal,30)
+                        //                        Rectangle()
+                        //                            .fill(Color(.gray))
+                        //                            .frame(height:0.5)
+                        //                            .padding(.horizontal,30)
+                        Divider()
+                            .frame(width:  270)
+                            .background(Color.black)
                     }
                     VStack{
                         HStack{
@@ -83,10 +86,13 @@ struct VolunteerRegister: View {
                             TextField("Type your ID", text: $ID).modifier(ClearButton(text: $ID))
                                 .font(.system(size: 17))
                         }.padding(.horizontal,30)
-                        Rectangle()
-                            .fill(Color(.gray))
-                            .frame(height:0.5)
-                            .padding(.horizontal,30)
+                        //                        Rectangle()
+                        //                            .fill(Color(.gray))
+                        //                            .frame(height:0.5)
+                        //                            .padding(.horizontal,30)
+                        Divider()
+                            .frame(width:  270)
+                            .background(Color.black)
                     }
                     VStack{
                         HStack{
@@ -97,10 +103,13 @@ struct VolunteerRegister: View {
                             )
                             .font(.system(size: 17))
                         }.padding(.horizontal,30)
-                        Rectangle()
-                            .fill(Color(.gray))
-                            .frame(height:0.5)
-                            .padding(.horizontal,30)
+                        //                        Rectangle()
+                        //                            .fill(Color(.gray))
+                        //                            .frame(height:0.5)
+                        //                            .padding(.horizontal,30)
+                        Divider()
+                            .frame(width:  270)
+                            .background(Color.black)
                     }
                     VStack{
                         HStack{
@@ -110,10 +119,13 @@ struct VolunteerRegister: View {
                             
                         }.padding(.horizontal,30)
                         
-                        Rectangle()
-                            .fill(Color(.gray))
-                            .frame(height:0.5)
-                            .padding(.horizontal,30)
+                        //                        Rectangle()
+                        //                            .fill(Color(.gray))
+                        //                            .frame(height:0.5)
+                        //                            .padding(.horizontal,30)
+                        Divider()
+                            .frame(width:  270)
+                            .background(Color.black)
                     }
                     VStack{
                         HStack{
@@ -121,17 +133,20 @@ struct VolunteerRegister: View {
                                 .font(.system(size: 17))
                             TextField("Type your Adress", text: $Adress).modifier(ClearButton(text: $Adress))
                         }.padding(.horizontal,30)
-                        Rectangle()
-                            .fill(Color(.gray))
-                            .frame(height:0.5)
-                            .padding(.horizontal,30)
+                        //                        Rectangle()
+                        //                            .fill(Color(.gray))
+                        //                            .frame(height:0.5)
+                        //                            .padding(.horizontal,30)
+                        Divider()
+                            .frame(width:  270)
+                            .background(Color.black)
                     }
                     
                     
                     
                     // *** START PAGE CONTENT ***
                     //  Text("this is volunteer registration page")
-                    .padding()
+                    .padding(.vertical)
                     //login button
                     NavigationLink(destination: SubmitNotify(showingVolunteerSheet:$showingVolunteerSheet), label:{
                         Text("Submit")
@@ -140,22 +155,24 @@ struct VolunteerRegister: View {
                             .background(Color("ourBlue"))
                             .cornerRadius(8)
                             .fontWeight(.semibold)
+                            .padding(.bottom,40)
                         
                         
                         
                     })
                 }
-             
-          //  }
+                
+                //  }
+                
+                
+            }
+            
             
             
         }
-        
-        
-        
     }
+    
 }
-
 
 struct ClearButton: ViewModifier
 {

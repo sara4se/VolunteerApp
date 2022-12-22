@@ -84,7 +84,7 @@ struct LoginPage: View {
                     //                NavigationLink(destination: OTPverify().environmentObject(otpModel),label:{
                     //                    Text("this is navigstion")
                     //  })
-                    Text("Login")
+                    Text("Send OTP")
                         .frame(width:281 , height:41 )
                         .foregroundColor(.white)
                         .background(Color("ourBlue"))
@@ -98,9 +98,11 @@ struct LoginPage: View {
                         .opacity(otpModel.isLoading ? 1 : 0)
                     
                     //the navigation button will appear when the virification code is sent
+                    
                     if (!otpModel.verificationCode.isEmpty){
                         NavigationLink(destination: OTPverify(showingVolunteerSheet:$showingVolunteerSheet).environmentObject(otpModel),label:{
-                            Text("this is navigstion")
+                            Text("Continue")
+                                .frame(width:281 , height:41 )
                                 .foregroundColor(.white)
                                 .background(Color("ourBlue"))
                                 .cornerRadius(8)
