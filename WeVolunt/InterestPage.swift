@@ -129,7 +129,7 @@ struct MultipleSelectionRow: View {
                 if self.isSelected {
                 }
             }
-        }).frame(width: 100, height: 49)
+        }).frame(width: size, height: 49)
             .foregroundColor(self.isSelected ? Color.white : Color.lightBlue)
             .background(self.isSelected ? Color.skipColor : Color.backgroundColor)
             .overlay( /// apply a rounded border
