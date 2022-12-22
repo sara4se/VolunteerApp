@@ -18,14 +18,14 @@ struct Title : Identifiable {
 
 struct InterestPage: View {
     
-//    var categoriesList: [categories]
+    //    var categoriesList: [categories]
     @StateObject var categorie : categories = categories() //create object
-   //@State var volunteersList: [Volunteer]
-   @StateObject var volunteerViewModel : VolunteerViewModel = VolunteerViewModel()  //create object
-//    init (volunteerViewModel : VolunteerViewModel){
-//         _volunteerViewModel = StateObject(wrappedValue: volunteerViewModel)
-//     }
-  
+    //@State var volunteersList: [Volunteer]
+    @StateObject var volunteerViewModel : VolunteerViewModel = VolunteerViewModel()  //create object
+    //    init (volunteerViewModel : VolunteerViewModel){
+    //         _volunteerViewModel = StateObject(wrappedValue: volunteerViewModel)
+    //     }
+    
     @StateObject var userSettings : UserSettings = UserSettings(enterdInterstTogle: true, username: "", isPrivate: true, arrayOfSelected: [])
     @State var itemsTitles: [Title] = [Title(titleStr:"Environmental" , fontsize : 60) ,Title(titleStr:"Sports" , fontsize : 40),Title(titleStr:"Social" , fontsize : 30), Title(titleStr:"Religious" , fontsize : 50),Title(titleStr:"Technical" , fontsize : 50),Title(titleStr:"Education" , fontsize : 50),Title(titleStr:"Entertainment" , fontsize : 50) ,Title(titleStr:"Health" , fontsize : 40)]
     
@@ -61,7 +61,7 @@ struct InterestPage: View {
                                 MultipleSelectionRow(title: item.titleStr, isSelected: userSettings.arrayOfSelected.contains(item.titleStr),font: UIFont.systemFont(ofSize: CGFloat(item.fontsize),weight: .light))
                                 {
                                     if userSettings.arrayOfSelected.contains(item.titleStr) {
-//                                        userSettings.arrayOfSelected.removeAll(where: { $0 == item.name })
+                                        //                                        userSettings.arrayOfSelected.removeAll(where: { $0 == item.name })
                                         print(userSettings.arrayOfSelected)
                                     }
                                     else {
@@ -99,14 +99,29 @@ struct InterestPage: View {
                 }
             }
         }.onAppear{
-             
-                volunteerViewModel.fetchProfile()
+            
+            volunteerViewModel.fetchProfile()
             
         }.background(Color.backgroundColor)
     }
     
     
+}
+
+struct MultipleSelectionRow: View {
+    var title: String
+    var isSelected: Bool
     
+   var font = UIFont.preferredFont(forTextStyle: .body)  // << default !!
+    
+    var action: () -> Void
+    
+    @State private var half = false
+    @State private var dim = false
+    
+    var body: some View {
+        let size = font.lineHeight * 2.0
+        
         Button(action: self.action,
                label: {
             HStack {
@@ -114,9 +129,9 @@ struct InterestPage: View {
                 if self.isSelected {
                 }
             }
-        }).frame(width: size, height: 49)
+        }).frame(width: 100, height: 49)
             .foregroundColor(self.isSelected ? Color.white : Color.lightBlue)
-            .background(self.isSelected ? Color.skipColor : Color.white)
+            .background(self.isSelected ? Color.skipColor : Color.backgroundColor)
             .overlay( /// apply a rounded border
                 RoundedRectangle(cornerRadius: 8)
                     .stroke(.blue, lineWidth: 1)
@@ -135,6 +150,8 @@ struct InterestPage: View {
         
     }
 }
+
+
 
 
 struct InterestPage_Previews: PreviewProvider {
