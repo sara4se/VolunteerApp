@@ -107,22 +107,6 @@ struct InterestPage: View {
     
     
     
-
-}
-struct MultipleSelectionRow: View {
-    var title: String
-    var isSelected: Bool
-    
-   var font = UIFont.preferredFont(forTextStyle: .body)  // << default !!
-    
-    var action: () -> Void
-     
-    @State private var half = false
-    @State private var dim = false
-    
-    var body: some View {
-        let size = font.lineHeight * 2.0
-        
         Button(action: self.action,
                label: {
             HStack {
