@@ -11,8 +11,10 @@ import Firebase
 
 @main
 struct WeVoluntApp: App {
+    @EnvironmentObject var volunteerViewModel : VolunteerViewModel  //create object
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     init() {
+        
         //to change the navigation title color in the .inline display mode
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
     }

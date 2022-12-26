@@ -10,20 +10,13 @@ import CloudKit
 
 struct MainPage: View {
     @State var showingVolunteerSheet = false
-    //  @State var recommendations = false
-    @EnvironmentObject var userSettings : UserSettings
+ 
+    @EnvironmentObject var userSettingsInMain : UserSettingsViewModel 
     @State private var searchText = ""
     @State var BWitSheet : Int = 1
     @State var volunteerSelectedList: [VolunteerOpp] = []
-    // var categoriesList: [categories]
-    //  @StateObject var categories : categories  //create object
-    //@State var volunteersList: [Volunteer]
-    
-    @StateObject var volunteerViewModel : VolunteerViewModel = VolunteerViewModel()  //create object volunteer....
-    /*/ init (volunteerViewModel : VolunteerViewModel){
-     _volunteerViewModel = StateObject(wrappedValue: volunteerViewModel) //call the object
-     }*/
-    
+   @StateObject var volunteerViewModel : VolunteerViewModel = VolunteerViewModel()  //create object volunteer....
+
     let columns = [GridItem(.flexible())
     ]
     let rows = [GridItem(.flexible())]
@@ -44,7 +37,7 @@ struct MainPage: View {
                     .offset(y:-100)
                 
                 // display the recommendationns based on selected interests
-                if(!userSettings.arrayOfSelected.isEmpty){
+                if(!userSettingsInMain.userSettings.arrayOfSelected.isEmpty){
                     
                     Text("Just for you")
                     
@@ -61,7 +54,7 @@ struct MainPage: View {
                             LazyHGrid(rows: rows, spacing: 0) {
                                 
                                 //this loop will get the category name from the user default array
-                                ForEach(userSettings.arrayOfSelected,id:\.self){eachCat in
+                                ForEach(userSettingsInMain.userSettings.arrayOfSelected,id:\.self){eachCat in
                                     //this will filter the search based on the selected interests
                                     ForEach(volunteerViewModel.listVolunteerOpps.filter { $0.VolunteerCategories.contains(eachCat)}) {listVol in
                                         
@@ -154,7 +147,7 @@ struct categoryRow: View {
     
     @Binding var showingVolunteerSheet : Bool
     var eachCategory : categories
-    @StateObject var userSettings : UserSettings = UserSettings(enterdInterstTogle: true, username: "", isPrivate: true, arrayOfSelected: [])
+    @StateObject var userSettings : UserSettingsViewModel = UserSettingsViewModel(userSettings: UserSettings(arrayOfSelected: []))
     let rows = [
         GridItem(.flexible())
     ]

@@ -37,7 +37,7 @@ struct OTPverify: View {
                     .font(.system(size: 15))
                 
                 //user phone number entered in login
-                Text("+966 \(otpModel.phoneNumber)")
+                Text("+966 \(otpModel.verificationPhone.phoneNumber)")
                     .foregroundColor(Color("ourOrange"))
                     .font(.system(size: 15))
             }
@@ -64,44 +64,44 @@ struct OTPverify: View {
                 Task{await otpModel.verifyOTP()}
                 
             }label: {
-                Text("Verfiy")
-                    .frame(width:281 , height:41 )
-                    .foregroundColor(.white)
-                    .background(Color("ourBlue"))
-                    .cornerRadius(8)
-                    .fontWeight(.semibold)
-                    .opacity(otpModel.isLoading ? 0 : 1)
+                VStack{
+                    Text("Verfiy")
+                        .frame(width:281 , height:41 )
+                        .foregroundColor(.white)
+                        .background(Color("ourBlue"))
+                        .cornerRadius(8)
+                        .fontWeight(.semibold)
+                        .opacity(otpModel.isLoading ? 0 : 1)
+                  }.overlay{
+                            //loading before oppening the CAPTCHA
+                            ProgressView()
+                                .opacity(otpModel.isLoading ? 1 : 0)
+                            //the navigation button will appear when the virification code is sent
+                            
+                      if (otpModel.verificationPhone.log_status){
+                                NavigationLink(destination: VolunteerRegister(showingVolunteerSheet:$showingVolunteerSheet).environmentObject(otpModel) , label:{
+                                    Text("Login")
+                                        .frame(width:281 , height:41 )
+                                        .foregroundColor(.white)
+                                        .background(Color("ourBlue"))
+                                        .cornerRadius(8)
+                                        .fontWeight(.semibold)
+                                })
+                                
+                            }
+                        }
                 
-                
-            }
-            .overlay{
-                //loading before oppening the CAPTCHA
-                ProgressView()
-                    .opacity(otpModel.isLoading ? 1 : 0)
-                //the navigation button will appear when the virification code is sent
-                
-                if (otpModel.log_status){
-                    NavigationLink(destination: VolunteerRegister(showingVolunteerSheet:$showingVolunteerSheet).environmentObject(otpModel) , label:{
-                        Text("Login")
-                            .frame(width:281 , height:41 )
-                            .foregroundColor(.white)
-                            .background(Color("ourBlue"))
-                            .cornerRadius(8)
-                            .fontWeight(.semibold)
-                    })
-                    
-                }
             }
             
             Spacer()
             
         }
-        .onChange(of: otpModel.otpFields){newValue in
+        .onChange(of: otpModel.verificationPhone.otpFields){newValue in
             OTPcondition(value: newValue)
         }
         
         //sending alerts in case error occure
-        .alert(otpModel.errorMsg,isPresented: $otpModel.showAlert){}
+        .alert(otpModel.verificationPhone.errorMsg,isPresented: $otpModel.verificationPhone.showAlert){}
         
     }
     
@@ -113,12 +113,12 @@ struct OTPverify: View {
         for index in 0..<6{
             if value[index].count == 6{
                 DispatchQueue.main.async {
-                    otpModel.otpText = value[index]
-                    otpModel.otpFields[index] = ""
+                    otpModel.verificationPhone.otpText = value[index]
+                    otpModel.verificationPhone.otpFields[index] = ""
                     
                     //filling all text field with values
-                    for item in otpModel.otpText.enumerated(){
-                        otpModel.otpFields[item.offset] = String(item.element)
+                    for item in otpModel.verificationPhone.otpText.enumerated(){
+                        otpModel.verificationPhone.otpFields[item.offset] = String(item.element)
                     }
                 }
                 return
@@ -136,7 +136,7 @@ struct OTPverify: View {
             //this is a condition to limit only one number in the field
             for index in 0..<6{
                 if value[index].count > 1 {
-                    otpModel.otpFields[index] = String(value[index].last!)
+                    otpModel.verificationPhone.otpFields[index] = String(value[index].last!)
                 }
             }
         }
@@ -150,7 +150,7 @@ struct OTPverify: View {
             ForEach(0..<6,id: \.self){ index in
                 VStack(spacing:8){
                     //this to take the input
-                    TextField("", text: $otpModel.otpFields[index])
+                    TextField("", text: $otpModel.verificationPhone.otpFields[index])
                         .keyboardType(.numberPad)
                         .textContentType(.oneTimeCode)
                         .multilineTextAlignment(.center)

@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		569B17EA294C7F3D0068F1BF /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569B17E9294C7F3C0068F1BF /* UserSettings.swift */; };
+		562C1A77295980140061EDE2 /* VerificationPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562C1A76295980140061EDE2 /* VerificationPhone.swift */; };
+		562C1A79295992B70061EDE2 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562C1A78295992B70061EDE2 /* UserSettings.swift */; };
+		569B17EA294C7F3D0068F1BF /* UserSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569B17E9294C7F3C0068F1BF /* UserSettingsViewModel.swift */; };
 		D41ED3E429471FC800EFB697 /* OTPviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41ED3E329471FC800EFB697 /* OTPviewModel.swift */; };
 		D41ED3E6294721A300EFB697 /* userModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41ED3E5294721A300EFB697 /* userModelView.swift */; };
 		D41ED3E8294721E200EFB697 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41ED3E7294721E200EFB697 /* User.swift */; };
@@ -25,22 +27,21 @@
 		D44D20F9293F853C00E5FCEC /* SelectedVolunteer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D20F8293F853C00E5FCEC /* SelectedVolunteer.swift */; };
 		D44D20FB293F89A600E5FCEC /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D20FA293F89A600E5FCEC /* LoginPage.swift */; };
 		D44D20FD293F8A5E00E5FCEC /* OTPverify.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D20FC293F8A5E00E5FCEC /* OTPverify.swift */; };
-		D44D2101293F8ACA00E5FCEC /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D2100293F8ACA00E5FCEC /* SignUp.swift */; };
 		D44D2103293F8B0A00E5FCEC /* VolunteerRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D2102293F8B0A00E5FCEC /* VolunteerRegister.swift */; };
 		D44D2105293F8BE300E5FCEC /* SubmitNotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D2104293F8BE300E5FCEC /* SubmitNotify.swift */; };
 		D44D2107293F937C00E5FCEC /* EnrolledVolunteer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D2106293F937C00E5FCEC /* EnrolledVolunteer.swift */; };
 		D45FD37D2941B9640023819B /* categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45FD37C2941B9640023819B /* categories.swift */; };
 		D45FD382294211FA0023819B /* categoriesModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45FD381294211FA0023819B /* categoriesModelView.swift */; };
 		D45FD3842942137E0023819B /* volunteerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45FD3832942137E0023819B /* volunteerCard.swift */; };
-		D47D2D97294B3DC800087BC5 /* volunteer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47D2D96294B3DC800087BC5 /* volunteer.swift */; };
-		D47D2D99294B43C500087BC5 /* volunteerModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47D2D98294B43C500087BC5 /* volunteerModelView.swift */; };
 		D49C215A294EEE3700BB900F /* mustloginpage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49C2159294EEE3700BB900F /* mustloginpage.swift */; };
 		F400FA94294CEEB000F5A77B /* VolunteerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F400FA93294CEA8E00F5A77B /* VolunteerViewModel.swift */; };
 		F400FA97294CEF6E00F5A77B /* VolunteerOpp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F400FA91294CEA8700F5A77B /* VolunteerOpp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		569B17E9294C7F3C0068F1BF /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		562C1A76295980140061EDE2 /* VerificationPhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationPhone.swift; sourceTree = "<group>"; };
+		562C1A78295992B70061EDE2 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		569B17E9294C7F3C0068F1BF /* UserSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewModel.swift; sourceTree = "<group>"; };
 		569B17EC294C7F590068F1BF /* SF-Compact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact.ttf"; sourceTree = "<group>"; };
 		D41ED3E329471FC800EFB697 /* OTPviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPviewModel.swift; sourceTree = "<group>"; };
 		D41ED3E5294721A300EFB697 /* userModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userModelView.swift; sourceTree = "<group>"; };
@@ -57,15 +58,12 @@
 		D44D20F8293F853C00E5FCEC /* SelectedVolunteer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedVolunteer.swift; sourceTree = "<group>"; };
 		D44D20FA293F89A600E5FCEC /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		D44D20FC293F8A5E00E5FCEC /* OTPverify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPverify.swift; sourceTree = "<group>"; };
-		D44D2100293F8ACA00E5FCEC /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		D44D2102293F8B0A00E5FCEC /* VolunteerRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerRegister.swift; sourceTree = "<group>"; };
 		D44D2104293F8BE300E5FCEC /* SubmitNotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitNotify.swift; sourceTree = "<group>"; };
 		D44D2106293F937C00E5FCEC /* EnrolledVolunteer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrolledVolunteer.swift; sourceTree = "<group>"; };
 		D45FD37C2941B9640023819B /* categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = categories.swift; sourceTree = "<group>"; };
 		D45FD381294211FA0023819B /* categoriesModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = categoriesModelView.swift; sourceTree = "<group>"; };
 		D45FD3832942137E0023819B /* volunteerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = volunteerCard.swift; sourceTree = "<group>"; };
-		D47D2D96294B3DC800087BC5 /* volunteer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = volunteer.swift; sourceTree = "<group>"; };
-		D47D2D98294B43C500087BC5 /* volunteerModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = volunteerModelView.swift; sourceTree = "<group>"; };
 		D49C2159294EEE3700BB900F /* mustloginpage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mustloginpage.swift; sourceTree = "<group>"; };
 		D4C7CA9129491351009AB02D /* WeVolunt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WeVolunt.entitlements; sourceTree = "<group>"; };
 		F400FA91294CEA8700F5A77B /* VolunteerOpp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerOpp.swift; sourceTree = "<group>"; };
@@ -87,6 +85,100 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		562C1A032958512C0061EDE2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D44D20F0293F7B3E00E5FCEC /* SplashScreen.swift */,
+				D44D2104293F8BE300E5FCEC /* SubmitNotify.swift */,
+				D44D20FC293F8A5E00E5FCEC /* OTPverify.swift */,
+				D49C2159294EEE3700BB900F /* mustloginpage.swift */,
+				D44D20FA293F89A600E5FCEC /* LoginPage.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		562C1A04295851700061EDE2 /* PickInterest  */ = {
+			isa = PBXGroup;
+			children = (
+				562C1A0A295855C60061EDE2 /* Model */,
+				562C1A0C295855D30061EDE2 /* View */,
+				562C1A0B295855CC0061EDE2 /* ViewMoodel */,
+			);
+			path = "PickInterest ";
+			sourceTree = "<group>";
+		};
+		562C1A06295852F90061EDE2 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				562C1A7529597E8F0061EDE2 /* Model */,
+				562C1A032958512C0061EDE2 /* View */,
+				562C1A09295854EB0061EDE2 /* ViewModel */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		562C1A072958536B0061EDE2 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F400FA98294CEF7D00F5A77B /* Model */,
+				562C1A08295853950061EDE2 /* View */,
+				F400FA96294CEF1A00F5A77B /* ViewModel */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		562C1A08295853950061EDE2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D44D2106293F937C00E5FCEC /* EnrolledVolunteer.swift */,
+				D44D20F6293F83EE00E5FCEC /* ProfilePage.swift */,
+				D45FD3832942137E0023819B /* volunteerCard.swift */,
+				D44D20F8293F853C00E5FCEC /* SelectedVolunteer.swift */,
+				D44D20F2293F7B6300E5FCEC /* MainPage.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		562C1A09295854EB0061EDE2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D41ED3E329471FC800EFB697 /* OTPviewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		562C1A0A295855C60061EDE2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D45FD37C2941B9640023819B /* categories.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		562C1A0B295855CC0061EDE2 /* ViewMoodel */ = {
+			isa = PBXGroup;
+			children = (
+				D45FD381294211FA0023819B /* categoriesModelView.swift */,
+			);
+			path = ViewMoodel;
+			sourceTree = "<group>";
+		};
+		562C1A0C295855D30061EDE2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D44D20F4293F7C2E00E5FCEC /* InterestPage.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		562C1A7529597E8F0061EDE2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				562C1A76295980140061EDE2 /* VerificationPhone.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		569B17EB294C7F590068F1BF /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,14 +187,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		D41ED3E9294732B000EFB697 /* volunteerRegist */ = {
+		D41ED3E9294732B000EFB697 /* Registet */ = {
 			isa = PBXGroup;
 			children = (
-				D45FD3802942111B0023819B /* View */,
 				D45FD37E294210F70023819B /* Model */,
+				D45FD3802942111B0023819B /* View */,
 				D45FD37F294211050023819B /* ViewModel */,
 			);
-			path = volunteerRegist;
+			path = Registet;
 			sourceTree = "<group>";
 		};
 		D41ED3EA2948629D00EFB697 /* shared */ = {
@@ -132,36 +224,17 @@
 		D44D20E1293F4AB700E5FCEC /* WeVolunt */ = {
 			isa = PBXGroup;
 			children = (
-				F400FA98294CEF7D00F5A77B /* Model */,
-				F400FA96294CEF1A00F5A77B /* ViewModel */,
+				D41ED3E9294732B000EFB697 /* Registet */,
+				562C1A06295852F90061EDE2 /* Login */,
+				562C1A04295851700061EDE2 /* PickInterest  */,
+				562C1A072958536B0061EDE2 /* MainScreen */,
 				569B17EB294C7F590068F1BF /* Fonts */,
-				D4C7CA9129491351009AB02D /* WeVolunt.entitlements */,
-				F400FABC294F07DF00F5A77B /* Info.plist */,
 				D41ED3EA2948629D00EFB697 /* shared */,
-				D41ED3E9294732B000EFB697 /* volunteerRegist */,
+				F400FABC294F07DF00F5A77B /* Info.plist */,
+				D4C7CA9129491351009AB02D /* WeVolunt.entitlements */,
 				D44D20E2293F4AB700E5FCEC /* WeVoluntApp.swift */,
-				D44D20F0293F7B3E00E5FCEC /* SplashScreen.swift */,
-				D44D20F8293F853C00E5FCEC /* SelectedVolunteer.swift */,
-				D44D20F2293F7B6300E5FCEC /* MainPage.swift */,
-				569B17E9294C7F3C0068F1BF /* UserSettings.swift */,
-				D44D20F4293F7C2E00E5FCEC /* InterestPage.swift */,
-				D44D2100293F8ACA00E5FCEC /* SignUp.swift */,
-				D44D2106293F937C00E5FCEC /* EnrolledVolunteer.swift */,
-				D44D2104293F8BE300E5FCEC /* SubmitNotify.swift */,
-				D44D2102293F8B0A00E5FCEC /* VolunteerRegister.swift */,
-				D49C2159294EEE3700BB900F /* mustloginpage.swift */,
-				D41ED3E329471FC800EFB697 /* OTPviewModel.swift */,
-				D44D20FC293F8A5E00E5FCEC /* OTPverify.swift */,
-				D44D20FA293F89A600E5FCEC /* LoginPage.swift */,
-				D44D20F6293F83EE00E5FCEC /* ProfilePage.swift */,
-				D45FD37C2941B9640023819B /* categories.swift */,
-				D47D2D96294B3DC800087BC5 /* volunteer.swift */,
-				D45FD3832942137E0023819B /* volunteerCard.swift */,
-				D47D2D98294B43C500087BC5 /* volunteerModelView.swift */,
-				D45FD381294211FA0023819B /* categoriesModelView.swift */,
 				D44D20E6293F4AB800E5FCEC /* Assets.xcassets */,
 				D44D20E8293F4AB800E5FCEC /* Preview Content */,
-				D45FD38529437BE10023819B /* OTP verification */,
 			);
 			path = WeVolunt;
 			sourceTree = "<group>";
@@ -193,20 +266,15 @@
 		D45FD3802942111B0023819B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D44D2102293F8B0A00E5FCEC /* VolunteerRegister.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		D45FD38529437BE10023819B /* OTP verification */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "OTP verification";
 			sourceTree = "<group>";
 		};
 		F400FA96294CEF1A00F5A77B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				569B17E9294C7F3C0068F1BF /* UserSettingsViewModel.swift */,
 				F400FA93294CEA8E00F5A77B /* VolunteerViewModel.swift */,
 			);
 			path = ViewModel;
@@ -216,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				F400FA91294CEA8700F5A77B /* VolunteerOpp.swift */,
+				562C1A78295992B70061EDE2 /* UserSettings.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -301,14 +370,15 @@
 			files = (
 				D44D20FB293F89A600E5FCEC /* LoginPage.swift in Sources */,
 				F400FA94294CEEB000F5A77B /* VolunteerViewModel.swift in Sources */,
-				D47D2D97294B3DC800087BC5 /* volunteer.swift in Sources */,
 				D44D20F7293F83EE00E5FCEC /* ProfilePage.swift in Sources */,
 				D44D20F1293F7B3E00E5FCEC /* SplashScreen.swift in Sources */,
-				569B17EA294C7F3D0068F1BF /* UserSettings.swift in Sources */,
+				569B17EA294C7F3D0068F1BF /* UserSettingsViewModel.swift in Sources */,
 				D41ED3E429471FC800EFB697 /* OTPviewModel.swift in Sources */,
+				562C1A79295992B70061EDE2 /* UserSettings.swift in Sources */,
 				D44D20FD293F8A5E00E5FCEC /* OTPverify.swift in Sources */,
 				D45FD37D2941B9640023819B /* categories.swift in Sources */,
 				D44D2107293F937C00E5FCEC /* EnrolledVolunteer.swift in Sources */,
+				562C1A77295980140061EDE2 /* VerificationPhone.swift in Sources */,
 				D44D20E3293F4AB700E5FCEC /* WeVoluntApp.swift in Sources */,
 				F400FA97294CEF6E00F5A77B /* VolunteerOpp.swift in Sources */,
 				D44D20F9293F853C00E5FCEC /* SelectedVolunteer.swift in Sources */,
@@ -317,10 +387,8 @@
 				D44D20F5293F7C2E00E5FCEC /* InterestPage.swift in Sources */,
 				D44D2103293F8B0A00E5FCEC /* VolunteerRegister.swift in Sources */,
 				D45FD3842942137E0023819B /* volunteerCard.swift in Sources */,
-				D47D2D99294B43C500087BC5 /* volunteerModelView.swift in Sources */,
 				D44D20F3293F7B6300E5FCEC /* MainPage.swift in Sources */,
 				D44D2105293F8BE300E5FCEC /* SubmitNotify.swift in Sources */,
-				D44D2101293F8ACA00E5FCEC /* SignUp.swift in Sources */,
 				D41ED3E8294721E200EFB697 /* User.swift in Sources */,
 				D49C215A294EEE3700BB900F /* mustloginpage.swift in Sources */,
 			);
@@ -453,7 +521,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WeVolunt/Preview Content\"";
-				DEVELOPMENT_TEAM = 45BF26C7ZG;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeVolunt/Info.plist;
@@ -486,7 +554,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WeVolunt/Preview Content\"";
-				DEVELOPMENT_TEAM = 45BF26C7ZG;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeVolunt/Info.plist;

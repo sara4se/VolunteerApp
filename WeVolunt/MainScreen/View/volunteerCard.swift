@@ -10,20 +10,12 @@ import CloudKit
 
 //this is the recommendation card
 struct recommendVolunteerCard: View {
-  //  @StateObject var volunteers = volunteerModelView()
-  // @StateObject var  volunteerList = [volunteers.volunteerList]
     @Binding var BWitSheet : Int
    
     @State var volunteerList: VolunteerOpp
     
     @State var showingVolunteerSheet = false
-   // var eachVol: Volunteer
-    
-   // @StateObject var volunteerViewModel : VolunteerViewModel = VolunteerViewModel() //create object volunteer....
-   /*/ init (volunteerViewModel : VolunteerViewModel){
-        _volunteerViewModel = StateObject(wrappedValue: volunteerViewModel) //call the object
-    }*/
-    
+
     var body: some View {
      
                 ZStack{
@@ -149,13 +141,9 @@ struct recommendVolunteerCard: View {
             }
         
     }
-        
-  //  }
-//}
-
+ 
 //this is all categories volunteering cards
 struct volunteerCard: View {
-   // @State var volunteerList: VolunteerOpp
     @State var showingVolunteerSheet = false
     var eachVol: VolunteerOpp
     

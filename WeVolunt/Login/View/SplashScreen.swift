@@ -20,14 +20,14 @@ extension Color {
 }
 
 struct SplashScreen: View {
-     
-   @State var tapLocation: CGPoint?
+    
+    @State var tapLocation: CGPoint?
     @State private var isActive = false
     var body: some View {
         ZStack{
             
             if self.isActive{
-              InterestPage()
+                InterestPage()
             }
             else{
                 VStack{
@@ -48,11 +48,11 @@ struct SplashScreen: View {
                     
                     
                     
-                }.ignoresSafeArea() 
+                }.ignoresSafeArea()
             }
         }
         .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                 withAnimation (.easeOut){
                     self.isActive = true
                 }
@@ -65,7 +65,7 @@ struct SplashScreen_Previews: PreviewProvider {
         SplashScreen()
     }
 }
-
+//shapes for background
 struct MyCustomShape: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()

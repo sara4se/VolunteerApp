@@ -9,28 +9,11 @@ import SwiftUI
 import Firebase
 
 class OTPviewModel: ObservableObject {
-    
-    //login data
-    @Published var phoneNumber:String = ""
-    @Published var code:String = "966"
-    
-    @Published var otpText : String = ""
-    @Published var otpFields: [String] = Array(repeating: "", count: 6)
-    
-    //in case error occure
-    @Published var showAlert: Bool = false
-    @Published var errorMsg: String = ""
-    
-    //OTP credentials
-    @Published var verificationCode: String = ""
-    
+ 
     @Published var isLoading: Bool = false
+ 
     
-    @Published var navigationTag: String?
-  //  @AppStorage("log_status") var log_status = false
-    @Published var  log_status : Bool = false
-
-    @EnvironmentObject var modelView : userModelView
+    @Published var verificationPhone = VerificationPhone() 
     
     //sending OTP
     func sendOTP()async{
@@ -41,13 +24,13 @@ class OTPviewModel: ObservableObject {
         if isLoading{return}
         do{
             isLoading = true
-            let result = try await PhoneAuthProvider.provider().verifyPhoneNumber("+\(code)\(phoneNumber)",uiDelegate: nil)
+            let result = try await PhoneAuthProvider.provider().verifyPhoneNumber("+\(verificationPhone.code)\(verificationPhone.phoneNumber)",uiDelegate: nil)
             
             DispatchQueue.main.async {
                 self.isLoading = false
-                self.verificationCode = result
+                self.verificationPhone.verificationCode = result
                 //   self.verificationCode = "123456"
-                self.navigationTag = "VERIFICATION"
+                self.verificationPhone.navigationTag = "VERIFICATION"
               //  self.log_status = true
                 
             }
@@ -65,8 +48,8 @@ class OTPviewModel: ObservableObject {
     func handleError(error: String){
         DispatchQueue.main.async {
             self.isLoading = false
-            self.errorMsg = error
-            self.showAlert.toggle()
+            self.verificationPhone.errorMsg = error
+            self.verificationPhone.showAlert.toggle()
         }
     }
     
@@ -74,13 +57,13 @@ class OTPviewModel: ObservableObject {
     //verify the OTP function
     func verifyOTP()async{
         do{
-            otpText = otpFields.joined(separator: "")//print the array as string 
-            isLoading = true
-            let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationCode, verificationCode: otpText)
+            self.verificationPhone.otpText =    self.verificationPhone.otpFields.joined(separator: "")//print the array as string
+            self.isLoading = true
+            let credential = PhoneAuthProvider.provider().credential(withVerificationID:    self.verificationPhone.verificationCode, verificationCode:    self.verificationPhone.otpText)
             let _ = try await Auth.auth().signIn(with: credential)
             DispatchQueue.main.async {[self] in
-                isLoading = false
-                log_status = true
+                self.isLoading = false
+                self.verificationPhone.log_status = true
                
             }
         }catch{

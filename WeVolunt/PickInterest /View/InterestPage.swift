@@ -17,19 +17,12 @@ struct Title : Identifiable {
 }
 
 struct InterestPage: View {
-    
-    //    var categoriesList: [categories]
     @StateObject var categorie : categories = categories() //create object
-    //@State var volunteersList: [Volunteer]
     @StateObject var volunteerViewModel : VolunteerViewModel = VolunteerViewModel()  //create object
-    //    init (volunteerViewModel : VolunteerViewModel){
-    //         _volunteerViewModel = StateObject(wrappedValue: volunteerViewModel)
-    //     }
     
-    @StateObject var userSettings : UserSettings = UserSettings(enterdInterstTogle: true, username: "", isPrivate: true, arrayOfSelected: [])
+    @StateObject var userSettingsobj : UserSettingsViewModel = UserSettingsViewModel(userSettings: UserSettings(arrayOfSelected: []))
     @State var itemsTitles: [Title] = [Title(titleStr:"Environmental" , fontsize : 60) ,Title(titleStr:"Sports" , fontsize : 40),Title(titleStr:"Social" , fontsize : 30), Title(titleStr:"Religious" , fontsize : 50),Title(titleStr:"Technical" , fontsize : 50),Title(titleStr:"Education" , fontsize : 50),Title(titleStr:"Entertainment" , fontsize : 50) ,Title(titleStr:"Health" , fontsize : 40)]
     
-    //  @State var selections: [String] = []
     let layout = [
         GridItem(.adaptive(minimum: 130, maximum: 120))
     ]
@@ -45,7 +38,7 @@ struct InterestPage: View {
                 }
                 ScrollView(.horizontal,showsIndicators: true){
                     HStack{
-                        ForEach(userSettings.arrayOfSelected, id: \.self) { selectd in
+                        ForEach(userSettingsobj.userSettings.arrayOfSelected, id: \.self) { selectd in
                             Text(selectd).padding(6)
                                 .background(Color.skipColor).foregroundColor( Color.white)
                                 .cornerRadius(5).animation(Animation.easeIn(duration: 2.0))
@@ -58,14 +51,14 @@ struct InterestPage: View {
                     ScrollView(.vertical){
                         LazyVGrid(columns: layout, spacing: 10) {
                             ForEach(itemsTitles) { item in
-                                MultipleSelectionRow(title: item.titleStr, isSelected: userSettings.arrayOfSelected.contains(item.titleStr),font: UIFont.systemFont(ofSize: CGFloat(item.fontsize),weight: .light))
+                                MultipleSelectionRow(title: item.titleStr, isSelected: userSettingsobj.userSettings.arrayOfSelected.contains(item.titleStr),font: UIFont.systemFont(ofSize: CGFloat(item.fontsize),weight: .light))
                                 {
-                                    if userSettings.arrayOfSelected.contains(item.titleStr) {
-                                        //                                        userSettings.arrayOfSelected.removeAll(where: { $0 == item.name })
-                                        print(userSettings.arrayOfSelected)
+                                    if userSettingsobj.userSettings.arrayOfSelected.contains(item.titleStr) {
+                                        
+                                        print(userSettingsobj.userSettings.arrayOfSelected)
                                     }
                                     else {
-                                        userSettings.arrayOfSelected.append(item.titleStr)
+                                        userSettingsobj.userSettings.arrayOfSelected.append(item.titleStr)
                                         itemsTitles.removeAll(where: {$0.id == item.id})
                                         
                                     }
@@ -80,7 +73,7 @@ struct InterestPage: View {
                 //next button
                 
                 VStack{
-                    NavigationLink(destination: MainPage().environmentObject(userSettings) , label:{
+                    NavigationLink(destination: MainPage().environmentObject(userSettingsobj) , label:{
                         Text("Next")
                             .frame(width:281 , height:41 )
                             .foregroundColor(.white)
@@ -92,7 +85,7 @@ struct InterestPage: View {
                 
                 .toolbar{
                     
-                    NavigationLink(destination: MainPage().environmentObject(userSettings) , label:{
+                    NavigationLink(destination: MainPage().environmentObject(userSettingsobj) , label:{
                         Text("Skip").foregroundColor(Color.skipColor).font(Font.custom("SF-Compact", size: CGFloat(20)))
                         
                     })
@@ -112,7 +105,7 @@ struct MultipleSelectionRow: View {
     var title: String
     var isSelected: Bool
     
-   var font = UIFont.preferredFont(forTextStyle: .body)  // << default !!
+    var font = UIFont.preferredFont(forTextStyle: .body)  // << default !!
     
     var action: () -> Void
     
@@ -151,14 +144,8 @@ struct MultipleSelectionRow: View {
     }
 }
 
-
-
-
 struct InterestPage_Previews: PreviewProvider {
-    
- 
-    
     static var previews: some View {
-      InterestPage()
+        InterestPage()
     }
 }
